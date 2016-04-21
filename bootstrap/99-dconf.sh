@@ -1,6 +1,7 @@
 #!/bin/bash
 
 GLOBIGNORE=*.*
+cd dconf
 
 for app in *; do
     cd "$BOOTSTRAP_ROOT/dconf/$app"
@@ -16,14 +17,13 @@ for app in *; do
 
         set -f
 
-        grep -vE '^(\s*$|#)' "$config" | while read -r line; do
-            parts=($line)
+        grep -vE '^(\s*$|#)' "$config" | while read -r key val; do
             case $1 in
                 cleanup|purge)
-                    gsettings reset $schema ${parts[0]}
+                    gsettings reset $schema $key
                     ;;
                 *)
-                    gsettings set $schema ${parts[0]} "${parts[1]}"
+                    gsettings set $schema $key "$val"
             esac
         done
 

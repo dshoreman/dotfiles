@@ -1,0 +1,31 @@
+# Disable all tab stuff. i3wm already has tabbed
+# windows, we don't need it in the terminal too!
+
+new-tab 'disabled'
+close-tab 'disabled'
+
+next-tab 'disabled'
+prev-tab 'disabled'
+
+move-tab-left 'disabled'
+move-tab-right 'disabled'
+
+switch-to-tab-1 'disabled'
+switch-to-tab-2 'disabled'
+switch-to-tab-3 'disabled'
+switch-to-tab-4 'disabled'
+switch-to-tab-5 'disabled'
+switch-to-tab-6 'disabled'
+switch-to-tab-7 'disabled'
+switch-to-tab-8 'disabled'
+switch-to-tab-9 'disabled'
+switch-to-tab-10 'disabled'
+
+
+# Let's disable F1, F11 and new/close window as well.
+# Again, all this is handled by i3 so is unnecessary.
+# Well, excluding Help... We don't exactly need that.
+help 'disabled'
+full-screen 'disabled'
+new-window 'disabled'
+close-window 'disabled'

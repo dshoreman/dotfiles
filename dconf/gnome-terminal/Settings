@@ -1,0 +1,11 @@
+# Disable F10 to activate menu: Htop uses it
+menu-accelerator-enabled false
+
+# Doesn't seem to affect things. Meh.
+theme-variant 'dark'
+
+# Don't need no menus...
+default-show-menubar false
+
+# ...'cause we can get 'em with alt
+mnemonics-enabled true

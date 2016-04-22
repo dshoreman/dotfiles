@@ -1,9 +1,5 @@
 #!/bin/sh
 
-dconfdir="/org/gnome/terminal/legacy/profiles:/"
+profile_id="$(gsettings get org.gnome.Terminal.ProfilesList default | tr -d "'")"
 
-# TODO: Find a better way. This won't detect the ID of a completely
-# clean and untouched profile. A setting must be saved first.
-profile_id="$(dconf list $dconfdir | sort | sed -e 's/\///g' -n -e '1p')"
-
-echo ":$dconfdir$profile_id/"
+echo ":/org/gnome/terminal/legacy/profiles:/:$profile_id/"

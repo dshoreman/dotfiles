@@ -1,0 +1,9 @@
+# Set folders and searches to list view
+default-folder-viewer 'list-view'
+search-view 'list-view'
+
+# Add option to create symlinks to context menu
+show-create-link true
+
+# Add permanent delete option to context menu
+show-delete-permanently true

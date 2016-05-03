@@ -1,0 +1,21 @@
+# Font & UI
+use-system-font false
+custom-font 'Noto Mono 10'
+
+statusbar-visible false
+style-scheme 'solarized-dark'
+
+
+# Comparisons
+folder-status-modifiers ['new', 'modified']
+folder-time-resolution 1
+
+
+# Editor
+highlight-current-line true
+highlight-syntax true
+
+show-line-numbers true
+
+indent-width 4
+indent-spaces-instead-of-tabs true

@@ -1,0 +1,12 @@
+# The basic driver
+nvidia
+nvidia-libgl
+lib32-nvidia-libgl
+
+# Hardware acceleration
+nvidia-utils
+libva-vdpau-driver
+opencl-nvidia
+
+# Just because
+nvidia-settings

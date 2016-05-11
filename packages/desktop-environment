@@ -7,5 +7,9 @@ xorg-xinit
 i3-wm
 i3blocks
 
-# Something to load stuff
+# Basic utility stuff
 albert
+ranger w3m
+redshift
+nautilus
+gnome-terminal

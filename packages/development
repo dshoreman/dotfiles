@@ -1,0 +1,16 @@
+# Core bits
+mariadb
+php
+php-gd
+php-intl
+php-mcrypt
+php-sqlite
+
+# Editors
+vim
+phpstorm-eap
+
+# Tools
+meld
+vagrant
+virtualbox

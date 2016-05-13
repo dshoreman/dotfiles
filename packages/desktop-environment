@@ -1,0 +1,15 @@
+# The necessary evil
+xorg-server
+xorg-server-utils
+xorg-xinit
+
+# More awesome than awesome
+i3-wm
+i3blocks
+
+# Basic utility stuff
+albert
+ranger w3m
+redshift
+nautilus
+gnome-terminal

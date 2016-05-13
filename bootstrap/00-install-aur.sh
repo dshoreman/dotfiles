@@ -10,10 +10,18 @@ fi
 # Tl;dr: We're a bit fucked without it.
 gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
 
-# Install cower as a dependency
-git clone https://aur.archlinux.org/cower.git && cd cower
-makepkg -sri --noconfirm --asdeps && cd ..
+if hash cower 2>/dev/null; then
+    echo "Skipping cower installation. Already installed."
+else
+    # Install cower as a dependency
+    git clone https://aur.archlinux.org/cower.git && cd cower
+    makepkg -sri --noconfirm --asdeps && cd ..
+fi
 
-# Finally, install pacaur
-git clone https://aur.archlinux.org/pacaur.git && cd pacaur
-makepkg -sri --noconfirm && cd ..
+if hash pacaur 2>/dev/null; then
+    echo "Skipping pacaur installation. Already installed."
+else
+    # Finally, install pacaur
+    git clone https://aur.archlinux.org/pacaur.git && cd pacaur
+    makepkg -sri --noconfirm && cd ..
+fi

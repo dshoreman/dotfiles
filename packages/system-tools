@@ -1,3 +1,10 @@
 scrot
 dconf-editor
 gnome-font-viewer
+
+# Microcode updates
+intel-ucode
+iucode-tool
+
+# S.M.A.R.T. tools (smartctl)
+smartmontools

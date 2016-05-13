@@ -49,7 +49,7 @@ case $1 in
             if [ ! -d "$SYSD_UNITDIR/$unit" ]; then
                 sudo mkdir "$SYSD_UNITDIR/$unit"
             fi
-            
+
             sudo cp $BOOTSTRAP_ROOT/services/$unit/* "$SYSD_UNITDIR/$unit/"
             echo "Done!"
         done

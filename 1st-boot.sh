@@ -25,3 +25,25 @@ cd "${0%/*}/rootscripts"
 . timezone-setup.sh
 . create-user.sh
 . prepare-pacman.sh
+
+# Make the somewhat dangerous assumption that
+# the user cloned this repo to ~/dotfiles...
+mv /root/dotfiles /home/$_USERNAME/dotfiles
+chown -R $_USERNAME:users /home/$_USERNAME/dotfiles
+
+echo "##################"
+echo "# !!! HUZZAH !!! #"
+echo "##################"
+echo
+echo "First boot setup gubbins have finished. At last!"
+echo
+echo "Now, it's time we boot you back to the login screen."
+echo "When you get there, log in as $_USERNAME and then we"
+echo "can continue this process by running bootstrap.sh..."
+echo
+echo "Sound good? Good!"
+echo
+echo
+read -rsn1 -p $'Press any key to logout.\n'
+
+logout

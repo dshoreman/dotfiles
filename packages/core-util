@@ -4,9 +4,13 @@ grep
 htop
 less
 sudo
+tree
 openssh
 pv
 gzip
 p7zip
 unrar
 unzip
+
+# Shell necesseties
+thefuck

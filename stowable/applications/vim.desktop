@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Encoding=UTF-8
+Name=Vim
+Comment=Edit text files in a terminal using Vim
+Exec=vim %u
+Terminal=true
+Type=Application
+Icon=/usr/share/pixmaps/vim.svg
+Categories=Application;Utility;TextEditor;
+StartupNotify=true
+MimeType=text/plain
+NoDisplay=true

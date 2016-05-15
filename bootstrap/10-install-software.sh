@@ -10,5 +10,5 @@ for group in *; do
         echo $pkglist
     done <<< $(grep -vE '^(\s*$|#)' "$group")
 
-    echo "pacaur -S $pkglist"
+    pacaur -S $pkglist
 done

@@ -6,7 +6,7 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 echo "####################"
-echo "# HERE BY DRAGONS! #"
+echo "# HERE BE DRAGONS! #"
 echo "####################"
 echo
 echo "This script is designed to be ran only once and that's"

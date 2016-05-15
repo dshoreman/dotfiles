@@ -11,6 +11,7 @@ vim
 phpstorm-eap
 
 # Tools
+hub gitflow-avh
 meld
 vagrant
 virtualbox

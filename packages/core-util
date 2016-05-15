@@ -1,15 +1,11 @@
 zsh
 curl
 wget
-grep
 htop
-less
-sudo
 tree
 openssh
 udisks2
 pv
-gzip
 p7zip
 unrar
 unzip

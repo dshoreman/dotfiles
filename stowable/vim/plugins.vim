@@ -1,9 +1,18 @@
 call plug#begin('~/.vim/plugged')
 
+    Plug 'airblade/vim-gitgutter'
+    Plug 'arnaud-lb/vim-php-namespace'
     Plug 'ctrlpvim/ctrlp.vim' | Plug 'FelikZ/ctrlp-py-matcher'
+    Plug 'mattn/emmet-vim'
+    Plug 'mhinz/vim-startify'
+    Plug 'othree/html5.vim'
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
     Plug 'scrooloose/syntastic'
-    Plug 'vim-airline/vim-airline'
+    Plug 'sjl/splice.vim'
+    Plug 'StanAngeloff/php.vim'
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-surround'
+    Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -49,6 +58,29 @@ call plug#end()
     let NERDTreeMinimalUI=1                             " Remove 'Press ? for Help' garbage
     let NERDTreeDirArrows=1                             " Fancy arrows instead of | and +
     map <C-b> :NERDTreeToggle<CR>
+" }
+
+
+" PHP Namespace: {
+    " Add use statement for class under cursor
+    function! IPhpInsertUse()
+        call PhpInsertUse()
+        call feedkeys('a',  'n')
+    endfunction
+    autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
+    autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+
+    " Expand class under cursor to fully qualified name
+    function! IPhpExpandClass()
+        call PhpExpandClass()
+        call feedkeys('a', 'n')
+    endfunction
+    autocmd FileType php inoremap <Leader>f <Esc>:call IPhpExpandClass()<CR>
+    autocmd FileType php noremap <Leader>f :call PhpExpandClass()<CR>
+
+    " Sort use statements alphabetically
+    autocmd FileType php inoremap <Leader>s <Esc>:call PhpSortUse()<CR>
+    autocmd FileType php noremap <Leader>s :call PhpSortUse()<CR>
 " }
 
 

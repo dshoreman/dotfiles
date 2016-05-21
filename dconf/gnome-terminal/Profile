@@ -6,7 +6,7 @@ use-system-font false
 use-theme-colors true
 
 # Set font size and text colour
-font 'Noto Mono Regular 10'
+font 'Source Code Pro for Powerline Medium 10'
 background-color 'rgb(0,43,54)'
 foreground-color 'rgb(131,148,150)'
 

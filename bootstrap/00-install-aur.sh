@@ -6,6 +6,10 @@ if [ "$EUID" -eq 0 ]; then
     exit 1
 fi
 
+if [ -f "$BOOTSTRAP_ROOT/.installed" ]; then
+    return
+fi
+
 # Grab Dave Reisner's key. He maintains expac, pacman, curl...
 # Tl;dr: We're a bit fucked without it.
 gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
@@ -16,6 +20,7 @@ else
     # Install cower as a dependency
     git clone https://aur.archlinux.org/cower.git && cd cower
     makepkg -sri --noconfirm --asdeps && cd ..
+    rm -rf cower
 fi
 
 if hash pacaur 2>/dev/null; then
@@ -24,4 +29,5 @@ else
     # Finally, install pacaur
     git clone https://aur.archlinux.org/pacaur.git && cd pacaur
     makepkg -sri --noconfirm && cd ..
+    rm -rf pacaur
 fi

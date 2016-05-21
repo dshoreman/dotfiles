@@ -1,5 +1,9 @@
 #!/bin/sh
 
+if [ -f "$BOOTSTRAP_ROOT/.installed.post" ]; then
+    return
+fi
+
 _GHMAIL="$(whoami)@users.noreply.github.com"
 
 echo
@@ -27,3 +31,5 @@ echo " [DONE]"
 echo -n "Cleaning up packages..."
 sudo pacman -Rsn nano vi jfsutils reiserfsprogs xfsprogs pcmciautils
 echo " [DONE]"
+
+touch "$BOOTSTRAP_ROOT/.installed.post"

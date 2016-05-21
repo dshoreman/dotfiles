@@ -55,7 +55,6 @@ call plug#end()
     let NERDTreeShowHidden=1                            " Show dotfiles by default
     let NERDTreeShowLineNumbers=1                       " Help jumping around long file lists
     let NERDTreeWinSize=31                              " Set the width of the NERDTree pane
-    let NERDTreeMinimalUI=1                             " Remove 'Press ? for Help' garbage
     let NERDTreeDirArrows=1                             " Fancy arrows instead of | and +
     map <C-b> :NERDTreeToggle<CR>
 " }

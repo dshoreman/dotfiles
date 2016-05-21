@@ -11,7 +11,8 @@ vim
 phpstorm-eap
 
 # Tools
-hub gitflow-avh
 meld
 vagrant
 virtualbox
+hub gitflow-avh
+the_silver_searcher

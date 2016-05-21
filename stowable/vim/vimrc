@@ -1,7 +1,9 @@
+let mapleader="`"
+source ~/.vim/plugins.vim
+
 " General: {
     syntax on                         " Enable syntax highlighting
     filetype plugin indent on         " Automatically detect file types
-    let mapleader="`"
     set background=dark               " Set colours according to dark background
     set backspace=indent,eol,start    " Backspace over everything in insert mode
     set history=1000                  " Number of lines in command history
@@ -9,6 +11,10 @@
     set nrformats="alpha,bin,hex"     " Let ^A^X in/decrease binary, hex or single letters
     set wildmenu                      " Enhance command-line completion
     set wildmode=list:longest,full
+
+    " Bindings to make saving easier
+    nnoremap <Leader>w :w<CR>
+    nnoremap <silent> <Leader>W :w !sudo tee % > /dev/null<CR>:edit!<CR>
 " }
 
 
@@ -19,6 +25,7 @@
     set showcmd                       " Display command or visual selection info
     set showmatch                     " Show matching brackets on insert
     set cursorline                    " Highlight current line
+    set laststatus=2                  " Always show the status line
     set splitbelow                    " Open new split below, not above
     set splitright                    " Open new vsplit to the right
     set scrolloff=10                  " Start scroll 10 lines away from top/bottom
@@ -37,6 +44,9 @@
     set ignorecase                    " Make searching case insensitive
     set smartcase                     " ...unless the query has capital letters
 
+    " Set :grep command to use The Silver Searcher
+    set grepprg="ag --nogroup --nocolor"
+
     " Make space clear highlighted search terms when pressed
     nnoremap <silent> <Leader><BS> :nohlsearch<Bar>:echo<CR>
 "}
@@ -52,6 +62,8 @@
 
 
 " Formatting: {
+    set list                          " Enable listchars
+    set listchars=tab:▶▸,trail:·      " Make tabs and trailing spaces visible
     set expandtab                     " Insert spaces instead of tabs
     set tabstop=4                     " Width existing TAB characters are displayed as
     set softtabstop=4                 " Spaces added/removed by <TAB> and <BACKSPACE>

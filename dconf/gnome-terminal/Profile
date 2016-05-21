@@ -3,7 +3,7 @@ visible-name 'Default Profile'
 
 # Enable non-system font & colours
 use-system-font false
-use-theme-colors false
+use-theme-colors true
 
 # Set font size and text colour
 font 'Noto Mono Regular 10'

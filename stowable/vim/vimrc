@@ -7,7 +7,7 @@ source ~/.vim/plugins.vim
     set background=dark               " Set colours according to dark background
     set backspace=indent,eol,start    " Backspace over everything in insert mode
     set history=1000                  " Number of lines in command history
-    set autochdir                     " Automatically cd to directory of file being opened
+    set timeoutlen=50                 " Fix lag when leaving insert mode
     set nrformats="alpha,bin,hex"     " Let ^A^X in/decrease binary, hex or single letters
     set wildmenu                      " Enhance command-line completion
     set wildmode=list:longest,full
@@ -26,6 +26,7 @@ source ~/.vim/plugins.vim
     set showmatch                     " Show matching brackets on insert
     set cursorline                    " Highlight current line
     set laststatus=2                  " Always show the status line
+    set noshowmode                    " Don't show default mode indicator
     set splitbelow                    " Open new split below, not above
     set splitright                    " Open new vsplit to the right
     set scrolloff=10                  " Start scroll 10 lines away from top/bottom

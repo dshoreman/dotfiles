@@ -4,6 +4,7 @@ wget
 htop
 tree
 openssh
+sysstat
 udisks2
 python-pip
 pv

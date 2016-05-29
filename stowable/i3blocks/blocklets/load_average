@@ -1,0 +1,24 @@
+#!/bin/sh
+#
+# Copyright (C) 2014 Julien Bonjean <julien@bonjean.info>
+#
+# Licensed under the terms of the GNU GPL v3, or any later version.
+
+load="$(cut -d ' ' -f1 /proc/loadavg)"
+cpus="$(nproc)"
+
+# full text
+echo "$load"
+
+# short text
+echo "$load"
+
+# color if load is too high
+awk -v cpus=$cpus -v cpuload=$load '
+    BEGIN {
+        if (cpus <= cpuload) {
+            print "#FF0000";
+            exit 33;
+        }
+    }
+'

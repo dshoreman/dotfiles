@@ -3,7 +3,7 @@ color=#FFFDD0
 full_text=
 separator=false
 separator_block_width=5
-command=/usr/lib/i3blocks/$BLOCK_NAME
+command=~/.config/i3blocks/blocklets/$BLOCK_NAME
 
 [separator]
 full_text=
@@ -32,12 +32,12 @@ color=#d11793
 interval=10
 
 [temperature]
-command=/usr/lib/i3blocks/temperature --chip coretemp-isa-0000
+command=~/.config/i3blocks/blocklets/temperature --chip coretemp-isa-0000
 color=#d11793
 interval=10
 
 [temperature]
-command=/usr/lib/i3blocks/temperature --chip it8620-isa-0a30
+command=~/.config/i3blocks/blocklets/temperature --chip it8620-isa-0a30
 color=#d11793
 interval=10
 
@@ -60,7 +60,6 @@ interval=10
 #interval=10
 
 [bandwidth]
-command=~/.config/i3blocks/blocklets/$BLOCK_NAME
 color=#1793D1
 interval=1
 
@@ -87,14 +86,12 @@ interval=1
 [separator]
 
 [volume 2%]
-command=~/.config/i3blocks/blocklets/$BLOCK_NAME
 label=
 signal=10
 color=#1793D1
 interval=once
 
 [volume]
-command=~/.config/i3blocks/blocklets/$BLOCK_NAME
 color=#1793D1
 instance=PCM
 interval=5

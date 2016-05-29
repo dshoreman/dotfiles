@@ -28,7 +28,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(common-aliases composer git k rand-quote systemd urltools vagrant vi-mode wd web-search)
+plugins=(common-aliases composer git git-flow-completion k rand-quote systemd urltools vagrant vi-mode wd web-search)
 
 # User configuration
 

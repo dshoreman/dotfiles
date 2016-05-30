@@ -7,7 +7,8 @@ source ~/.vim/plugins.vim
     set background=dark               " Set colours according to dark background
     set backspace=indent,eol,start    " Backspace over everything in insert mode
     set history=1000                  " Number of lines in command history
-    set timeoutlen=50                 " Fix lag when leaving insert mode
+    set ttimeoutlen=50                " Fix lag when leaving insert mode
+    set timeoutlen=250                " ...but allow time for mapped sequences
     set nrformats="alpha,bin,hex"     " Let ^A^X in/decrease binary, hex or single letters
     set wildmenu                      " Enhance command-line completion
     set wildmode=list:longest,full

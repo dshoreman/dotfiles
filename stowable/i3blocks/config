@@ -59,7 +59,7 @@ interval=10
 #instance=wlp3s0
 #interval=10
 
-[bandwidth]
+[bandwidth -i  -o ]
 color=#1793D1
 interval=1
 

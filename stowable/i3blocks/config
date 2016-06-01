@@ -5,6 +5,14 @@ separator=false
 separator_block_width=5
 command=~/.config/i3blocks/blocklets/$BLOCK_NAME
 
+[nowplaying]
+label=♫
+signal=10
+interval=5
+align=center
+color=#545454
+min_width=1400
+
 [separator]
 full_text=
 

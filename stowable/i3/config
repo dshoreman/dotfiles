@@ -148,3 +148,5 @@ bar {
             urgent_workspace    #121212 #dd0048 #ffffff
         }
 }
+
+exec_always --no-startup-id sh ~/.fehbg

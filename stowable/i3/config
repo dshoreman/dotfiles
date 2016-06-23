@@ -120,27 +120,33 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# class                 border  backgr. text    indicator
-client.focused          #121212 #121212 #ffffff #2e9ef4
-client.focused_inactive #121212 #121212 #999999 #484e50
-client.unfocused        #121212 #121212 #888888 #292d2e
-client.urgent           #2f343a #900000 #ffffff #900000
+gaps inner 15
+gaps outer 10
+smart_gaps on
+for_window [class="^.*"] border pixel 3
+
+# class                 border    backgr.   text      indicator child_border
+client.focused          #121212cc #121212cc #ffffffcc #2e9ef4cc #ffffff99
+client.focused_inactive #12121299 #12121299 #99999999 #484e5099 #121212aa
+client.unfocused        #12121299 #12121299 #88888899 #292d2e99 #121212aa
+client.urgent           #2f343a99 #90000099 #ffffff99 #90000099 #2f343aaa
 # requires i3 > 4.8 due to a bug fixed in http://code.zekjur.net/git/i3/commit?id=13220e75
-client.placeholder      #000000 #0c0c0c #ffffff #000000
-client.background color #000000
+client.placeholder      #00000000 #0c0c0c00 #ffffff00 #00000000
+client.background color #00000000
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
         font pango:Noto Sans, Awesome 11
         position top
+        i3bar_command i3bar -t
         status_command i3blocks
         tray_output primary
 
         colors {
-            background #000000
-            statusline #ffffff
-            separator  #ffffff
+            background #00000066
+            statusline #ffffffcc
+            separator  #ffffffcc
 
             active_workspace    #121212 #004caa #ffffff
             focused_workspace   #121212 #0087af #ffffff
@@ -150,3 +156,4 @@ bar {
 }
 
 exec_always --no-startup-id sh ~/.fehbg
+exec --no-startup-id compton -bfcCD3 -i 0.75 -m 0.7 -e 0.8 --active-opacity 0.85 --opacity-rule '90:name *= "PhpStorm"'

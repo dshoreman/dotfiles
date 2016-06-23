@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'mattn/emmet-vim'
     Plug 'mhinz/vim-startify'
     Plug 'othree/html5.vim'
+    Plug 'PotatoesMaster/i3-vim-syntax'
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
     Plug 'scrooloose/syntastic'
     Plug 'sjl/splice.vim'
@@ -21,6 +22,8 @@ call plug#end()
     nmap <Leader>pi :PlugInstall<CR>
     nmap <Leader>pu :PlugUpdate<CR>
     nmap <Leader>pU :PlugUpgrade<CR>
+    nmap <Leader>pc :PlugClean<CR>
+    nmap <Leader>pC :PlugClean!<CR>
 " }
 
 

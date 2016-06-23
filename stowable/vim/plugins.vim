@@ -3,6 +3,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'airblade/vim-gitgutter'
     Plug 'arnaud-lb/vim-php-namespace'
     Plug 'ctrlpvim/ctrlp.vim' | Plug 'FelikZ/ctrlp-py-matcher'
+    Plug 'dshoreman/nginx.vim'
     Plug 'mattn/emmet-vim'
     Plug 'mhinz/vim-startify'
     Plug 'othree/html5.vim'

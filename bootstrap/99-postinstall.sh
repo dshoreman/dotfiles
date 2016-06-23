@@ -24,12 +24,15 @@ git config --global user.name "$_FULLNAME"
 git config --global user.email "$_GHMAIL"
 echo " [DONE]"
 
-echo -n "Installing rhythmbox-chromecast..."
-wget -O - https://git.io/vwzUw | bash
-echo " [DONE]"
+if [ $OS == "arch" ]; then
+    echo -n "Installing rhythmbox-chromecast..."
+    wget -O - https://git.io/vwzUw | bash
+    echo " [DONE]"
 
-echo -n "Cleaning up packages..."
-sudo pacman -Rsn nano vi jfsutils reiserfsprogs xfsprogs pcmciautils
-echo " [DONE]"
+    echo -n "Cleaning up packages..."
+    sudo pacman -Rsn nano vi jfsutils reiserfsprogs xfsprogs pcmciautils
+    echo " [DONE]"
+fi
+
 
 touch "$BOOTSTRAP_ROOT/.installed.post"

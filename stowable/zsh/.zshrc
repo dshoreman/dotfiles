@@ -40,6 +40,7 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR="vim"
 
 # System aliases
+hash pipes 2>/dev/null && alias afk="pipes -t0 -t1 -t3 -r10000 -Rf100"
 alias df="df -h"
 alias k="k -h"
 alias lsk="k -Ah"
@@ -60,7 +61,7 @@ alias ssm="ss mysqld && sudo chmod o+r /var/run/mysqld/mysqld.pid"
 alias startpma="ssm; /usr/share/webapps/phpMyAdmin && php -S localhost:1234"
 
 # Git aliases
-alias git="hub"
+hash 'hub' 2>/dev/null && alias git="hub"
 alias gf="git flow"
 alias gfe="git fetch"
 alias gu="git reset HEAD"
@@ -113,5 +114,4 @@ alias wallpaperrot="while true; do feh --bg-scale pictures/wallpaper/4K/ --rando
 
 fork() { (setsid "$@" &); }
 
-archey3 && quote
-alias afk="pipes -t0 -t1 -t3 -r10000 -Rf100"
+hash archey3 2>/dev/null && archey3 && quote

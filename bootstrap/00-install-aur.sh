@@ -6,6 +6,10 @@ if [ "$EUID" -eq 0 ]; then
     exit 1
 fi
 
+if [ $OS != "arch" ]; then
+    return
+fi
+
 if [ -f "$BOOTSTRAP_ROOT/.installed" ]; then
     return
 fi

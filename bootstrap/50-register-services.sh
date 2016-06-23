@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ $OS != "arch" ]; then
+    return
+fi
+
 SYSD_UNITDIR="/etc/systemd/system"
 
 cd services

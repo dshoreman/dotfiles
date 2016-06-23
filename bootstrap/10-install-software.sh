@@ -5,17 +5,21 @@ if [ -f "$BOOTSTRAP_ROOT/.installed" ]; then
     return
 fi
 
-for group in *; do
-    echo "Loading packages from group $group"
-    pkglist=""
+if [ $OS != "arch" ]; then
+    echo "Skipping packages, not running Arch."
+else
+    for group in *; do
+        echo "Loading packages from group $group"
+        pkglist=""
 
-    while read -r package; do
-        pkglist+=" $package"
-        echo $pkglist
-    done <<< $(grep -vE '^(\s*$|#)' "$group")
+        while read -r package; do
+            pkglist+=" $package"
+            echo $pkglist
+        done <<< $(grep -vE '^(\s*$|#)' "$group")
 
-    pacaur -S $pkglist
-done
+        pacaur -S $pkglist
+    done
+fi
 
 # Install Oh-my-zsh early, so stow can install bullet train later
 omz_installer="robbyrussell/oh-my-zsh/master/tools/install.sh"

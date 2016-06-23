@@ -21,6 +21,10 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
+# take a screenshot
+for_window [class="Shotty"] floating enable
+bindsym Print exec shotty
+
 # kill focused window
 bindsym $mod+Shift+q kill
 

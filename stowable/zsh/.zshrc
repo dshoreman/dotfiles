@@ -41,6 +41,7 @@ export EDITOR="vim"
 
 # System aliases
 alias df="df -h"
+alias k="k -h"
 alias lsk="k -Ah"
 alias diff="diff -s"
 alias fuck='sudo $(fc -ln -1)'
@@ -50,7 +51,7 @@ alias ipaddr="ip addr | grep \"inet \" | grep -v '127.0.0.1' | awk '{ print \$7\
 alias mv="mv -v"
 alias pacrefresh="sudo reflector --save /etc/pacman.d/mirrorlist --sort rate --verbose -c 'United Kingdom'"
 alias pacupdate="pacrefresh; sudo pacman -Syy"
-alias sysupdate="pacrefresh; sudo pacman -Syu"
+alias sysupdate="pacrefresh; sudo pacman -Syyu"
 alias pbcopy="xclip -i -selection clipboard"
 alias pbpaste="xclip -o -selection clipboard"
 alias purge="sudo sync && sudo sh -c 'echo 3 > /proc/sys/vm/drop_caches'"
@@ -113,3 +114,4 @@ alias wallpaperrot="while true; do feh --bg-scale pictures/wallpaper/4K/ --rando
 fork() { (setsid "$@" &); }
 
 archey3 && quote
+alias afk="pipes -t0 -t1 -t3 -r10000 -Rf100"

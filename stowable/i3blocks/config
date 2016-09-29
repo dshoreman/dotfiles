@@ -56,6 +56,16 @@ label=
 color=#17d155
 interval=30
 
+[disk]
+instance=/run/media/dshoreman/sg
+color=#17d155
+interval=30
+
+[disk]
+instance=/run/media/dshoreman/backup
+color=#17d155
+interval=30
+
 [separator]
 
 [iface -4]

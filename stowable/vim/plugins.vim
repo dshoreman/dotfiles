@@ -49,7 +49,7 @@ call plug#end()
 
 
 " NERDTree: {
-    let NERDTreeIgnore=['^.git$', '^.idea$']            " Ignore .git, but not .gitignore!
+    let NERDTreeIgnore=['^.git$', '^.idea$', '^.vagrant$']
     let NERDTreeBookmarksFile=$HOME."/.vim/bookmarks"   " Move bookmarks out of ~/
                                                         " If the above doesn't work: $HOME."/..."
     let NERDTreeRespectWildIgnore=1                     " Useful if I ever :set wildignore

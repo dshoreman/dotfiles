@@ -29,6 +29,16 @@ if [ $OS == "arch" ]; then
     wget -O - https://git.io/vwzUw | bash
     echo " [DONE]"
 
+    if [ ! -f /etc/udev/rules.d/60-vboxdrv.rules ]; then
+        echo -n "Applying Virtualbox USB patch..."
+        sudo cp "$BOOTSTRAP_ROOT/patches/vbox-usb.patch" /etc/udev/rules.d/60-vboxdrv.rules
+
+        if [[ ! $(id -Gn $(whoami) | grep '\bvboxusers\b') ]]; then
+            sudo usermod -aG vboxusers $(whoami)
+        fi
+        echo " [DONE]"
+    fi
+
     echo -n "Cleaning up packages..."
     sudo pacman -Rsn nano vi jfsutils reiserfsprogs xfsprogs pcmciautils
     echo " [DONE]"

@@ -6,7 +6,7 @@ if [ "$EUID" -eq 0 ]; then
     exit 1
 fi
 
-if [ $OS != "arch" ]; then
+if [ "$OS" != "arch" ]; then
     return
 fi
 

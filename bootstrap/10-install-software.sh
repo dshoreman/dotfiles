@@ -5,7 +5,7 @@ if [ -f "$BOOTSTRAP_ROOT/.installed" ]; then
     return
 fi
 
-if [ $OS != "arch" ]; then
+if [ "$OS" != "arch" ]; then
     echo "Skipping packages, not running Arch."
 else
     for group in *; do

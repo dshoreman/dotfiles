@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $OS != "arch" ]; then
+if [ "$OS" != "arch" ]; then
     return
 fi
 

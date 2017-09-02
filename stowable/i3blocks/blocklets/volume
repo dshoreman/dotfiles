@@ -7,6 +7,7 @@ SCONTROL="${BLOCK_INSTANCE:-Master}"
 STEP="${1:-5%}"
 
 case $BLOCK_BUTTON in
+    1) pavucontrol --class=pavu_floating & sleep 0.2 && i3-msg '[class="pavu_floating"] floating enable, resize set 450px 500px, move position mouse, move down 25px' & ;; # left click, launch mixer
     3) amixer -qc0 -D pulse sset Master toggle && pkill -RTMIN+10 i3blocks ;; # right click, mute/unmute
     4) amixer -qc0 sset $SCONTROL ${STEP}+ unmute ;; # scroll up, increase
     5) amixer -qc0 sset $SCONTROL ${STEP}- unmute ;; # scroll down, decrease

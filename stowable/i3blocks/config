@@ -103,16 +103,17 @@ interval=1
 
 [separator]
 
+[headphones 2%]
+label=🎧
+instance=PCM
+color=#F793D1
+interval=5
+
 [volume 2%]
 label=
 signal=10
-color=#1793D1
+color=#17FFD1
 interval=once
-
-[volume]
-color=#1793D1
-instance=PCM
-interval=5
 
 [separator]
 full_text=

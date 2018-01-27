@@ -49,7 +49,7 @@ call plug#end()
 
 
 " NERDTree: {
-    let NERDTreeIgnore=['^.git$', '^.idea$', '^.vagrant$']
+    let NERDTreeIgnore=['^.git$', '^.idea$', '.pyc$', '^.vagrant$']
     let NERDTreeBookmarksFile=$HOME."/.vim/bookmarks"   " Move bookmarks out of ~/
                                                         " If the above doesn't work: $HOME."/..."
     let NERDTreeRespectWildIgnore=1                     " Useful if I ever :set wildignore
@@ -97,5 +97,6 @@ call plug#end()
     let g:syntastic_check_on_open = 1                   " Check syntax when opening files
     let g:syntastic_check_on_wq = 0                     " ...but don't check when closing
     let g:syntastic_error_symbol = "✗"                  " Display a fancy UTF-8 cross
+    let g:syntastic_python_checkers = ['python2']
     let g:syntastic_warning_symbol = "⚠"                " Display a fancy UTF-8 warning sign
 " }

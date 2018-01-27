@@ -4,6 +4,9 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load
 ZSH_THEME="bullet-train"
 
+BULLETTRAIN_DIR_BG=green
+BULLETTRAIN_DIR_FG=236
+
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
 HYPHEN_INSENSITIVE="true"

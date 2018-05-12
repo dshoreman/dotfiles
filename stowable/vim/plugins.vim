@@ -4,17 +4,20 @@ call plug#begin('~/.vim/plugged')
     Plug 'arnaud-lb/vim-php-namespace'
     Plug 'ctrlpvim/ctrlp.vim' | Plug 'FelikZ/ctrlp-py-matcher'
     Plug 'dshoreman/nginx.vim'
+    Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
     Plug 'mattn/emmet-vim'
     Plug 'mhinz/vim-startify'
     Plug 'othree/html5.vim'
     Plug 'PotatoesMaster/i3-vim-syntax'
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
     Plug 'scrooloose/syntastic'
+    Plug 'simnalamburt/vim-mundo'
     Plug 'sjl/splice.vim'
     Plug 'StanAngeloff/php.vim'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-surround'
     Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+    Plug 'zirrostig/vim-schlepp'
 
 call plug#end()
 
@@ -45,6 +48,11 @@ call plug#end()
                 \ --nogroup                             " ...remove headings and blank lines,
                 \ --hidden                              " ...include hidden files,
                 \ -g ""'                                " ...and finally run the search
+" }
+
+
+" Mundo: {
+    nnoremap <Leader>uu :MundoToggle<CR>
 " }
 
 
@@ -84,6 +92,21 @@ call plug#end()
     " Sort use statements alphabetically
     autocmd FileType php inoremap <Leader>s <Esc>:call PhpSortUse()<CR>
     autocmd FileType php noremap <Leader>s :call PhpSortUse()<CR>
+" }
+
+
+" Schlepp: {
+    vmap <unique> <up>      <Plug>SchleppUp
+    vmap <unique> <S-up>    <Plug>SchleppIndentUp
+    vmap <unique> <down>    <Plug>SchleppDown
+    vmap <unique> <S-down>  <Plug>SchleppIndentDown
+    vmap <unique> <left>    <Plug>SchleppLeft
+    vmap <unique> <right>   <Plug>SchleppRight
+
+    vmap <unique> Dk <Plug>SchleppDupUp
+    vmap <unique> Dj <Plug>SchleppDupDown
+    vmap <unique> Dh <Plug>SchleppDupLeft
+    vmap <unique> Dl <Plug>SchleppDupRight
 " }
 
 

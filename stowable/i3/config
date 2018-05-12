@@ -31,6 +31,10 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec termite
 
+# open Nextcloud
+for_window [title="Files - dsDev.io - Google Chrome"] fullscreen disable, floating enable
+bindsym $mod+Home exec "google-chrome-stable --window-size=1280,720 --kiosk --window-position=0,0 https://nc.dsdev.io"
+
 # take a screenshot
 for_window [class="Shotty"] floating enable
 bindsym Print exec shotty

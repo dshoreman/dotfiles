@@ -93,6 +93,7 @@ alias doc="docker"
 alias docc="docker container"
 alias doccl="docker container ls"
 alias doccla="docker container ls --all"
+alias docr="docker run"
 
 # Laravel aliases
 alias pa="php artisan"

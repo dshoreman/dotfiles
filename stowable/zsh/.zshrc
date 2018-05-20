@@ -88,6 +88,12 @@ function release {
     setversion $1
 }
 
+# Docker aliases
+alias doc="docker"
+alias docc="docker container"
+alias doccl="docker container ls"
+alias doccla="docker container ls --all"
+
 # Laravel aliases
 alias pa="php artisan"
 alias pas="pa serve"

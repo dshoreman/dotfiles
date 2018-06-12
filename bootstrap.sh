@@ -24,7 +24,7 @@ function depend_on
     esac
 }
 
-OS=$(grep "ID=" /etc/os-release | sed 's/ID=//')
+OS=$(grep "^ID=" /etc/os-release | sed 's/ID=//')
 
 for script in $BOOTSTRAP_ROOT/bootstrap/*.sh; do
     # Make sure each script starts in the same place

@@ -1,6 +1,7 @@
 align=center
 color=#FFFDD0
 full_text=
+markup=pango
 separator=false
 separator_block_width=5
 command=~/.config/i3blocks/blocklets/$BLOCK_NAME
@@ -12,6 +13,11 @@ interval=5
 align=center
 color=#545454
 min_width=1400
+
+[pacman]
+align=left
+min_width=300
+interval=60
 
 [separator]
 full_text=

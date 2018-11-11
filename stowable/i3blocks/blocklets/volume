@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# NOTE!
+# This script has been modified to work with HDMI.
+# Previously, -c0 was defined in all amixer commands
+# to specify the card to be used. That was removed so
+# that instead, amixer would simply use the default card.
+#
+# If for some reason it no longer works on normal speakers, revert.
+
 # The instance option sets the control to report and configure
 SCONTROL="${BLOCK_INSTANCE:-Master}"
 
@@ -8,13 +16,13 @@ STEP="${1:-5%}"
 
 case $BLOCK_BUTTON in
     1) pavucontrol --class=pavu_floating & sleep 0.2 && i3-msg '[class="pavu_floating"] floating enable, resize set 450px 500px, move position mouse, move down 25px' & ;; # left click, launch mixer
-    3) amixer -qc0 -D pulse sset Master toggle && pkill -RTMIN+10 i3blocks ;; # right click, mute/unmute
-    4) amixer -qc0 sset $SCONTROL ${STEP}+ unmute ;; # scroll up, increase
-    5) amixer -qc0 sset $SCONTROL ${STEP}- unmute ;; # scroll down, decrease
+    3) amixer -q -D pulse sset Master toggle && pkill -RTMIN+10 i3blocks ;; # right click, mute/unmute
+    4) amixer -q -D pulse sset $SCONTROL ${STEP}+ unmute ;; # scroll up, increase
+    5) amixer -q sset $SCONTROL ${STEP}- unmute ;; # scroll down, decrease
 esac
 
 perl_filter='if (/.*\[(\d+%)\] (\[(-?\d+.\d+dB)\] )?'
 [ $SCONTROL != "PCM" ] && perl_filter+='\[(on|off)\]'
 perl_filter+='/){CORE::say $4 eq "off" ? "MUTE" : "$1"; exit}'
 
-amixer -c0 get $SCONTROL | perl -ne "$perl_filter"
+amixer get $SCONTROL | perl -ne "$perl_filter"

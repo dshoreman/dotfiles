@@ -6,6 +6,7 @@ xorg-xinit
 # More awesome than awesome
 i3-gaps-next-git
 i3blocks
+yad
 
 # Basic utility stuff
 albert

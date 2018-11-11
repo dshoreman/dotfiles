@@ -40,6 +40,9 @@ for_window [class="Shotty"] floating enable
 bindsym Print exec shotty
 bindsym --release Shift+Print exec "import /tmp/ss.png; mv /tmp/ss.png $(zenity --file-selection --save --filename=\\"/home/$(whoami)/nextcloud/Screenshots/.png\\" 2>/dev/null)"
 
+# float calendar window in i3blocks
+for_window [class="Yad"] floating enable
+
 # float paypal checkout.js popups
 for_window [title="PayPal - Google Chrome"][window_role="pop-up"] floating enable
 for_window [class="Steam"][name="Steam Guard - Computer Authorization Required"] floating enable

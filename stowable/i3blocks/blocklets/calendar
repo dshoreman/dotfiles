@@ -1,0 +1,14 @@
+#! /bin/sh
+
+case "$BLOCK_BUTTON" in
+  1|2|3)
+    i3-msg -q "exec yad --calendar \
+        --width=200 --height=200 \
+        --undecorated --fixed \
+        --close-on-unfocus --no-buttons \
+        --posx=1610 --posy=25 \
+        > /dev/null"
+esac
+
+echo "$LABEL$(date '+%a %d/%m %H:%M:%S')"
+echo "$LABEL$(date '+%H:%M:%S')"

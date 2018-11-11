@@ -108,16 +108,9 @@ interval=1
 
 #[separator]
 
-[date]
+[calendar]
+color=#d1ca16
 label=
-color=#d1ca16
-command=date '+%a %d/%m'
-interval=60
-
-[time]
-label=
-color=#d1ca16
-command=date '+%H:%M:%S'
 interval=1
 
 [separator]

@@ -15,10 +15,15 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
     unset f
 fi
 
-xrandr --output DP-4 --primary &
-albert &
+#xrandr --output DP-4 --primary --dpi 220 &
+#xrandr --output DP-4 --primary &
+xrandr --output HDMI-0 --primary --output DP-4 --off &
+xrdb -merge ~/.Xresources &
 udiskie &
-dropbox &
+albert &
 redshift-gtk &
+nextcloud &
+#dropbox &
+transmission-gtk &
 
 exec i3

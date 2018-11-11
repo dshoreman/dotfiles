@@ -12,7 +12,6 @@ ttf-droid
 ttf-envy-code-r
 ttf-fira-mono
 ttf-fira-sans
-ttf-font-awesome
 ttf-freefont
 ttf-hack
 ttf-inconsolata
@@ -20,6 +19,7 @@ ttf-liberation
 ttf-monaco
 ttf-monofur
 ttf-mph-2b-damase
+nerd-fonts-complete-mono-glyphs
 ttf-oxygen
 ttf-roboto
 ttf-roboto-mono

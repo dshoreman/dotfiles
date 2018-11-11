@@ -22,29 +22,32 @@ label=
 interval=10
 
 [load_average]
+label=
 color=#d15517
 interval=10
 
 [separator]
 
 [memory]
-label=
+label=
 color=#17d155
 interval=30
 
 [separator]
 
 [temperature]
-label=🌡
+label=
 color=#d11793
 interval=10
 
 [temperature]
+label=
 command=~/.config/i3blocks/blocklets/temperature --chip coretemp-isa-0000
 color=#d11793
 interval=10
 
 [temperature]
+label=
 command=~/.config/i3blocks/blocklets/temperature --chip it8620-isa-0a30
 color=#d11793
 interval=10
@@ -57,11 +60,13 @@ color=#17d155
 interval=30
 
 [disk]
+label=
 instance=/run/media/dshoreman/sg
 color=#17d155
 interval=30
 
 [disk]
+label=
 instance=/run/media/dshoreman/backup
 color=#17d155
 interval=30
@@ -77,7 +82,7 @@ interval=10
 #instance=wlp3s0
 #interval=10
 
-[bandwidth -i  -o ]
+[bandwidth -i  -o ]
 color=#1793D1
 interval=1
 

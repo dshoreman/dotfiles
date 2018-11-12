@@ -43,7 +43,7 @@ call plug#end()
 
 " Airline: {
     let g:airline_powerline_fonts = 1                   " Tell airline we want more awesome
-    let g:airline_Theme = 'powerlineish'                " Set the theme... duh
+    let g:airline_theme = 'powerlineish'                " Set the theme... duh
     let g:airline#extensions#tabline#enabled = 1        " Enable tabline along the top
     let g:airline#extensions#tabline#tab_nr_type = 1    " Base numbers on tab num, not num splits
 " }

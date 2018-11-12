@@ -4,7 +4,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'arnaud-lb/vim-php-namespace'
     Plug 'ctrlpvim/ctrlp.vim' | Plug 'FelikZ/ctrlp-py-matcher'
     Plug 'dshoreman/nginx.vim'
-    Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
+    Plug 'junegunn/vim-peekaboo'
     Plug 'mattn/emmet-vim'
     Plug 'mhinz/vim-startify'
     Plug 'othree/html5.vim'
@@ -19,7 +19,17 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
     Plug 'zirrostig/vim-schlepp'
 
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/vim-hug-neovim-rpc'
+    Plug 'roxma/nvim-yarp'
+    Plug 'phpactor/phpactor', { 'for': 'php', 'do': 'composer install' }
+    Plug 'kristijanhusak/deoplete-phpactor'
+
 call plug#end()
+
+" Deoplete: {
+    let g:deoplete#enable_at_startup = 1
+" }
 
 
 " Plug Bindings: {

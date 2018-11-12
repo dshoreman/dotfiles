@@ -16,7 +16,7 @@ HIST_STAMPS="yyyy-mm-dd"
 
 hash archey3 2>/dev/null && archey3
 
-hash k 2>/dev/null && unalias k
+unalias k 2>/dev/null
 plugins=(common-aliases composer git git-flow-completion k systemd urltools vagrant vi-mode wd web-search)
 
 export EDITOR="vim"

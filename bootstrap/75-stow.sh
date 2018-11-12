@@ -28,8 +28,11 @@ for package in *; do
     fi
 
     echo "$action package '$package'" && touch "$lockfile"
+
+    [[ $target == /home/* ]] && cmd="stow" || cmd="sudo stow"
+
     # Stow supposedly accepts regexp but --ignore='.stow*' does nothing. This could get ugly.
-    stow --target="$target" --ignore=".stowlock" --ignore=".stowtarget" $action_flag $package
+    $cmd --target="$target" --ignore=".stowlock" --ignore=".stowtarget" $action_flag $package
 
     if [[ "$action_flag" == "--delete" ]]; then
         rm "$lockfile"

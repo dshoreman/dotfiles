@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+# Cloned from https://github.com/beoldhin/killgroup
+# limit * sleeptime = sleep in seconds
+
+limit=10
+sleeptime=0.5
+
+show_usage() {
+  echo "Usage: $0 <groupname>"
+  exit 1
+}
+
+if [ $# -ne 1 ]; then
+  show_usage
+fi
+groupname=$1
+processid=`pgrep -o $1`
+if [ -z $processid ]; then
+  echo "ERROR: Process group not found."
+  exit 1
+fi
+
+echo "Killing root process ${processid}..."
+kill -s TERM $processid
+echo "Waiting for group ${processid} to exit..."
+
+counter=0
+while [ -e /proc/$processid ] && [ "$counter" -lt "$limit" ]; do
+  echo "  Process ${processid} is still running..."
+  sleep $sleeptime
+  ((counter++))
+done
+
+if [ "$counter" -lt "$limit" ]; then
+  echo "Root process ${processid} successfully killed."
+else
+  echo "Root process ${processid} not killed, next killing with force..."
+  kill -s KILL $processid
+fi
+
+echo "Process group killed."
+

@@ -29,5 +29,4 @@ alias lsk="k -Ah"
 alias diff="diff -s"
 alias tree="tree -I vendor"
 
-#alias fuck='sudo $(fc -ln -1)'
-eval $(thefuck --alias)
+alias fuck='sudo $(fc -ln -1)'

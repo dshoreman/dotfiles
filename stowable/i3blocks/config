@@ -12,7 +12,7 @@ signal=10
 interval=5
 align=center
 color=#545454
-min_width=1400
+min_width=400
 
 [pacman]
 align=left
@@ -80,6 +80,7 @@ interval=30
 [separator]
 
 [iface -4]
+instance=enp2s0
 color=#1793D1
 label=
 interval=10

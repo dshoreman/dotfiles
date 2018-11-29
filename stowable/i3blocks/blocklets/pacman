@@ -9,8 +9,7 @@ sudo pacman -Sy > /dev/null
 updates=$(pacman -Sup | wc -l)
 
 if (( $updates == 0 )); then
-    fgcolor="#66FF00"
-    text="up to date"
+    exit
 else
     text="$updates update"
     (( $updates > 1 )) && text+="s"

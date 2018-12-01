@@ -1,0 +1,23 @@
+[color "diff"]
+    meta = cyan dim
+    frag = magenta dim
+    commit = yellow bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+[color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
+[core]
+    pager = /usr/share/git/diff-highlight/diff-highlight | less
+[help]
+    autocorrect = 1
+[merge]
+    tool = meld
+[rerere]
+    enabled = true
+[user]
+    name = Dave Shoreman
+    email = dshoreman@users.noreply.github.com

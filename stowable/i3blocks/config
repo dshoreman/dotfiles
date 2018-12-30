@@ -80,20 +80,9 @@ interval=30
 [separator]
 
 [iface -4]
-instance=enp2s0
-color=#1793D1
-label=
-interval=10
-
-[bandwidth -i  -o ]
-instance=enp2s0
-color=#1793D1
-interval=1
-
-[iface -4]
 instance=enp3s0
 color=#1793D1
-label=
+label=
 interval=10
 
 [bandwidth -i  -o ]

@@ -80,6 +80,7 @@ source ~/.vim/plugins.vim
     imap <S-Tab> <C-o><<
 
     autocmd BufNewFile,BufRead *.blade.php set ft=html
+    autocmd BufNewFile,BufRead *.vue set ft=html
 " }
 
 

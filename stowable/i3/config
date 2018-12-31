@@ -53,6 +53,8 @@ for_window [class="Gimp-2.8"] floating enable
 for_window [class="Etherwall"] floating enable
 for_window [class="feh"] floating enable
 
+assign [class="Vmware"] $wsOSX
+
 # kill focused window
 bindsym $mod+Shift+q kill
 

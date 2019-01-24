@@ -1,8 +1,8 @@
 #!/bin/bash
 
-killall compton
+killall compton && compton -bfcCD3 -m 0.7 -e 0.1
 
 echo "Compton paused!"
 read -rsn1 -p "Press any key to resume"
 
-compton -bfcCD3 -i 0.75 -m 0.7 -e 0.1 --active-opacity 0.85
+killall compton && compton -bfcCD3 -i 0.75 -m 0.7 -e 0.1 --active-opacity 0.97

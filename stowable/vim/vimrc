@@ -23,6 +23,7 @@ source ~/.vim/plugins.vim
     set title                         " Display filename in the terminal title
     set ruler                         " Display cursor position
     set number                        " Display line numbers
+    set relativenumber                " Show line number relative to current
     set showcmd                       " Display command or visual selection info
     set showmatch                     " Show matching brackets on insert
     set cursorline                    " Highlight current line

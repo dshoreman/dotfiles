@@ -3,7 +3,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'airblade/vim-gitgutter'
     Plug 'arnaud-lb/vim-php-namespace'
     Plug 'ctrlpvim/ctrlp.vim' | Plug 'FelikZ/ctrlp-py-matcher'
-    Plug 'dshoreman/nginx.vim'
     Plug 'junegunn/vim-peekaboo'
     Plug 'mattn/emmet-vim'
     Plug 'mhinz/vim-startify'
@@ -11,6 +10,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'PotatoesMaster/i3-vim-syntax'
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
     Plug 'scrooloose/syntastic'
+    Plug 'sheerun/vim-polyglot'
     Plug 'simnalamburt/vim-mundo'
     Plug 'sjl/splice.vim'
     Plug 'StanAngeloff/php.vim'

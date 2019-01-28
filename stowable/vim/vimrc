@@ -79,9 +79,6 @@ source ~/.vim/plugins.vim
     " Emulate "outdenting" shift-tab functionality of other editors
     nmap <S-Tab> <<
     imap <S-Tab> <C-o><<
-
-    autocmd BufNewFile,BufRead *.blade.php set ft=html
-    autocmd BufNewFile,BufRead *.vue set ft=html
 " }
 
 

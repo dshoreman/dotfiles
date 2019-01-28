@@ -105,6 +105,9 @@ call plug#end()
     " Generate a new class (replacing the current file)
     nmap <Leader>cc :call phpactor#ClassNew()<CR>
 
+    " Expand class under cursor to fully qualified name
+    nmap <Leader>ec :call phpactor#ClassExpand()<CR>
+
     " Extract expression (normal mode)
     nmap <silent><Leader>ee :call phpactor#ExtractExpression(v:false)<CR>
 
@@ -117,22 +120,6 @@ call plug#end()
 
 
 " PHP Namespace: {
-    " Add use statement for class under cursor
-    function! IPhpInsertUse()
-        call PhpInsertUse()
-        call feedkeys('a',  'n')
-    endfunction
-    autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
-    autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
-
-    " Expand class under cursor to fully qualified name
-    function! IPhpExpandClass()
-        call PhpExpandClass()
-        call feedkeys('a', 'n')
-    endfunction
-    autocmd FileType php inoremap <Leader>f <Esc>:call IPhpExpandClass()<CR>
-    autocmd FileType php noremap <Leader>f :call PhpExpandClass()<CR>
-
     " Sort use statements alphabetically
     autocmd FileType php inoremap <Leader>s <Esc>:call PhpSortUse()<CR>
     autocmd FileType php noremap <Leader>s :call PhpSortUse()<CR>

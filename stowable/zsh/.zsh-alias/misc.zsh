@@ -1,4 +1,5 @@
 hash pipes 2>/dev/null && alias afk="pipes -t0 -t1 -t3 -r10000 -Rf100"
+alias weather="while true; do clear && curl wttr.in/taunton; sleep 600; done"
 
 # Display aliases
 alias 1080="xrandr --output HDMI1 --mode 1920x1080"

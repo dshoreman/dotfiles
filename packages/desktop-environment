@@ -1,7 +1,13 @@
 # The necessary evil
 xorg-server
-xorg-server-utils
 xorg-xinit
+xorg-xinput
+xorg-xmodmap
+xorg-xrandr
+xorg-xrdb
+xorg-xrefresh
+xorg-xset
+xorg-xsetroot
 
 # More awesome than awesome
 i3-gaps-next-git

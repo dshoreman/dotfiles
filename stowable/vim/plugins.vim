@@ -22,7 +22,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'Shougo/deoplete.nvim'
     Plug 'roxma/vim-hug-neovim-rpc'
     Plug 'roxma/nvim-yarp'
-    Plug 'phpactor/phpactor', { 'for': 'php', 'do': 'composer install' }
+    Plug 'phpactor/phpactor', { 'for': 'php', 'branch': 'develop', 'do': 'composer install' }
     Plug 'kristijanhusak/deoplete-phpactor'
 
 call plug#end()
@@ -83,6 +83,8 @@ call plug#end()
 
 
 " PHPactor: {
+    let g:phpactorBranch = 'develop'                    " Used by phpactor#Update()
+
     " Include use statement
     nmap <Leader>u :call phpactor#UseAdd()<CR>
 

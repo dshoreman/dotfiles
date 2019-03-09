@@ -9,7 +9,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'othree/html5.vim'
     Plug 'PotatoesMaster/i3-vim-syntax'
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-    Plug 'scrooloose/syntastic'
     Plug 'sheerun/vim-polyglot'
     Plug 'simnalamburt/vim-mundo'
     Plug 'sjl/splice.vim'
@@ -17,6 +16,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-surround'
     Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+    Plug 'w0rp/ale'
     Plug 'zirrostig/vim-schlepp'
 
     Plug 'Shougo/deoplete.nvim'
@@ -140,19 +140,4 @@ call plug#end()
     vmap <unique> Dj <Plug>SchleppDupDown
     vmap <unique> Dh <Plug>SchleppDupLeft
     vmap <unique> Dl <Plug>SchleppDupRight
-" }
-
-
-" Syntastic: {
-    set statusline+=%#warningmsg#
-    set statusline+=%{SyntasticStatuslineFlag()}
-    set statusline+=%*
-
-    let g:syntastic_always_populate_loc_list = 1        " Always dump errors into location list
-    let g:syntastic_auto_loc_list = 1                   " Open list for errors, close when cleared
-    let g:syntastic_check_on_open = 1                   " Check syntax when opening files
-    let g:syntastic_check_on_wq = 0                     " ...but don't check when closing
-    let g:syntastic_error_symbol = "✗"                  " Display a fancy UTF-8 cross
-    let g:syntastic_python_checkers = ['python2']
-    let g:syntastic_warning_symbol = "⚠"                " Display a fancy UTF-8 warning sign
 " }

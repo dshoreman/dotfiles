@@ -63,7 +63,10 @@ call plug#end()
 
 
 " Markdown Preview: {
+    let g:mkdp_page_title = '${name} Preview'           " Page <title> for preview tab
+
     nmap <Leader>mp :MarkdownPreview<CR>
+    nmap <Leader>mps :MarkdownPreviewStop<CR>
 " }
 
 

@@ -3,6 +3,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'airblade/vim-gitgutter'
     Plug 'arnaud-lb/vim-php-namespace'
     Plug 'ctrlpvim/ctrlp.vim' | Plug 'FelikZ/ctrlp-py-matcher'
+    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
     Plug 'junegunn/vim-peekaboo'
     Plug 'mattn/emmet-vim'
     Plug 'mhinz/vim-startify'
@@ -58,6 +59,11 @@ call plug#end()
                 \ --nogroup                             " ...remove headings and blank lines,
                 \ --hidden                              " ...include hidden files,
                 \ -g ""'                                " ...and finally run the search
+" }
+
+
+" Markdown Preview: {
+    nmap <Leader>mp :MarkdownPreview<CR>
 " }
 
 

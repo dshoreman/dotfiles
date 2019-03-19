@@ -17,7 +17,7 @@ HIST_STAMPS="yyyy-mm-dd"
 hash archey3 2>/dev/null && archey3
 
 unalias k 2>/dev/null
-plugins=(common-aliases composer git git-flow-completion k systemd urltools vagrant vi-mode wd web-search)
+plugins=(kopy common-aliases composer git git-flow-completion k systemd urltools vagrant vi-mode wd web-search)
 
 export EDITOR="vim"
 export GOPATH="$HOME/go"
@@ -31,3 +31,8 @@ source $ZSH/oh-my-zsh.sh
 for file in ~/.zsh-alias/*.zsh; do
     . $file
 done
+
+unalias l 2>/dev/null
+alias ll="k -h"
+alias l="ll"
+alias la="ll -A"

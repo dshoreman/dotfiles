@@ -1,7 +1,7 @@
 # Media Playback Aliases
 
 alias mplaya="mplayer -novideo -vc null -vo null -noar -msgcolor"
-alias shuffle="mplayer -novideo -vc null -vo null -msgcolor -shuffle ~/music/**/*.mp3"
+alias shuffle="mplayer -novideo -vc null -vo null -msgcolor -shuffle"
 
 alias ripcd="ripit -c 0 -e --threads 4 --dirtemplate '\"/\$artist/\$album\"' --outputdir=~/music/newly-ripped"
 

@@ -10,6 +10,8 @@
     oldHighlight = red bold 52
     newNormal = green bold
     newHighlight = green bold 22
+[commit]
+    gpgsign = true
 [core]
     pager = /usr/share/git/diff-highlight/diff-highlight | less
 [help]
@@ -21,3 +23,4 @@
 [user]
     name = Dave Shoreman
     email = dshoreman@users.noreply.github.com
+    signingkey = C920D1D63709F443

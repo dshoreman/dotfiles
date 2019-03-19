@@ -36,10 +36,15 @@ bindsym $mod+Return exec termite
 for_window [instance="nc.dsdev.io"] floating enable
 bindsym $mod+Home exec "google-chrome-stable --window-size=1280,720 --app='https://nc.dsdev.io'"
 
-# take a screenshot
-for_window [class="Shotty"] floating enable
-bindsym Print exec shotty
-bindsym --release Shift+Print exec "import /tmp/ss.png; mv /tmp/ss.png $(zenity --file-selection --save --filename=\\"/home/$(whoami)/nextcloud/Screenshots/.png\\" 2>/dev/null)"
+# take a screenshot and upload to Nextcloud
+bindsym --release Print exec "nextshot -f"
+bindsym --release Shift+Print exec "nextshot -a"
+bindsym --release $mod+Print exec "nextshot -w"
+
+# take a screenshot and copy the image to clipboard
+bindsym --release Ctrl+Print exec "nextshot -fc"
+bindsym --release Ctrl+Shift+Print exec "nextshot -ac"
+bindsym --release Ctrl+$mod+Print exec "nextshot -wc"
 
 # float calendar window in i3blocks
 for_window [class="Yad"] floating enable

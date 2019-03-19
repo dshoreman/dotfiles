@@ -22,6 +22,7 @@ udiskie &
 albert &
 redshift-gtk &
 nextcloud &
+nextshot -t &
 #dropbox &
 transmission-gtk &
 

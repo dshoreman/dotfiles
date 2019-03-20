@@ -15,6 +15,7 @@ i3blocks
 yad
 
 # Basic utility stuff
+alacritty
 albert
 archey3
 bash-pipes
@@ -23,7 +24,6 @@ ranger w3m
 redshift
 nautilus
 nextshot
-gnome-terminal
 gtk-theme-arc
 
 dropbox

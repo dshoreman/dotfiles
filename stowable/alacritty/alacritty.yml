@@ -154,12 +154,12 @@ persistent_logging: false
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-# Colors (Tomorrow Night Bright)
+# Colors (Sourcerer)
 colors:
   # Default colors
   primary:
-    background: '0x000000'
-    foreground: '0xeaeaea'
+    background: '0x222222'
+    foreground: '0xc2c2b0'
 
     # Bright and dim foreground colors
     #
@@ -173,31 +173,30 @@ colors:
   #
   # Colors which should be used to draw the terminal cursor. If these are unset,
   # the cursor color will be the inverse of the cell color.
-  #cursor:
-  #  text: '0x000000'
-  #  cursor: '0xffffff'
+  cursor:
+    text:   '0xc2c2b0'
+    cursor: '0xc2c2b0'
 
   # Normal colors
   normal:
-    black:   '0x000000'
-    red:     '0xd54e53'
-    green:   '0xb9ca4a'
-    yellow:  '0xe6c547'
-    blue:    '0x7aa6da'
-    magenta: '0xc397d8'
-    cyan:    '0x70c0ba'
-    white:   '0xeaeaea'
+    black:   '0x111111'
+    red:     '0xaa4450'
+    green:   '0x719611'
+    yellow:  '0xcc8800'
+    blue:    '0x6688aa'
+    magenta: '0x8f6f8f'
+    cyan:    '0x528b8b'
+    white:   '0xd3d3d3'
 
-  # Bright colors
   bright:
-    black:   '0x666666'
-    red:     '0xff3334'
-    green:   '0x9ec400'
-    yellow:  '0xe7c547'
-    blue:    '0x7aa6da'
-    magenta: '0xb77ee0'
-    cyan:    '0x54ced6'
-    white:   '0xffffff'
+    black:   '0x181818'
+    red:     '0xff6a6a'
+    green:   '0xb1d631'
+    yellow:  '0xff9800'
+    blue:    '0x90b0d1'
+    magenta: '0x8181a6'
+    cyan:    '0x87ceeb'
+    white:   '0xc1cdc1'
 
   # Dim colors
   #

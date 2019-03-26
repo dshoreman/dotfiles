@@ -9,5 +9,19 @@ alias wallpaperrot="while true; do feh --bg-scale pictures/wallpaper/4K/ --rando
 # IRC
 alias weechat="weechat -d ~/.config/weechat"
 
+# Vim session management
+vimsession() {
+    local sessdir=~/.cache/vim/sessions
+    local sessfile="$sessdir/$1.vim"
+
+    mkdir -p "$sessdir"
+    if [ -f "$sessfile" ]; then
+        vim -S "$sessfile"
+    else
+        vim -c "Obsession $sessfile"
+    fi
+}
+alias vs=vimsession
+
 # Set gPodder config
 source ~/.pam_environment

@@ -15,6 +15,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'sjl/splice.vim'
     Plug 'StanAngeloff/php.vim'
     Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-obsession'
     Plug 'tpope/vim-surround'
     Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
     Plug 'w0rp/ale'

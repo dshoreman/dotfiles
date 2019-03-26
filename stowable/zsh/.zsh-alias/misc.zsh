@@ -6,5 +6,8 @@ alias 1080="xrandr --output HDMI1 --mode 1920x1080"
 alias 4k="xrandr --output HDMI1 --auto --output LVDS1 --off"
 alias wallpaperrot="while true; do feh --bg-scale pictures/wallpaper/4K/ --randomize; sleep 900; done"
 
+# IRC
+alias weechat="weechat -d ~/.config/weechat"
+
 # Set gPodder config
 source ~/.pam_environment

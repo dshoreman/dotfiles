@@ -15,6 +15,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="false"
 HIST_STAMPS="yyyy-mm-dd"
 
 hash archey3 2>/dev/null && archey3
+hash neofetch 2>/dev/null && echo && neofetch
 
 unalias k 2>/dev/null
 plugins=(kopy common-aliases composer git git-flow-completion k systemd urltools vagrant vi-mode wd web-search)

@@ -5,6 +5,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'ctrlpvim/ctrlp.vim' | Plug 'FelikZ/ctrlp-py-matcher'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
     Plug 'junegunn/vim-peekaboo'
+    Plug 'ludovicchabant/vim-gutentags'
+    Plug 'majutsushi/tagbar'
     Plug 'mattn/emmet-vim'
     Plug 'mhinz/vim-startify'
     Plug 'othree/html5.vim'
@@ -60,6 +62,11 @@ call plug#end()
                 \ --nogroup                             " ...remove headings and blank lines,
                 \ --hidden                              " ...include hidden files,
                 \ -g ""'                                " ...and finally run the search
+" }
+
+
+" GutenTags: {
+    let g:gutentags_cache_dir = '~/.cache/vim/tags'    " Keep tags files out of project directories
 " }
 
 
@@ -152,4 +159,12 @@ call plug#end()
     vmap <unique> Dj <Plug>SchleppDupDown
     vmap <unique> Dh <Plug>SchleppDupLeft
     vmap <unique> Dl <Plug>SchleppDupRight
+" }
+
+
+" TagBar: {
+    let g:tagbar_autoclose = 1                          " Close tagbar when jumping to tag
+    let g:tagbar_autopreview = 1                        " Jump to tag when moving cursor in tagbar
+    let g:tagbar_show_linenumbers = -1                  " Use global line number settings
+    nmap <Leader>tb :TagbarToggle<CR>
 " }

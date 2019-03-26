@@ -37,14 +37,14 @@ for_window [instance="nc.dsdev.io"] floating enable
 bindsym $mod+Home exec "google-chrome-stable --window-size=1280,720 --app='https://nc.dsdev.io'"
 
 # take a screenshot and upload to Nextcloud
-bindsym --release Print exec "nextshot -f"
-bindsym --release Shift+Print exec "nextshot -a"
-bindsym --release $mod+Print exec "nextshot -w"
+bindsym Print exec --no-startup-id "nextshot -f"
+bindsym Shift+Print exec --no-startup-id "nextshot -a"
+bindsym $mod+Print exec --no-startup-id "nextshot -w"
 
 # take a screenshot and copy the image to clipboard
-bindsym --release Ctrl+Print exec "nextshot -fc"
-bindsym --release Ctrl+Shift+Print exec "nextshot -ac"
-bindsym --release Ctrl+$mod+Print exec "nextshot -wc"
+bindsym Ctrl+Print exec --no-startup-id "nextshot -fc"
+bindsym Ctrl+Shift+Print exec --no-startup-id "nextshot -ac"
+bindsym Ctrl+$mod+Print exec --no-startup-id "nextshot -wc"
 
 # float calendar window in i3blocks
 for_window [class="Yad"] floating enable

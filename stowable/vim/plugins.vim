@@ -1,4 +1,5 @@
 call plug#begin('~/.vim/plugged')
+    Plug 'KeitaNakamura/neodark.vim'
 
     Plug 'airblade/vim-gitgutter'
     Plug 'arnaud-lb/vim-php-namespace'
@@ -31,6 +32,11 @@ call plug#begin('~/.vim/plugged')
 
 call plug#end()
 
+" Colour Scheme: {
+    colorscheme neodark
+    let g:neodark#solid_vertsplit = 1
+" }
+
 " Deoplete: {
     let g:deoplete#enable_at_startup = 1
 " }
@@ -47,7 +53,6 @@ call plug#end()
 
 " Airline: {
     let g:airline_powerline_fonts = 1                   " Tell airline we want more awesome
-    let g:airline_theme = 'powerlineish'                " Set the theme... duh
     let g:airline#extensions#tabline#enabled = 1        " Enable tabline along the top
     let g:airline#extensions#tabline#tab_nr_type = 1    " Base numbers on tab num, not num splits
 " }

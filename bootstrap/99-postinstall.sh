@@ -13,6 +13,14 @@ if [ "$OS" == "arch" ]; then
     wget -O - https://git.io/vwzUw | bash
     echo " [DONE]"
 
+    # Required for CUPS to locate *.local network printers. See:
+    # 1. https://wiki.archlinux.org/index.php/CUPS#Network
+    # 2. https://wiki.archlinux.org/index.php/Avahi#Hostname_resolution
+    echo -n "Patching nsswitch for .local name resolution..."
+    sudo sed -ie 's/^\(hosts: .*\) resolve/\1 mdns_minimal [NOTFOUND=return] resolve/' /etc/nsswitch.conf && echo " [DONE]"
+    sudo systemctl restart avahi-daemon.service
+    sudo systemctl restart org.cups.cupsd.service
+
     if [ ! -f /etc/udev/rules.d/60-vboxdrv.rules ]; then
         echo -n "Applying Virtualbox USB patch..."
         sudo cp "$BOOTSTRAP_ROOT/patches/vbox-usb.patch" /etc/udev/rules.d/60-vboxdrv.rules

@@ -21,6 +21,11 @@ if [ "$OS" == "arch" ]; then
     sudo systemctl restart avahi-daemon.service
     sudo systemctl restart org.cups.cupsd.service
 
+    # Patch MariaDB/MySQL to prevent bullshit when BST happens
+    echo -n "Patching mysql default timezone..."
+    sudo sed -ie 's/^\(\[mariadb]\)$/\1\ndefault_time_zone="+0:00"/' /etc/mysql/my.cnf.d/server.cnf && echo " [DONE]"
+    sudo systemctl restart mariadb.service
+
     if [ ! -f /etc/udev/rules.d/60-vboxdrv.rules ]; then
         echo -n "Applying Virtualbox USB patch..."
         sudo cp "$BOOTSTRAP_ROOT/patches/vbox-usb.patch" /etc/udev/rules.d/60-vboxdrv.rules

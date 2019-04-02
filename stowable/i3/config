@@ -199,4 +199,4 @@ bar {
 }
 
 exec_always --no-startup-id sh ~/.fehbg
-exec --no-startup-id compton -bfcD5 -r20 -l -30 -t -30 -i 0.8 -m 0.7 -e 0.55 --active-opacity 0.9 --opacity-rule '90:name *= "PhpStorm"'
+exec --no-startup-id compton --daemon

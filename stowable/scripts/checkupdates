@@ -47,7 +47,7 @@ check_sources() {
 }
 
 parse_ghurl() {
-    sed -e 's/.*github.com\/\(.*\)\.git\?\(#branch=\(.*\)\)\?/\1 \3/'
+    sed -e 's/.*github.com\///g' -e 's/\(\.git$\|\(\.git\)\?\#branch=\)/ /g'
 }
 
 header() {

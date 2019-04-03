@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+main() {
+    simplecheck Repo n
+    simplecheck AUR m
+}
+
+simplecheck() {
+    header "${1} Packages"
+    pacaur -Qu "-${2}"
+    echo
+}
+
+header() {
+    echo "----------------------------------------"
+    echo " $1"
+    echo "----------------------------------------"
+}
+
+main
+
+# vi: set ff=sh

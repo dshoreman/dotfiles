@@ -3,12 +3,28 @@
 main() {
     simplecheck Repo n
     simplecheck AUR m
+    gitcheck
 }
 
 simplecheck() {
     header "${1} Packages"
     pacaur -Qu "-${2}"
     echo
+}
+
+gitcheck() {
+    local package version
+
+    header "AUR (Git) Packages"
+
+    while read -r package version; do
+        if grep -qv '\-git$' <<< "$package"; then
+            # Skipping -git package
+            continue
+        fi
+
+        echo "${package} (Installed: ${version})"
+    done <<< "$(pacaur -Qm)"
 }
 
 header() {

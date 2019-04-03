@@ -27,6 +27,7 @@ gitcheck() {
 
         echo "Checking updates for ${package} (Installed: ${version})"
         fetch_metadata
+        check_sources
         echo
 
     done <<< "$(pacaur -Qm)"
@@ -35,6 +36,18 @@ gitcheck() {
 fetch_metadata() {
     echo "Fetching package SRCINFO..."
     curl -so "${package}.PKGBUILD" "https://aur.archlinux.org/cgit/aur.git/plain/.SRCINFO?h=${package}"
+}
+
+check_sources() {
+    local src branch
+
+    echo "Checking sources..."
+    read -r src branch <<< "$(grep -m 1 'source = ' "${package}.PKGBUILD" | parse_ghurl)"
+    echo "Found: ${src} (Branch: ${branch:-default})"
+}
+
+parse_ghurl() {
+    sed -e 's/.*github.com\/\(.*\)\.git\?\(#branch=\(.*\)\)\?/\1 \3/'
 }
 
 header() {

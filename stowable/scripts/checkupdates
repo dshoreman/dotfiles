@@ -16,6 +16,8 @@ gitcheck() {
     local package version
 
     header "AUR (Git) Packages"
+    mkdir -p /tmp/aurcheck-git
+    cd /tmp/aurcheck-git
 
     while read -r package version; do
         if grep -qv '\-git$' <<< "$package"; then
@@ -23,8 +25,16 @@ gitcheck() {
             continue
         fi
 
-        echo "${package} (Installed: ${version})"
+        echo "Checking updates for ${package} (Installed: ${version})"
+        fetch_metadata
+        echo
+
     done <<< "$(pacaur -Qm)"
+}
+
+fetch_metadata() {
+    echo "Fetching package SRCINFO..."
+    curl -so "${package}.PKGBUILD" "https://aur.archlinux.org/cgit/aur.git/plain/.SRCINFO?h=${package}"
 }
 
 header() {

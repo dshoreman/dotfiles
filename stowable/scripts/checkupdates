@@ -17,6 +17,7 @@ main() {
     packages="$(simplecheck AUR m)"
     echo "$packages"
 
+    mkdir -p ~/.cache/aurcheck-git
     header "AUR (Git) Packages"
     gitcheck | column -t -s'|'
 }
@@ -30,14 +31,13 @@ simplecheck() {
 gitcheck() {
     local package version src branch hash
 
-    mkdir -p ~/.cache/aurcheck-git
-    cd ~/.cache/aurcheck-git || return
-
     while read -r package version; do
         # Skipping already listed updates and non-git packages
         if [[ $packages == *"$package"* ]] || grep -qv '\-git$' <<< "$package"; then
             continue
         fi
+
+        cd ~/.cache/aurcheck-git || return
 
         fetch_metadata
         check_sources
@@ -47,11 +47,19 @@ gitcheck() {
 }
 
 fetch_metadata() {
-    curl -so "${package}.PKGBUILD" "https://aur.archlinux.org/cgit/aur.git/plain/.SRCINFO?h=${package}"
+    rm -rf "${package}"
+    git clone -q "https://aur.archlinux.org/${package}.git" "${package}" && cd "${package}" || exit
+
+    # shellcheck source=/usr/share/pacman/PKGBUILD-vcs.proto
+    source PKGBUILD
 }
 
 check_sources() {
-    read -r src branch <<< "$(grep -m 1 'source = ' "${package}.PKGBUILD" | parse_ghurl)"
+    src="${source[0]}"
+
+    [[ ${src} == *"#branch="* ]] && branch=${src#*#branch=} && src=${src%#branch=*}
+    src=${src#*github.com/}
+    src=${src%.git}
 
     if [ -z "$branch" ]; then
         query_default_branch
@@ -80,10 +88,6 @@ header() {
     echo "----------------------------------------"
     echo " $1"
     echo "----------------------------------------"
-}
-
-parse_ghurl() {
-    sed -e 's/.*github.com\///g' -e 's/\(\.git$\|\(\.git\)\?\#branch=\)/ /g'
 }
 
 main

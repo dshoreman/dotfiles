@@ -40,7 +40,8 @@ check_package() {
     fetch_metadata
     fetch_sources
     update="$(pkgver)"
-    pkg_status
+
+    [[ $version != *"$update"* ]] && pkg_status
 }
 
 fetch_metadata() {

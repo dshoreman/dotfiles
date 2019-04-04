@@ -14,7 +14,7 @@ main() {
     echo
 
     packages="$(pacaur -Qum)"
-    echo -e "$packages\n"
+    echo -e "$packages\n" | grep -v ' ignored ]' # For some reason doesn't work with `[` prefix
 
     mkdir -p ~/.cache/aurcheck-git
     gitcheck | column -t -s'|'

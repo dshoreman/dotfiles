@@ -43,11 +43,12 @@ gitcheck() {
 }
 
 check_package() {
-    local src branch hash
+    local src branch hash target srcdir="$HOME/.cache/aurcheck-git/${package}"
 
     fetch_metadata
-    check_sources
+    fetch_sources
     find_latest_commit
+    update="$(pkgver)"
     pkg_status
 }
 
@@ -59,16 +60,18 @@ fetch_metadata() {
     source PKGBUILD
 }
 
-check_sources() {
+fetch_sources() {
     src="${source[0]}"
 
     [[ ${src} == *"#branch="* ]] && branch=${src#*#branch=} && src=${src%#branch=*}
+    [[ ${src} == *"::"* ]] && target="${src%::*}"
     src=${src#*github.com/}
     src=${src%.git}
 
-    if [ -z "$branch" ]; then
-        query_default_branch
-    fi
+    [ -z "$target" ] && target=$(basename "$src")
+    [ -z "$branch" ] && query_default_branch
+
+    git clone -q --bare --branch "${branch}" "https://github.com/${src}" "${target}"
 }
 
 query_default_branch() {
@@ -86,7 +89,7 @@ find_latest_commit() {
 pkg_status() {
     echo -en "${bold}${cyan}:: ${magenta}aur-git|${white}${package} "
     echo -en "(${yellow}${src}${white}@${cyan}${branch}${white})|"
-    echo -e "${red}${version}${reset}|->|${bold}${green}${hash:0:8}${reset}"
+    echo -e "${red}${version}${reset}|->|${bold}${green}${update}|${hash:0:8}${reset}"
 }
 
 header() {

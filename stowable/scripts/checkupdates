@@ -50,8 +50,11 @@ check_package() {
 }
 
 fetch_metadata() {
-    rm -rf "${package}"
-    git clone -q "https://aur.archlinux.org/${package}.git" "${package}" && cd "${package}" || exit
+    if [ ! -d "${package}" ]; then
+        git clone -q "https://aur.archlinux.org/${package}.git" "${package}" && cd "${package}" || exit
+    else
+        cd "${package}" && git pull -q
+    fi
 
     # shellcheck source=/usr/share/pacman/PKGBUILD-vcs.proto
     source PKGBUILD
@@ -69,7 +72,11 @@ fetch_sources() {
     [ -z "$target" ] && target=$(basename "$src")
     [ -n "$branch" ] && args=(--branch "${branch}")
 
-    git clone -q --bare "${args[@]}" "https://github.com/${src}" "${target}"
+    if [ ! -d "${target}" ]; then
+        git clone -q --bare "${args[@]}" "https://github.com/${src}" "${target}"
+    else
+        cd "${target}" && git fetch -q && cd ..
+    fi
 }
 
 pkg_status() {

@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+
+readonly bold=$(tput bold)
+readonly reset=$'\e[0m'
+readonly red=$'\e[31m'
+readonly green=$'\e[32m'
+readonly yellow=$'\e[33m'
+readonly magenta=$'\e[35m'
+readonly cyan=$'\e[36m'
+readonly white=$'\e[37m'
+
+main() {
+    pacaur -Qun
+    echo
+
+    packages="$(pacaur -Qum)"
+    echo -e "$packages\n"
+
+    mkdir -p ~/.cache/aurcheck-git
+    gitcheck | column -t -s'|'
+}
+
+gitcheck() {
+    local package version
+
+    while read -r package version; do
+        # Skipping already listed updates and non-git packages
+        if [[ $packages == *"$package"* ]] || grep -qv '\-git$' <<< "$package"; then
+            continue
+        fi
+
+        cd ~/.cache/aurcheck-git || return
+        check_package
+    done <<< "$(pacaur -Qm)"
+}
+
+check_package() {
+    local update srcdir="${HOME}/.cache/aurcheck-git/${package}"
+
+    fetch_metadata
+    fetch_sources
+    update="$(pkgver)"
+    pkg_status
+}
+
+fetch_metadata() {
+    if [ ! -d "${package}" ]; then
+        git clone -q "https://aur.archlinux.org/${package}.git" "${package}" && cd "${package}" || exit
+    else
+        cd "${package}" && git pull -q
+    fi
+
+    # shellcheck source=/usr/share/pacman/PKGBUILD-vcs.proto
+    source PKGBUILD
+}
+
+fetch_sources() {
+    local target branch args=() src="${source[0]}"
+
+    [[ ${src} == *"#branch="* ]] && branch=${src#*#branch=} && src=${src%#branch=*}
+    [[ ${src} == *"::"* ]] && target="${src%::*}"
+    src=${src#*github.com/}
+    src=${src%.git}
+
+    [ -z "$target" ] && target=$(basename "$src")
+    [ -n "$branch" ] && args=(--branch "${branch}")
+
+    if [ ! -d "${target}" ]; then
+        git clone -q --bare "${args[@]}" "https://github.com/${src}" "${target}"
+    else
+        cd "${target}" && git fetch -q && cd ..
+    fi
+}
+
+pkg_status() {
+    echo -en "${bold}${cyan}:: ${magenta}aur-git|${white}${package} "
+    echo -e "${red}${version}${reset}|->|${bold}${green}${update}${reset}"
+}
+
+main

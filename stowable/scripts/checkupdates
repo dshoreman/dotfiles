@@ -13,7 +13,9 @@ readonly white=$'\e[37m'
 
 main() {
     simplecheck Repo n
-    simplecheck AUR m
+
+    packages="$(simplecheck AUR m)"
+    echo "$packages"
 
     header "AUR (Git) Packages"
     gitcheck | column -t -s'|'
@@ -28,12 +30,12 @@ simplecheck() {
 gitcheck() {
     local package version src branch hash
 
-    mkdir -p /tmp/aurcheck-git
-    cd /tmp/aurcheck-git
+    mkdir -p ~/.cache/aurcheck-git
+    cd ~/.cache/aurcheck-git || return
 
     while read -r package version; do
-        if grep -qv '\-git$' <<< "$package"; then
-            # Skipping -git package
+        # Skipping already listed updates and non-git packages
+        if [[ $packages == *"$package"* ]] || grep -qv '\-git$' <<< "$package"; then
             continue
         fi
 
@@ -52,8 +54,16 @@ check_sources() {
     read -r src branch <<< "$(grep -m 1 'source = ' "${package}.PKGBUILD" | parse_ghurl)"
 
     if [ -z "$branch" ]; then
-        branch=$(curl -s "${GH_API}/repos/${src}" | jq -r .default_branch)
+        query_default_branch
     fi
+}
+
+query_default_branch() {
+    if [ ! -f "${package}.branch" ]; then
+        curl -s "${GH_API}/repos/${src}" | jq -r .default_branch > "${package}.branch"
+    fi
+
+    branch=$(<"${package}.branch")
 }
 
 find_latest_commit() {

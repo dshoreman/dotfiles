@@ -2,6 +2,14 @@
 
 readonly GH_API="https://api.github.com"
 
+readonly bold=$(tput bold)
+readonly reset=$'\e[0m'
+readonly red=$'\e[31m'
+readonly green=$'\e[32m'
+readonly blue=$'\e[34m'
+readonly magenta=$'\e[35m'
+readonly white=$'\e[37m'
+
 main() {
     simplecheck Repo n
     simplecheck AUR m
@@ -15,7 +23,7 @@ simplecheck() {
 }
 
 gitcheck() {
-    local package version src branch
+    local package version src branch hash
 
     header "AUR (Git) Packages"
     mkdir -p /tmp/aurcheck-git
@@ -27,34 +35,32 @@ gitcheck() {
             continue
         fi
 
-        echo "Checking updates for ${package} (Installed: ${version})"
         fetch_metadata
         check_sources
         find_latest_commit
-        echo
+        pkg_status
     done <<< "$(pacaur -Qm)"
 }
 
 fetch_metadata() {
-    echo "Fetching package SRCINFO..."
     curl -so "${package}.PKGBUILD" "https://aur.archlinux.org/cgit/aur.git/plain/.SRCINFO?h=${package}"
 }
 
 check_sources() {
-    echo -n "Checking sources... "
     read -r src branch <<< "$(grep -m 1 'source = ' "${package}.PKGBUILD" | parse_ghurl)"
 
     if [ -z "$branch" ]; then
         branch=$(curl -s "${GH_API}/repos/${src}" | jq -r .default_branch)
     fi
-
-    echo "Found Github repo: ${src} (Branch: ${branch:-unset})"
 }
 
 find_latest_commit() {
-    echo -n "Checking for latest commit... "
     hash=$(curl -s "${GH_API}/repos/${src}/git/refs/heads/${branch}" | jq -r '.object.sha')
-    echo "Found ${hash:0:8}"
+}
+
+pkg_status() {
+    echo -en "${blue}:: ${bold}${magenta}aur-git  ${white}${package} (${src}@${branch}) "
+    echo -e "${red}${version}${reset} -> ${bold}${green}${hash:0:8}${reset}"
 }
 
 header() {

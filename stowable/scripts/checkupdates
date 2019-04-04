@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-readonly GH_API="https://api.github.com"
-
 readonly bold=$(tput bold)
 readonly reset=$'\e[0m'
 readonly red=$'\e[31m'
@@ -43,11 +41,10 @@ gitcheck() {
 }
 
 check_package() {
-    local src branch hash target srcdir="$HOME/.cache/aurcheck-git/${package}"
+    local src branch srcdir="${HOME}/.cache/aurcheck-git/${package}"
 
     fetch_metadata
     fetch_sources
-    find_latest_commit
     update="$(pkgver)"
     pkg_status
 }
@@ -61,6 +58,7 @@ fetch_metadata() {
 }
 
 fetch_sources() {
+    local target args=()
     src="${source[0]}"
 
     [[ ${src} == *"#branch="* ]] && branch=${src#*#branch=} && src=${src%#branch=*}
@@ -69,27 +67,15 @@ fetch_sources() {
     src=${src%.git}
 
     [ -z "$target" ] && target=$(basename "$src")
-    [ -z "$branch" ] && query_default_branch
+    [ -n "$branch" ] && args=(--branch "${branch}")
 
-    git clone -q --bare --branch "${branch}" "https://github.com/${src}" "${target}"
-}
-
-query_default_branch() {
-    if [ ! -f "${package}.branch" ]; then
-        curl -s "${GH_API}/repos/${src}" | jq -r .default_branch > "${package}.branch"
-    fi
-
-    branch=$(<"${package}.branch")
-}
-
-find_latest_commit() {
-    hash=$(curl -s "${GH_API}/repos/${src}/git/refs/heads/${branch}" | jq -r '.object.sha')
+    git clone -q --bare "${args[@]}" "https://github.com/${src}" "${target}"
 }
 
 pkg_status() {
     echo -en "${bold}${cyan}:: ${magenta}aur-git|${white}${package} "
     echo -en "(${yellow}${src}${white}@${cyan}${branch}${white})|"
-    echo -e "${red}${version}${reset}|->|${bold}${green}${update}|${hash:0:8}${reset}"
+    echo -e "${red}${version}${reset}|->|${bold}${green}${update}${reset}"
 }
 
 header() {
@@ -99,5 +85,3 @@ header() {
 }
 
 main
-
-# vi: set ff=sh

@@ -10,20 +10,14 @@ readonly cyan=$'\e[36m'
 readonly white=$'\e[37m'
 
 main() {
-    simplecheck Repo n
+    pacaur -Qun
+    echo
 
-    packages="$(simplecheck AUR m)"
+    packages="$(pacaur -Qum)"
     echo -e "$packages\n"
 
     mkdir -p ~/.cache/aurcheck-git
-    header "AUR (Git) Packages"
     gitcheck | column -t -s'|'
-}
-
-simplecheck() {
-    header "${1} Packages"
-    pacaur -Qu "-${2}"
-    echo
 }
 
 gitcheck() {
@@ -41,7 +35,7 @@ gitcheck() {
 }
 
 check_package() {
-    local src branch srcdir="${HOME}/.cache/aurcheck-git/${package}"
+    local update srcdir="${HOME}/.cache/aurcheck-git/${package}"
 
     fetch_metadata
     fetch_sources
@@ -61,8 +55,7 @@ fetch_metadata() {
 }
 
 fetch_sources() {
-    local target args=()
-    src="${source[0]}"
+    local target branch args=() src="${source[0]}"
 
     [[ ${src} == *"#branch="* ]] && branch=${src#*#branch=} && src=${src%#branch=*}
     [[ ${src} == *"::"* ]] && target="${src%::*}"
@@ -81,14 +74,7 @@ fetch_sources() {
 
 pkg_status() {
     echo -en "${bold}${cyan}:: ${magenta}aur-git|${white}${package} "
-    echo -en "(${yellow}${src}${white}@${cyan}${branch}${white})|"
     echo -e "${red}${version}${reset}|->|${bold}${green}${update}${reset}"
-}
-
-header() {
-    echo "----------------------------------------"
-    echo " $1"
-    echo "----------------------------------------"
 }
 
 main

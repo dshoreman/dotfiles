@@ -15,7 +15,7 @@ main() {
     simplecheck Repo n
 
     packages="$(simplecheck AUR m)"
-    echo "$packages"
+    echo -e "$packages\n"
 
     mkdir -p ~/.cache/aurcheck-git
     header "AUR (Git) Packages"

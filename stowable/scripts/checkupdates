@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+readonly GH_API="https://api.github.com"
+
 main() {
     simplecheck Repo n
     simplecheck AUR m
@@ -27,11 +29,7 @@ gitcheck() {
 
         echo "Checking updates for ${package} (Installed: ${version})"
         fetch_metadata
-        if check_sources; then
-            echo -e "Skipping commit check, no branch defined.\n"
-            continue
-        fi
-
+        check_sources
         find_latest_commit
         echo
     done <<< "$(pacaur -Qm)"
@@ -45,14 +43,17 @@ fetch_metadata() {
 check_sources() {
     echo -n "Checking sources... "
     read -r src branch <<< "$(grep -m 1 'source = ' "${package}.PKGBUILD" | parse_ghurl)"
-    echo "Found Github repo: ${src} (Branch: ${branch:-unset})"
 
-    [ -z "$branch" ]
+    if [ -z "$branch" ]; then
+        branch=$(curl -s "${GH_API}/repos/${src}" | jq -r .default_branch)
+    fi
+
+    echo "Found Github repo: ${src} (Branch: ${branch:-unset})"
 }
 
 find_latest_commit() {
     echo -n "Checking for latest commit... "
-    hash=$(curl -s "https://api.github.com/repos/${src}/git/refs/heads/${branch}" | jq -r '.object.sha')
+    hash=$(curl -s "${GH_API}/repos/${src}/git/refs/heads/${branch}" | jq -r '.object.sha')
     echo "Found ${hash:0:8}"
 }
 

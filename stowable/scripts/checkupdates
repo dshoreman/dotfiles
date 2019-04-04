@@ -13,7 +13,7 @@ simplecheck() {
 }
 
 gitcheck() {
-    local package version
+    local package version src branch
 
     header "AUR (Git) Packages"
     mkdir -p /tmp/aurcheck-git
@@ -27,9 +27,13 @@ gitcheck() {
 
         echo "Checking updates for ${package} (Installed: ${version})"
         fetch_metadata
-        check_sources
-        echo
+        if check_sources; then
+            echo -e "Skipping commit check, no branch defined.\n"
+            continue
+        fi
 
+        find_latest_commit
+        echo
     done <<< "$(pacaur -Qm)"
 }
 
@@ -39,21 +43,27 @@ fetch_metadata() {
 }
 
 check_sources() {
-    local src branch
-
-    echo "Checking sources..."
+    echo -n "Checking sources... "
     read -r src branch <<< "$(grep -m 1 'source = ' "${package}.PKGBUILD" | parse_ghurl)"
-    echo "Found: ${src} (Branch: ${branch:-default})"
+    echo "Found Github repo: ${src} (Branch: ${branch:-unset})"
+
+    [ -z "$branch" ]
 }
 
-parse_ghurl() {
-    sed -e 's/.*github.com\///g' -e 's/\(\.git$\|\(\.git\)\?\#branch=\)/ /g'
+find_latest_commit() {
+    echo -n "Checking for latest commit... "
+    hash=$(curl -s "https://api.github.com/repos/${src}/git/refs/heads/${branch}" | jq -r '.object.sha')
+    echo "Found ${hash:0:8}"
 }
 
 header() {
     echo "----------------------------------------"
     echo " $1"
     echo "----------------------------------------"
+}
+
+parse_ghurl() {
+    sed -e 's/.*github.com\///g' -e 's/\(\.git$\|\(\.git\)\?\#branch=\)/ /g'
 }
 
 main

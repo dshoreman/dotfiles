@@ -29,7 +29,7 @@ simplecheck() {
 }
 
 gitcheck() {
-    local package version src branch hash
+    local package version
 
     while read -r package version; do
         # Skipping already listed updates and non-git packages
@@ -38,12 +38,17 @@ gitcheck() {
         fi
 
         cd ~/.cache/aurcheck-git || return
-
-        fetch_metadata
-        check_sources
-        find_latest_commit
-        pkg_status
+        check_package
     done <<< "$(pacaur -Qm)"
+}
+
+check_package() {
+    local src branch hash
+
+    fetch_metadata
+    check_sources
+    find_latest_commit
+    pkg_status
 }
 
 fetch_metadata() {

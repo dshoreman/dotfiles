@@ -6,14 +6,17 @@ readonly bold=$(tput bold)
 readonly reset=$'\e[0m'
 readonly red=$'\e[31m'
 readonly green=$'\e[32m'
-readonly blue=$'\e[34m'
+readonly yellow=$'\e[33m'
 readonly magenta=$'\e[35m'
+readonly cyan=$'\e[36m'
 readonly white=$'\e[37m'
 
 main() {
     simplecheck Repo n
     simplecheck AUR m
-    gitcheck
+
+    header "AUR (Git) Packages"
+    gitcheck | column -t -s'|'
 }
 
 simplecheck() {
@@ -25,7 +28,6 @@ simplecheck() {
 gitcheck() {
     local package version src branch hash
 
-    header "AUR (Git) Packages"
     mkdir -p /tmp/aurcheck-git
     cd /tmp/aurcheck-git
 
@@ -59,8 +61,9 @@ find_latest_commit() {
 }
 
 pkg_status() {
-    echo -en "${blue}:: ${bold}${magenta}aur-git  ${white}${package} (${src}@${branch}) "
-    echo -e "${red}${version}${reset} -> ${bold}${green}${hash:0:8}${reset}"
+    echo -en "${bold}${cyan}:: ${magenta}aur-git|${white}${package} "
+    echo -en "(${yellow}${src}${white}@${cyan}${branch}${white})|"
+    echo -e "${red}${version}${reset}|->|${bold}${green}${hash:0:8}${reset}"
 }
 
 header() {

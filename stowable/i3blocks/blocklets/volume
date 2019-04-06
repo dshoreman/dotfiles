@@ -10,6 +10,7 @@
 
 # The instance option sets the control to report and configure
 SCONTROL="${BLOCK_INSTANCE:-Master}"
+LABEL="${LABEL:-}"
 
 # The first parameter sets the step to change the volume by
 STEP="${1:-5%}"
@@ -17,12 +18,14 @@ STEP="${1:-5%}"
 case $BLOCK_BUTTON in
     1) pavucontrol --class=pavu_floating & sleep 0.2 && i3-msg '[class="pavu_floating"] floating enable, resize set 450px 500px, move position mouse, move down 25px' & ;; # left click, launch mixer
     3) amixer -q -D pulse sset Master toggle && pkill -RTMIN+10 i3blocks ;; # right click, mute/unmute
-    4) amixer -q -D pulse sset $SCONTROL ${STEP}+ unmute ;; # scroll up, increase
-    5) amixer -q sset $SCONTROL ${STEP}- unmute ;; # scroll down, decrease
+    4) amixer -q -D pulse sset "$SCONTROL" "${STEP}"+ unmute ;; # scroll up, increase
+    5) amixer -q sset "$SCONTROL" "${STEP}"- unmute ;; # scroll down, decrease
 esac
 
 perl_filter='if (/.*\[(\d+%)\] (\[(-?\d+.\d+dB)\] )?'
-[ $SCONTROL != "PCM" ] && perl_filter+='\[(on|off)\]'
+[ "$SCONTROL" != "PCM" ] && perl_filter+='\[(on|off)\]'
+# shellcheck disable=2016
 perl_filter+='/){CORE::say $4 eq "off" ? "MUTE" : "$1"; exit}'
 
-amixer get $SCONTROL | perl -ne "$perl_filter"
+echo -n "${LABEL}"
+amixer get "$SCONTROL" | perl -ne "$perl_filter"

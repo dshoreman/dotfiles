@@ -8,19 +8,20 @@ sudo pacman -Sy > /dev/null
 
 updates=$(pacman -Sup | wc -l)
 
-if (( $updates == 0 )); then
+if (( updates == 0 )); then
+    echo ""
     exit
 else
     text="$updates update"
-    (( $updates > 1 )) && text+="s"
+    (( updates > 1 )) && text+="s"
 
-    if (( $updates < 10 )); then
+    if (( updates < 10 )); then
         fgcolor="#CCFF00"
-    elif (( $updates <= 25 )); then
+    elif (( updates <= 25 )); then
         fgcolor="#FFFF00"
-    elif (( $updates <= 50 )); then
+    elif (( updates <= 50 )); then
         fgcolor="#FFAA00"
-    elif (( $updates < 100 )); then
+    elif (( updates < 100 )); then
         fgcolor="#FF0000"
     else
         fgcolor="#FFFFFF"

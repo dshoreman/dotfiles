@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/usr/bin/env sh
 
 case "$BLOCK_BUTTON" in
   1|2|3)
@@ -6,7 +6,7 @@ case "$BLOCK_BUTTON" in
         --width=200 --height=200 \
         --undecorated --fixed \
         --close-on-unfocus --no-buttons \
-        --posx=1610 --posy=25 \
+        --posx=3510 --posy=25 \
         > /dev/null"
 esac
 

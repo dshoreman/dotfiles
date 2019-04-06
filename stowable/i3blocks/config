@@ -24,58 +24,59 @@ full_text=
 
 [cpu_usage]
 color=#d15517
-label=
+label= 
 interval=10
 
 [load_average]
-label=
+label= 
 color=#d15517
 interval=10
 
 [separator]
 
 [memory]
-label=
+label= 
 color=#17d155
 interval=30
 
 [separator]
 
 [temperature]
-label=
+label= 
+SENSOR_CHIP=coretemp-isa-0000
 color=#d11793
 interval=10
 
 [temperature]
-label=
-command=~/.config/i3blocks/blocklets/temperature --chip coretemp-isa-0000
+label= 
+SENSOR_CHIP=it8620-isa-0a30
 color=#d11793
 interval=10
 
 [temperature]
-label=
-command=~/.config/i3blocks/blocklets/temperature --chip it8620-isa-0a30
+label= 
+SENSOR_CHIP=acpitz-acpi-0
 color=#d11793
 interval=10
 
 [separator]
 
 [disk]
-label=
+LABEL= 
 color=#17d155
 interval=30
 
 [disk]
-label=
+LABEL= 
 instance=/run/media/dshoreman/data
 color=#17d155
 interval=30
 
 [disk]
-label=
+LABEL=
 instance=/run/media/dshoreman/sg
 color=#17d155
-interval=30
+interval=1800
 
 [separator]
 
@@ -100,19 +101,19 @@ interval=1
 
 [calendar]
 color=#d1ca16
-label=
+label= 
 interval=1
 
 [separator]
 
 [headphones 2%]
-label=🎧
+LABEL=🎧 
 instance=PCM
 color=#F793D1
 interval=5
 
 [volume 2%]
-label=
+LABEL=🔊 
 signal=10
 color=#17FFD1
 interval=once

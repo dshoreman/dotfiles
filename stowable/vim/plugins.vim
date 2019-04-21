@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'ctrlpvim/ctrlp.vim' | Plug 'FelikZ/ctrlp-py-matcher'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
     Plug 'junegunn/vim-peekaboo'
+    Plug 'lambdalisue/gina.vim'
     Plug 'ludovicchabant/vim-gutentags'
     Plug 'majutsushi/tagbar'
     Plug 'mattn/emmet-vim'
@@ -48,6 +49,17 @@ call plug#end()
     nmap <Leader>pU :PlugUpgrade<CR>
     nmap <Leader>pc :PlugClean<CR>
     nmap <Leader>pC :PlugClean!<CR>
+" }
+"
+"
+" " ALE: {
+    let g:ale_fix_on_save = 1
+    let g:ale_fixers = {
+                \   'php': ['php_cs_fixer'],
+                \ }
+    let g:ale_linters = {
+                \   'elixir': ['elixir-ls'],
+                \ }
 " }
 
 

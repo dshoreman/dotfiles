@@ -1,3 +1,5 @@
+setlocal keywordprg=pman            " Hit K for PHP docs. Run `sync-pman` in shell to update
+
 " ALE: {
     let b:ale_fixers = ['php_cs_fixer']
 " }

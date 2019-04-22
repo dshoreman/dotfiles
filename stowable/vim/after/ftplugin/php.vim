@@ -1,4 +1,8 @@
-setlocal keywordprg=pman            " Hit K for PHP docs. Run `sync-pman` in shell to update
+" Hit K for PHP docs. Run `sync-pman` in shell to update
+setlocal keywordprg=:terminal\ ++close\ pman
+
+" Same thing but bound with ctrl to open in vsplit
+nmap <C-S-k> :vert terminal ++close pman <cword><CR>
 
 " ALE: {
     let b:ale_fixers = ['php_cs_fixer']

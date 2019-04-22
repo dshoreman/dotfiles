@@ -33,10 +33,12 @@ call plug#begin('~/.vim/plugged')
 
 call plug#end()
 
+
 " Colour Scheme: {
     colorscheme neodark
     let g:neodark#solid_vertsplit = 1
 " }
+
 
 " Deoplete: {
     let g:deoplete#enable_at_startup = 1
@@ -55,10 +57,7 @@ call plug#end()
 " " ALE: {
     let g:ale_fix_on_save = 1
     let g:ale_fixers = {
-                \   'php': ['php_cs_fixer'],
-                \ }
-    let g:ale_linters = {
-                \   'elixir': ['elixir-ls'],
+                \   '*': ['remove_trailing_lines'],
                 \ }
 " }
 
@@ -87,16 +86,6 @@ call plug#end()
 " }
 
 
-" Markdown Preview: {
-    let g:mkdp_page_title = '${name} Preview'           " Page <title> for preview tab
-    let g:mkdp_auto_close = 0                           " Disable automatic close when switching buffers
-    let g:mkdp_markdown_css = '/home/dshoreman/.vim/markdown-preview.css'
-
-    nmap <Leader>mp :MarkdownPreview<CR>
-    nmap <Leader>mps :MarkdownPreviewStop<CR>
-" }
-
-
 " Mundo: {
     nnoremap <Leader>uu :MundoToggle<CR>
 " }
@@ -120,47 +109,6 @@ call plug#end()
 
 " PHPactor: {
     let g:phpactorBranch = 'develop'                    " Used by phpactor#Update()
-
-    " Include use statement
-    nmap <Leader>u :call phpactor#UseAdd()<CR>
-
-    " Invoke the context menu
-    nmap <Leader>mm :call phpactor#ContextMenu()<CR>
-
-    " Invoke the navigation menu
-    nmap <Leader>nn :call phpactor#Navigate()<CR>
-
-    " Goto definition of class or class member under the cursor
-    nmap <Leader>o :call phpactor#GotoDefinition()<CR>
-
-    " Show brief information about the symbol under the cursor
-    nmap <Leader>K :call phpactor#Hover()<CR>
-
-    " Transform the classes in the current file
-    " Can be used to complete constructors, implement interface methods, etc
-    nmap <Leader>tt :call phpactor#Transform()<CR>
-
-    " Generate a new class (replacing the current file)
-    nmap <Leader>cc :call phpactor#ClassNew()<CR>
-
-    " Expand class under cursor to fully qualified name
-    nmap <Leader>ec :call phpactor#ClassExpand()<CR>
-
-    " Extract expression (normal mode)
-    nmap <silent><Leader>ee :call phpactor#ExtractExpression(v:false)<CR>
-
-    " Extract expression from selection
-    vmap <silent><Leader>ee :<C-U>call phpactor#ExtractExpression(v:true)<CR>
-
-    " Extract method from selection
-    vmap <silent><Leader>em :<C-U>call phpactor#ExtractMethod()<CR>
-" }
-
-
-" PHP Namespace: {
-    " Sort use statements alphabetically
-    autocmd FileType php inoremap <Leader>s <Esc>:call PhpSortUse()<CR>
-    autocmd FileType php noremap <Leader>s :call PhpSortUse()<CR>
 " }
 
 

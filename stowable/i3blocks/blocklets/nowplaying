@@ -14,6 +14,7 @@
 
 use Time::HiRes qw(usleep);
 use Env qw(BLOCK_INSTANCE);
+use Env qw(LABEL);
 
 use constant DELAY => 50; # Delay in ms to let network-based players (spotify) reflect new data.
 use constant SPOTIFY_STR => 'spotify';
@@ -90,20 +91,16 @@ sub cmus {
         if (@metadata) {
             buttons('cmus');
 
-            # metadata found so we are done
-            print(join ' - ', @metadata);
-            exit 0;
+            return join(' - ', @metadata);
         }
     }
 }
 
 sub mpd {
     my $data = qx(mpc current);
-    if (not $data eq '') {
-        buttons("mpd");
-        print($data);
-        exit 0;
-    }
+
+    buttons("mpd") if not $data eq '';
+    return $data;
 }
 
 sub playerctl {
@@ -112,35 +109,42 @@ sub playerctl {
     my $artist = qx(playerctl $player_arg metadata artist);
     chomp $artist;
     # exit status will be nonzero when playerctl cannot find your player
-    exit(0) if $? || $artist eq '(null)';
+    return if $? || $artist eq '(null)';
 
     push(@metadata, $artist) if $artist;
 
     my $title = qx(playerctl $player_arg metadata title);
-    exit(0) if $? || $title eq '(null)';
+    return if $? || $title eq '(null)';
 
     push(@metadata, $title) if $title;
 
-    print(join(" - ", @metadata)) if @metadata;
+    return join(" - ", @metadata) if @metadata;
 }
 
 sub rhythmbox {
     buttons('rhythmbox');
 
-    my $data = qx(rhythmbox-client --print-playing --no-start);
-    print($data);
+    return qx(rhythmbox-client --print-playing --no-start);
 }
 
-if ($player_arg =~ /mpd/) {
-    mpd;
+sub run {
+    if ($player_arg =~ /mpd/) {
+        return mpd;
+    }
+
+    if ($player_arg =~ /cmus/) {
+        return cmus;
+    }
+
+    if ($player_arg =~ /rhythmbox/) {
+        return rhythmbox;
+    }
+
+    return playerctl;
 }
-elsif ($player_arg =~ /cmus/) {
-    cmus;
+
+if ($RETVAL = run) {
+    print("${LABEL}${RETVAL}\n");
+} else {
+    print("\n");
 }
-elsif ($player_arg =~ /rhythmbox/) {
-    rhythmbox;
-}
-else {
-    playerctl;
-}
-print("\n");

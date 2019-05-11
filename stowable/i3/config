@@ -176,6 +176,15 @@ mode "audio" {
 }
 bindsym $mod+p mode "audio"
 
+# enable $mod+bg to change wallpaper
+mode "wallpaper" {
+    bindsym g exec --no-startup-id sh ~/.fehbg
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+bindsym $mod+b mode "wallpaper"
+
 gaps inner 15
 gaps outer 10
 smart_gaps on

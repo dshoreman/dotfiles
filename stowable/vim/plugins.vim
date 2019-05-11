@@ -18,6 +18,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'simnalamburt/vim-mundo'
     Plug 'sjl/splice.vim'
     Plug 'StanAngeloff/php.vim'
+    Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-obsession'
     Plug 'tpope/vim-surround'

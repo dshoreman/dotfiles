@@ -33,8 +33,8 @@ floating_modifier $mod
 bindsym $mod+Return exec alacritty
 
 # open Nextcloud
-for_window [instance="nc.dsdev.io"] floating enable
-bindsym $mod+Home exec "google-chrome-stable --window-size=1280,720 --app='https://nc.dsdev.io'"
+for_window [class="nextcloud"] floating enable
+bindsym $mod+Home exec "firefox -P nc --class nextcloud --width 1280 --height 720 --new-instance https://nc.dsdev.io"
 
 # take a screenshot and upload to Nextcloud
 bindsym Print exec --no-startup-id "nextshot -f"

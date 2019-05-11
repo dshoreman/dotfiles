@@ -161,6 +161,21 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# audio [p]layer controls
+mode "audio" {
+    bindsym h exec --no-startup-id playerctl previous
+    bindsym j exec --no-startup-id amixer -q sset Master 1%- unmute
+    bindsym k exec --no-startup-id amixer -q sset Master 1%+ unmute
+    bindsym l exec --no-startup-id playerctl next
+
+    bindsym space exec --no-startup-id playerctl play-pause
+    bindsym p exec --no-startup-id playerctl play-pause
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+bindsym $mod+p mode "audio"
+
 gaps inner 15
 gaps outer 10
 smart_gaps on

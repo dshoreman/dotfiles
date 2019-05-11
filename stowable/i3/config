@@ -30,7 +30,7 @@ font pango:Noto Sans, Awesome 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec --no-startup-id alacritty
 
 # open Nextcloud
 for_window [class="nextcloud"] floating enable

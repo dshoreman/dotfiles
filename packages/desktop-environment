@@ -8,6 +8,7 @@ xorg-xrdb
 xorg-xrefresh
 xorg-xset
 xorg-xsetroot
+numlockx
 
 # More awesome than awesome
 i3-gaps-next-git

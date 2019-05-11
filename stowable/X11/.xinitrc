@@ -23,7 +23,5 @@ albert &
 redshift-gtk &
 nextcloud &
 nextshot -t &
-#dropbox &
-transmission-gtk &
 
 exec i3

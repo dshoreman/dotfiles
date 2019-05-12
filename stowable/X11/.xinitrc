@@ -17,8 +17,11 @@ fi
 
 numlockx &
 
-#xrandr --output DP-4 --primary --dpi 220 &
-xrandr --output DP-0 --auto --primary --output DVI-I-0 --auto --right-of DP-0
+# These commands MUST be separated or we end up with a gap between HDMI-0 and DP-0,
+# which in turn causes slop to kill compton and display a black screen.
+xrandr --output DP-0 --auto --primary --output DVI-I-0 --mode 1440x900 --rate 74.98 --right-of DP-0
+xrandr --output HDMI-0 --auto --pos 0x900
+
 xrdb -merge ~/.Xresources &
 udiskie &
 albert &

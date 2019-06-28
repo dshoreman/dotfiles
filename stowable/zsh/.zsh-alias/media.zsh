@@ -4,6 +4,7 @@ alias mplaya="mplayer -novideo -vc null -vo null -noar -msgcolor"
 alias shuffle="mplayer -novideo -vc null -vo null -msgcolor -shuffle"
 
 alias ripcd="ripit -c 0 -e --threads 4 --dirtemplate '\"/\$artist/\$album\"' --outputdir=~/music/newly-ripped"
+alias bandcamp-dl="youtube-dl -o '~/music/newly-ripped/%(artist)s/%(album)s/%(track_number)02d %(track)s.%(ext)s'"
 
 alias yta="mpsyt set show_video 0,"
 alias ytv="mpsyt set show_video 1,"

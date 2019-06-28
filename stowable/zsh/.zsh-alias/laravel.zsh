@@ -6,6 +6,9 @@ alias cpu="clear; vendor/bin/phpunit"
 alias pa="php artisan"
 alias pas="pa serve"
 alias pat="vendor/bin/phpunit"
+alias coverage="phpdbg -qrr vendor/bin/phpunit"
+alias covtext="coverage --coverage-text"
+alias covhtml="coverage --coverage-html tests/reports/$(date '+%Y-%m-%d_%H%M')"
 alias phptag="ctags -R --fields=+aimlS --languages=php"
 
 # Success uses white text on green background which is invisible,

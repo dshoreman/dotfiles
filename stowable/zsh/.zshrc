@@ -22,6 +22,8 @@ plugins=(kopy common-aliases composer git git-flow-completion k systemd urltools
 
 export EDITOR="vim"
 export GOPATH="$HOME/go"
+export MIX_HOME="$HOME/.cache/ex-mix"
+export ERL_AFLAGS="-kernel shell_history enabled"
 
 export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin"
 export PATH="$PATH:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"

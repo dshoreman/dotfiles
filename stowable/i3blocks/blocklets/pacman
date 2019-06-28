@@ -1,6 +1,6 @@
 #!/bin/bash
 
-bgcolor="#000000"
+bgcolor=""
 
 # Requires sudoers set to NOPASSWD
 # Comment out if you'd rather run manually
@@ -12,8 +12,7 @@ if (( updates == 0 )); then
     echo ""
     exit
 else
-    text="$updates update"
-    (( updates > 1 )) && text+="s"
+    text="$updates"
 
     if (( updates < 10 )); then
         fgcolor="#CCFF00"
@@ -25,14 +24,18 @@ else
         fgcolor="#FF0000"
     else
         fgcolor="#FFFFFF"
-        bgcolor="#FF0000"
+        bgcolor="#FF2400"
         text+=" (!!)"
     fi
-
-    text+=" available"
 fi
 
-fmt="background=\"$bgcolor\""
-fmt+="foreground=\"$fgcolor\""
+fmt="foreground=\"$fgcolor\""
+if [ "$bgcolor" != "" ]; then
+    fmt+=" background=\"$bgcolor\""
+fi
 
-echo "<span $fmt>$text</span>"
+if [ "$text" != "" ]; then
+    echo "<span $fmt> $LABEL$text </span>"
+else
+    echo ""
+fi

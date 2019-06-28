@@ -15,8 +15,8 @@ color=#545454
 min_width=400
 
 [pacman]
-align=left
-min_width=300
+LABEL=🗘 
+min_width=100
 interval=1800
 
 [separator]

@@ -22,6 +22,12 @@ interval=1800
 [separator]
 full_text=
 
+[highmem]
+color=#ffa500
+interval=5
+
+[separator]
+
 [cpu_usage]
 color=#d15517
 label= 

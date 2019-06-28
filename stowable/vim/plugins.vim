@@ -16,6 +16,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
     Plug 'sheerun/vim-polyglot'
     Plug 'simnalamburt/vim-mundo'
+    Plug 'SirVer/ultisnips'
     Plug 'sjl/splice.vim'
     Plug 'StanAngeloff/php.vim'
     Plug 'tpope/vim-commentary'
@@ -133,4 +134,8 @@ call plug#end()
     let g:tagbar_autopreview = 1                        " Jump to tag when moving cursor in tagbar
     let g:tagbar_show_linenumbers = -1                  " Use global line number settings
     nmap <Leader>tb :TagbarToggle<CR>
+" }
+
+" UltiSnips: {
+    let g:UltiSnipsExpandTrigger="<tab>"
 " }

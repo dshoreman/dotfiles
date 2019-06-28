@@ -10,6 +10,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $wsEmail email
 set $wsOSX 0:
 set $ws1 1:www
 set $ws2 2:dev
@@ -60,6 +61,7 @@ for_window [class="Etherwall"] floating enable
 for_window [class="feh"] floating enable
 
 assign [class="Vmware"] $wsOSX
+assign [instance="weechat"] workspace $ws10
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -115,6 +117,11 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+z focus child
 
+# assign workspace to specific monitors
+workspace $ws1 output DP-0
+workspace $ws10 output DVI-I-0
+workspace $wsEmail output HDMI-0
+
 # switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -126,6 +133,7 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
+bindsym $mod+grave workspace $wsEmail
 bindsym $mod+Scroll_Lock workspace $wsOSX
 
 # move focused container to workspace
@@ -139,6 +147,7 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Shift+grave move container to workspace $wsEmail
 bindsym $mod+Shift+Scroll_Lock move container to workspace $wsOSX
 
 # reload the configuration file
@@ -233,5 +242,11 @@ bar {
 exec --no-startup-id "sleep 1; sh ~/.fehbg"
 exec --no-startup-id compton --daemon
 
-# Start transmission here because disks aren't quite done mounting in ~/.xinitrc
-exec transmission-gtk
+exec --no-startup-id "alacritty --class=weechat -e zsh -ic weechat"
+
+exec --no-startup-id i3-msg "workspace $ws10; exec telegram-desktop; split v; exec transmission-gtk"
+exec --no-startup-id i3-msg "workspace $ws1; exec firefox"
+
+no_focus [class="gmail"]
+assign [class="gmail"] $wsEmail
+exec "google-chrome-beta --class=gmail"

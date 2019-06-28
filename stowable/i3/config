@@ -223,7 +223,7 @@ bar {
         }
 }
 
-exec_always --no-startup-id sh ~/.fehbg
+exec --no-startup-id "sleep 1; sh ~/.fehbg"
 exec --no-startup-id compton --daemon
 
 # Start transmission here because disks aren't quite done mounting in ~/.xinitrc

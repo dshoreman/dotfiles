@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=Tropico 6
+Comment=Play Tropico 6
+Exec=/run/media/dshoreman/data/games/Tropico.6/Tropico6.sh
+Terminal=false
+Type=Application
+Icon=/run/media/dshoreman/data/games/Tropico.6/icon.png
+Categories=Application;Game;
+StartupNotify=true

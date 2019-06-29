@@ -1,37 +1,55 @@
 call plug#begin('~/.vim/plugged')
+    " Theme
     Plug 'KeitaNakamura/neodark.vim'
 
-    Plug 'airblade/vim-gitgutter'
-    Plug 'arnaud-lb/vim-php-namespace'
-    Plug 'ctrlpvim/ctrlp.vim' | Plug 'FelikZ/ctrlp-py-matcher'
-    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
-    Plug 'junegunn/vim-peekaboo'
-    Plug 'lambdalisue/gina.vim'
-    Plug 'ludovicchabant/vim-gutentags'
-    Plug 'majutsushi/tagbar'
-    Plug 'mattn/emmet-vim'
-    Plug 'mhinz/vim-startify'
-    Plug 'othree/html5.vim'
-    Plug 'PotatoesMaster/i3-vim-syntax'
-    Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-    Plug 'sheerun/vim-polyglot'
-    Plug 'simnalamburt/vim-mundo'
-    Plug 'SirVer/ultisnips'
-    Plug 'sjl/splice.vim'
-    Plug 'StanAngeloff/php.vim'
-    Plug 'tpope/vim-commentary'
-    Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-obsession'
-    Plug 'tpope/vim-surround'
+    " UI
     Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
-    Plug 'w0rp/ale'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'simnalamburt/vim-mundo'
+    Plug 'junegunn/vim-peekaboo'
+    Plug 'mhinz/vim-startify'
+    Plug 'majutsushi/tagbar'
+
+    " Navigation
+    Plug 'ctrlpvim/ctrlp.vim' | Plug 'FelikZ/ctrlp-py-matcher'
+    Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
     Plug 'zirrostig/vim-schlepp'
 
+    " Misc
+    Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-obsession'
+    Plug 'tpope/vim-surround'
+
+    " Git / Merging
+    Plug 'tpope/vim-fugitive'
+    Plug 'lambdalisue/gina.vim'
+    Plug 'sjl/splice.vim'
+
+    " Snippets / Code Completion
+    Plug 'SirVer/ultisnips'
     Plug 'Shougo/deoplete.nvim'
     Plug 'roxma/vim-hug-neovim-rpc'
     Plug 'roxma/nvim-yarp'
-    Plug 'phpactor/phpactor', { 'for': 'php', 'branch': 'develop', 'do': 'composer install' }
     Plug 'kristijanhusak/deoplete-phpactor'
+
+    " General Language Support
+    Plug 'w0rp/ale'
+    Plug 'ludovicchabant/vim-gutentags'
+    Plug 'sheerun/vim-polyglot'
+
+    " Specific Languages
+    Plug 'othree/html5.vim'
+    Plug 'mattn/emmet-vim'
+
+    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+    Plug 'PotatoesMaster/i3-vim-syntax'
+
+    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+
+    Plug 'arnaud-lb/vim-php-namespace'
+    Plug 'phpactor/phpactor', { 'for': 'php', 'branch': 'develop', 'do': 'composer install' }
+    Plug 'StanAngeloff/php.vim'
 
 call plug#end()
 

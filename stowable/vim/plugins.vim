@@ -27,10 +27,14 @@ call plug#begin('~/.vim/plugged')
 
     " Snippets / Code Completion
     Plug 'SirVer/ultisnips'
-    Plug 'Shougo/deoplete.nvim'
+    Plug 'ncm2/ncm2'
     Plug 'roxma/vim-hug-neovim-rpc'
     Plug 'roxma/nvim-yarp'
-    Plug 'kristijanhusak/deoplete-phpactor'
+    Plug 'pbogut/ncm2-alchemist', {'for': 'elixir'}
+    Plug 'ncm2/ncm2-html-subscope'
+    Plug 'ncm2/ncm2-markdown-subscope', {'for': 'markdown'}
+    Plug 'phpactor/ncm2-phpactor', {'for': 'php'}
+    Plug 'ncm2/ncm2-ultisnips'
 
     " General Language Support
     Plug 'w0rp/ale'
@@ -40,6 +44,8 @@ call plug#begin('~/.vim/plugged')
     " Specific Languages
     Plug 'othree/html5.vim'
     Plug 'mattn/emmet-vim'
+
+    Plug 'slashmili/alchemist.vim'
 
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
@@ -57,11 +63,6 @@ call plug#end()
 " Colour Scheme: {
     colorscheme neodark
     let g:neodark#solid_vertsplit = 1
-" }
-
-
-" Deoplete: {
-    let g:deoplete#enable_at_startup = 1
 " }
 
 
@@ -108,6 +109,14 @@ call plug#end()
 
 " Mundo: {
     nnoremap <Leader>uu :MundoToggle<CR>
+" }
+
+
+" NCM2: {
+    autocmd BufEnter * call ncm2#enable_for_buffer()
+
+    set completeopt=noinsert,menuone,noselect ",preview
+    inoremap <silent> <expr> <CR> (pumvisible() ? ncm2_ultisnips#expand_or("\<c-y>", 'n') : "\<CR>")
 " }
 
 

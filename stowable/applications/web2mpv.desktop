@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=web2mpv
+Comment=Open Youtube links in mpv
+Exec=web2mpv %U
+Icon=mpv
+Terminal=false
+Categories=Application;
+MimeType=x-scheme-handler/mpv;

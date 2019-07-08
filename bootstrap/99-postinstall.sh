@@ -13,6 +13,11 @@ if [ "$OS" == "arch" ]; then
     wget -O - https://git.io/vwzUw | bash
     echo " [DONE]"
 
+    echo -n "Adding web2mpv handler..."
+    mimelist="$HOME/.config/mimeapps.list"
+    [ -f "${mimelist}" ] && grep -q "web2mpv" "${mimelist}" || echo "x-scheme-handler/mpv=web2mpv.desktop;" >> "${mimelist}"
+    echo " [DONE]"
+
     # Required for CUPS to locate *.local network printers. See:
     # 1. https://wiki.archlinux.org/index.php/CUPS#Network
     # 2. https://wiki.archlinux.org/index.php/Avahi#Hostname_resolution

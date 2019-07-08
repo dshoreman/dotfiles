@@ -11,6 +11,8 @@ vim
 phpstorm-eap
 
 # Tools
+rg
+fzf
 meld
 vagrant
 virtualbox

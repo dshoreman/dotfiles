@@ -11,7 +11,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'majutsushi/tagbar'
 
     " Navigation
-    Plug 'ctrlpvim/ctrlp.vim' | Plug 'FelikZ/ctrlp-py-matcher'
+    Plug 'junegunn/fzf.vim'
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
     Plug 'zirrostig/vim-schlepp'
 
@@ -94,14 +94,14 @@ call plug#end()
 
 
 " CtrlP: {
-    let g:ctrlp_custom_ignore = '\v[\/]\.(git|idea)$'   " Ignore .git and .idea directories
-    let g:ctrlp_match_func = {
-                \ 'match': 'pymatcher#PyMatch' }        " Set matching function to pymatcher
-    let g:ctrlp_user_command = 'ag %s -l                " Use the silver searcher to index
-                \ --nocolor                             " ...but strip colour,
-                \ --nogroup                             " ...remove headings and blank lines,
-                \ --hidden                              " ...include hidden files,
-                \ -g ""'                                " ...and finally run the search
+    if executable('rg')
+        let $FZF_DEFAULT_COMMAND = 'rg --hidden --no-ignore-vcs -li ""'
+        nnoremap <C-g> :Rg<CR>
+    elseif executable('ag')
+        let $FZF_DEFAULT_COMMAND = 'ag --hidden --skip-vcs-ignores -lg ""'
+    endif
+
+    nnoremap <C-p> :Files<CR>
 " }
 
 

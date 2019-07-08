@@ -31,8 +31,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'roxma/vim-hug-neovim-rpc'
     Plug 'roxma/nvim-yarp'
     Plug 'pbogut/ncm2-alchemist', {'for': 'elixir'}
+    Plug 'ncm2/ncm2-bufword'
+    Plug 'fgrsnau/ncm2-otherbuf'
     Plug 'ncm2/ncm2-html-subscope'
     Plug 'ncm2/ncm2-markdown-subscope', {'for': 'markdown'}
+    Plug 'ncm2/ncm2-path'
     Plug 'phpactor/ncm2-phpactor', {'for': 'php'}
     Plug 'ncm2/ncm2-ultisnips'
 
@@ -115,8 +118,8 @@ call plug#end()
 " NCM2: {
     autocmd BufEnter * call ncm2#enable_for_buffer()
 
-    set completeopt=noinsert,menuone,noselect ",preview
-    inoremap <silent> <expr> <CR> (pumvisible() ? ncm2_ultisnips#expand_or("\<c-y>", 'n') : "\<CR>")
+    set completeopt=noinsert,menuone,noselect
+    inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
 " }
 
 

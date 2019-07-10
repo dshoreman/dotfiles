@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+if [ -z "$1" ]; then
+    echo "Usage: mailpass <email address or domain>"
+    exit 1
+fi
+
+account=$(lpass ls -l Email | \grep "${1}" | sed -E 's/.*\[id: ([0-9]+)\].*/\1/')
+
+if [ "$account" = "" ]; then
+    echo "Account ${1} not found."
+    exit 1
+fi
+
+lpass show --password "$account"

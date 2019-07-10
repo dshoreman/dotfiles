@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+if [ -z "${NEXMO_API_KEY}" ] || [ -z "${NEXMO_SECRET}" ]; then
+    echo "NEXMO_API_KEY and NEXMO_SECRET must be set prior to use."
+    exit 1
+fi
+
+read -rp "To: " mobnum
+read -rp "From: " from
+
+echo "Enter your message below:"
+read -r content
+
+count=$(echo -n "${content}" | wc -m)
+from=${from:-${NEXMO_FROM:-Anonymous}}
+
+echo
+echo
+echo -e "Sending the following message from ${from}, to 44${mobnum:1}:\n\n${content}"
+echo
+echo "The message contains ${count} characters."
+read -rp "Continue? [y/N] " answer
+
+if [ "$answer" != "y" ]; then
+    echo "Aborting."
+    exit
+fi
+
+curl -X POST https://rest.nexmo.com/sms/json \
+    -d api_key="${NEXMO_API_KEY}" -d api_secret="${NEXMO_SECRET}" \
+    -d to="44${mobnum:1}" \
+    -d from="${from}" \
+    -d text="${content}"

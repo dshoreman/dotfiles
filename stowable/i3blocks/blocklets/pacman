@@ -1,41 +1,30 @@
 #!/bin/bash
 
-bgcolor=""
-
-# Requires sudoers set to NOPASSWD
-# Comment out if you'd rather run manually
-sudo pacman -Sy > /dev/null
-
-updates=$(pacman -Sup | wc -l)
+updates=$(checkupdates | wc -l)
 
 if (( updates == 0 )); then
     echo ""
     exit
-else
-    text="$updates"
+fi
 
-    if (( updates < 10 )); then
-        fgcolor="#CCFF00"
-    elif (( updates <= 25 )); then
-        fgcolor="#FFFF00"
-    elif (( updates <= 50 )); then
-        fgcolor="#FFAA00"
-    elif (( updates < 100 )); then
-        fgcolor="#FF0000"
-    else
-        fgcolor="#FFFFFF"
-        bgcolor="#FF2400"
-        text+=" (!!)"
-    fi
+if (( updates < 10 )); then
+    fgcolor="#FFFFFF"
+elif (( updates <= 25 )); then
+    fgcolor="#CCFF00"
+elif (( updates <= 50 )); then
+    fgcolor="#FFFF00"
+elif (( updates <= 75 )); then
+    fgcolor="#FFAA00"
+elif (( updates < 100 )); then
+    fgcolor="#FF0000"
+else
+    fgcolor="#FFFFFF"
 fi
 
 fmt="foreground=\"$fgcolor\""
-if [ "$bgcolor" != "" ]; then
-    fmt+=" background=\"$bgcolor\""
+if (( updates >= 100 )); then
+    fmt+=' background="#FF2400"'
+    updates+=" (!!)"
 fi
 
-if [ "$text" != "" ]; then
-    echo "<span $fmt> $LABEL$text </span>"
-else
-    echo ""
-fi
+echo "<span $fmt> $LABEL$updates </span>"

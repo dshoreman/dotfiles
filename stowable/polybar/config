@@ -58,7 +58,7 @@ font-3 = "mplus Nerd Font:style=light:size=10;1"
 
 modules-left = i3
 modules-center = mpd
-modules-right = xkeyboard cpu cpu-loadavg memory temperature filesystem usbmedia eth date pulseaudio powermenu
+modules-right = xkeyboard cpu cpu-loadavg memory cputemp gputemp disktemp filesystem usbmedia eth date pulseaudio powermenu
 
 tray-position = right
 tray-padding = 2
@@ -250,7 +250,7 @@ bar-volume-empty = 
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
-[module/temperature]
+[module/disktemp]
 type = internal/temperature
 thermal-zone = 0
 warn-temperature = 60
@@ -264,10 +264,19 @@ label = %temperature-c%
 label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
+
+[module/cputemp]
+inherit = module/disktemp
+
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input
+
+[module/gputemp]
+inherit = module/disktemp
+hwmon-path = /sys/devices/platform/it87.2608/hwmon/hwmon2/temp1_input
 
 [module/powermenu]
 type = custom/menu

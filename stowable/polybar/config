@@ -58,7 +58,7 @@ font-3 = "mplus Nerd Font:style=light:size=10;1"
 
 modules-left = i3
 modules-center = mpd
-modules-right = xkeyboard cpu cpu-loadavg memory cputemp gputemp disktemp filesystem usbmedia eth date pulseaudio powermenu
+modules-right = pacman xkeyboard highmem cpu cpu-loadavg memory cputemp gputemp disktemp filesystem usbmedia eth date pulseaudio powermenu
 
 tray-position = right
 tray-padding = 2
@@ -148,6 +148,19 @@ label-urgent-padding = 2
 
 ; Separator in between workspaces
 ; label-separator = |
+
+
+[module/pacman]
+type = custom/script
+format-prefix = " "
+exec = ~/.config/polybar/scripts/pacman
+
+
+[module/highmem]
+type = custom/script
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+exec = ~/.config/polybar/scripts/highmem
 
 
 [module/mpd]

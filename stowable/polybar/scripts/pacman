@@ -1,0 +1,14 @@
+#!/bin/bash
+
+updates=$(checkupdates | wc -l)
+
+if (( updates == 0 )); then
+    echo ""
+    exit
+fi
+
+if (( updates >= 100 )); then
+    updates+=" (!!)"
+fi
+
+echo "$updates"

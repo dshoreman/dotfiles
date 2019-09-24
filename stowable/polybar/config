@@ -34,7 +34,7 @@ height = 27
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 6.0
-fixed-center = false
+fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -57,7 +57,7 @@ font-2 = "Lekton Nerd Font:pixelsize=12;1"
 font-3 = "mplus Nerd Font:style=light:size=10;1"
 
 modules-left = i3
-modules-center = mpd
+modules-center = nowplaying
 modules-right = pacman xkeyboard highmem cpu cpu-loadavg memory cputemp gputemp disktemp filesystem usbmedia eth date pulseaudio powermenu
 
 tray-position = right
@@ -163,18 +163,15 @@ format-prefix-foreground = ${colors.foreground-alt}
 exec = ~/.config/polybar/scripts/highmem
 
 
-[module/mpd]
-type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+[module/nowplaying]
+type = custom/script
+exec = ~/.config/polybar/scripts/nowplaying.sh
+interval = 3
+format-prefix = "♫ "
+click-left = playerctl previous
+click-right = playerctl next
+click-middle = playerctl play-pause
 
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-
-label-song-maxlen = 25
-label-song-ellipsis = true
 
 [module/cpu]
 type = internal/cpu

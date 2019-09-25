@@ -30,9 +30,10 @@ module-margin-left = 1
 module-margin-right = 2
 
 font-0 = "Terminess Nerd Font Mono:style=Book:size=10;0"
-font-1 = "Monoid Nerd Font Mono:size=8;0"
+font-1 = "Monoid Nerd Font Mono:size=10;0"
 font-2 = "Lekton Nerd Font:pixelsize=12;1"
-font-3 = "mplus Nerd Font:style=light:size=10;1"
+font-3 = "Monoid Nerd Font Mono:size=18;0"
+font-4 = "mplus Nerd Font:style=light:size=10;1"
 
 modules-left = i3
 modules-center = nowplaying
@@ -88,28 +89,45 @@ wrapping-scroll = false
 pin-workspaces = true
 strip-wsnumbers = true
 
+ws-icon-0 = "email;"
+ws-icon-1 = "0:;"
+ws-icon-2 = "1:www;爵"
+ws-icon-3 = "2:dev;"
+ws-icon-4 = "3;%{T2}3"
+ws-icon-5 = "4;%{T2}4"
+ws-icon-6 = "5;%{T2}5"
+ws-icon-7 = "6;%{T2}6"
+ws-icon-8 = "7;%{T2}7"
+ws-icon-9 = "8;%{T2}8"
+ws-icon-10 = "9;%{T2}9"
+ws-icon-11 = "10:comms;﬐"
+
 label-mode-padding = 2
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
-label-focused = %name%
+label-focused = %icon%
+label-focused-font = 4
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %name%
+label-unfocused = %icon%
+label-unfocused-font = 4
 label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %name%
+label-visible = %icon%
+label-visible-font = 4
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %name%
+label-urgent = %icon%
+label-urgent-font = 4
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 

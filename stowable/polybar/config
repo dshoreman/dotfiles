@@ -125,7 +125,7 @@ label-urgent-padding = 2
 
 [module/pacman]
 type = custom/script
-format-prefix = " "
+format-prefix = " "
 exec = ~/.config/polybar/scripts/pacman
 
 

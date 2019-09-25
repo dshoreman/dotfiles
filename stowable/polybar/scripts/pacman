@@ -1,8 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-updates=$(checkupdates | wc -l)
+pacupdates=$(checkupdates 2>/dev/null | wc -l)
+aurupdates=$(pacaur -Qum 2>/dev/null | wc -l)
 
-if (( updates == 0 )); then
+if (( pacupdates == 0 )) && (( aurupdates == 0 )); then
     echo ""
     exit
 fi
@@ -11,4 +12,10 @@ if (( updates >= 100 )); then
     updates+=" (!!)"
 fi
 
-echo "$updates"
+echo -n "$pacupdates"
+
+if [ "$aurupdates" -gt 0 ]; then
+    echo -n "+$aurupdates"
+fi
+
+echo

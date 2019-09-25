@@ -36,7 +36,7 @@ font-3 = "Monoid Nerd Font Mono:size=18;0"
 font-4 = "mplus Nerd Font:style=light:size=10;1"
 font-5 = "Weather Icons:size=12;0"
 
-modules-left = i3 weather
+modules-left = i3 weather wpm trash
 modules-center = nowplaying
 modules-right = highmem cpu cpu-loadavg memory cputemp gputemp disktemp filesystem usbmedia eth date volume
 
@@ -145,7 +145,22 @@ exec = ~/.config/polybar/scripts/weather.sh
 exec-if = ping openweathermap.org -c1
 interval = 600
 label-font = 6
-label-padding-left = 50
+label-padding-left = 25
+
+[module/wpm]
+type = custom/script
+exec = ~/.config/polybar/scripts/wpm.sh
+tail = true
+label-font = 6
+label-padding-left = 15
+
+[module/trash]
+type = custom/script
+exec = ~/.config/polybar/scripts/trash.sh
+click-left = nautilus /run/media/dshoreman/data/.Trash-1000/files
+interval = 60
+label-font = 6
+label-padding-left = 10
 
 [module/pacman]
 type = custom/script

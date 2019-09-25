@@ -34,8 +34,9 @@ font-1 = "Monoid Nerd Font Mono:size=10;0"
 font-2 = "Lekton Nerd Font:pixelsize=12;1"
 font-3 = "Monoid Nerd Font Mono:size=18;0"
 font-4 = "mplus Nerd Font:style=light:size=10;1"
+font-5 = "Weather Icons:size=12;0"
 
-modules-left = i3
+modules-left = i3 weather
 modules-center = nowplaying
 modules-right = highmem cpu cpu-loadavg memory cputemp gputemp disktemp filesystem usbmedia eth date volume
 
@@ -62,6 +63,7 @@ font-2 = "Lekton Nerd Font:pixelsize=10;1"
 font-3 = "Monoid Nerd Font Mono:size=16;0"
 font-4 = "mplus Nerd Font:style=light:size=10;1"
 
+modules-left = i3
 modules-center = pacman
 modules-right = cpu cpu-loadavg mem cputemp gputemp disktemp filesystem usbmedia bandwidth date volume
 
@@ -136,6 +138,14 @@ label-urgent = %icon%
 label-urgent-font = 4
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
+
+[module/weather]
+type = custom/script
+exec = ~/.config/polybar/scripts/weather.sh
+exec-if = ping openweathermap.org -c1
+interval = 600
+label-font = 6
+label-padding-left = 50
 
 [module/pacman]
 type = custom/script

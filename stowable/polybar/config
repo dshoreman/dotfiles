@@ -8,7 +8,7 @@ secondary = #e60053
 alert = #bd2c40
 
 [bar/primary]
-monitor = ${env:MONITOR:HDMI-0}
+monitor = DP-0
 width = 100%
 height = 27
 radius = 0
@@ -36,7 +36,8 @@ font-3 = "Monoid Nerd Font Mono:size=18;0"
 font-4 = "mplus Nerd Font:style=light:size=10;1"
 font-5 = "Weather Icons:size=12;0"
 
-modules-left = i3 weather wpm trash
+compton-padding = 15
+modules-left = i3 weather compton httpd mariadb cups smb wpm trash
 modules-center = nowplaying
 modules-right = highmem cpu cpu-loadavg memory cputemp gputemp disktemp filesystem usbmedia eth date volume
 
@@ -52,6 +53,14 @@ scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
 cursor-click = pointer
+
+[bar/primary-alt]
+inherit = bar/primary
+monitor = HDMI-0
+
+compton-padding = 5
+modules-left = i3 compton httpd mariadb cups smb
+modules-center =
 
 [bar/secondary]
 inherit = bar/primary
@@ -147,11 +156,39 @@ interval = 600
 label-font = 6
 label-padding-left = 25
 
+[module/compton]
+type = custom/script
+exec = ~/.config/polybar/scripts/compton.sh
+click-left = ~/.config/polybar/scripts/compton.sh --toggle
+interval = 5
+label-font = 3
+label-padding-left = ${root.compton-padding}
+
+[module/mariadb]
+type = custom/script
+exec = UNIT=mariadb ~/.config/polybar/scripts/sysctl.sh
+tail = true
+interval = 5
+label-font = 3
+label-padding-left = 2
+
+[module/httpd]
+inherit = module/mariadb
+exec = UNIT=httpd ~/.config/polybar/scripts/sysctl.sh
+
+[module/cups]
+inherit = module/mariadb
+exec = UNIT=cups-browsed ~/.config/polybar/scripts/sysctl.sh
+
+[module/smb]
+inherit = module/mariadb
+exec = UNIT=smb ~/.config/polybar/scripts/sysctl.sh
+
 [module/wpm]
 type = custom/script
 exec = ~/.config/polybar/scripts/wpm.sh
 tail = true
-label-font = 6
+label-font = 3
 label-padding-left = 15
 
 [module/trash]
@@ -159,8 +196,8 @@ type = custom/script
 exec = ~/.config/polybar/scripts/trash.sh
 click-left = nautilus /run/media/dshoreman/data/.Trash-1000/files
 interval = 60
-label-font = 6
-label-padding-left = 10
+label-font = 3
+label-padding-left = 5
 
 [module/pacman]
 type = custom/script

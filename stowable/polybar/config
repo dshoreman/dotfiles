@@ -217,7 +217,7 @@ format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 
-label = %date% %time%
+label = %{A1:yad --calendar --width=222 --height=173 --undecorated --fixed --no-buttons --posx=5410 --posy=25 --borders=0 --title="yad-calendar" > /dev/null &:}%date% %time%%{A}
 label-font = 3
 
 [module/volume]

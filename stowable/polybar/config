@@ -56,8 +56,14 @@ cursor-click = pointer
 inherit = bar/primary
 monitor = DVI-I-0
 
+font-0 = "Terminess Nerd Font Mono:style=Book:size=8;0"
+font-1 = "Monoid Nerd Font Mono:size=8;0"
+font-2 = "Lekton Nerd Font:pixelsize=10;1"
+font-3 = "Monoid Nerd Font Mono:size=16;0"
+font-4 = "mplus Nerd Font:style=light:size=10;1"
+
 modules-center = pacman
-modules-right = cpu cpu-loadavg mem cputemp gputemp disktemp filesystem usbmedia bandwidth time volume-nobar
+modules-right = cpu cpu-loadavg mem cputemp gputemp disktemp filesystem usbmedia bandwidth date volume
 
 [module/filesystem]
 type = internal/fs
@@ -214,16 +220,11 @@ format-underline = #0a6cf5
 label = %date% %time%
 label-font = 3
 
-[module/time]
-inherit = module/date
-format-prefix = " "
-label = %time%
-
-[module/volume-nobar]
+[module/volume]
 type = internal/pulseaudio
 interval = 2
 
-format-volume = <ramp-volume>  <label-volume>
+format-volume = <ramp-volume>  <bar-volume> <label-volume>
 label-volume = %{A3:pavucontrol --class=pavu_floating & sleep 0.2 && i3-msg '[class="pavu_floating"] floating enable, resize set 450px 500px, move position mouse, move down 25px' &:}%percentage:02%%%{A}
 label-volume-foreground = ${root.foreground}
 
@@ -233,11 +234,6 @@ ramp-volume-2 = 墳
 
 label-muted = %{A3:pavucontrol --class=pavu_floating & sleep 0.2 && i3-msg '[class="pavu_floating"] floating enable, resize set 450px 500px, move position mouse, move down 25px' &:}ﱝ MUTE%{A}
 label-muted-foreground = #999
-
-[module/volume]
-inherit = module/volume-nobar
-
-format-volume = <ramp-volume>  <bar-volume> <label-volume>
 
 bar-volume-format = %{A3:pavucontrol --class=pavu_floating & sleep 0.2 && i3-msg '[class="pavu_floating"] floating enable, resize set 450px 500px, move position mouse, move down 25px' &:}%fill%%indicator%%empty%%{A}
 bar-volume-width = 12

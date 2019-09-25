@@ -36,7 +36,7 @@ font-3 = "mplus Nerd Font:style=light:size=10;1"
 
 modules-left = i3
 modules-center = nowplaying
-modules-right = pacman xkeyboard highmem cpu cpu-loadavg memory cputemp gputemp disktemp filesystem usbmedia eth date pulseaudio
+modules-right = highmem cpu cpu-loadavg memory cputemp gputemp disktemp filesystem usbmedia eth date volume
 
 tray-position = right
 tray-padding = 2
@@ -52,21 +52,12 @@ tray-padding = 2
 cursor-click = pointer
 cursor-scroll = ns-resize
 
-[module/xkeyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
+[bar/secondary]
+inherit = bar/primary
+monitor = DVI-I-0
 
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${colors.secondary}
-
-label-layout = %layout%
-label-layout-underline = ${colors.secondary}
-
-label-indicator-padding = 2
-label-indicator-margin = 1
-label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.secondary}
+modules-center = pacman
+modules-right = cpu cpu-loadavg mem cputemp gputemp disktemp filesystem usbmedia bandwidth time volume-nobar
 
 [module/filesystem]
 type = internal/fs
@@ -171,6 +162,10 @@ format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
 label = %gb_free% (%percentage_free%%)
 
+[module/mem]
+inherit = module/memory
+label = %gb_free%
+
 [module/eth]
 type = internal/network
 interface = enp3s0
@@ -179,9 +174,13 @@ interval = 3.0
 format-connected-underline = #55aa55
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%   %downspeed%  %upspeed%
+label-connected = %local_ip%    %downspeed%    %upspeed%
 
 format-disconnected =
+
+[module/bandwidth]
+inherit = module/eth
+label-connected =  %downspeed%    %upspeed%
 
 [module/date]
 type = internal/date
@@ -196,11 +195,16 @@ format-underline = #0a6cf5
 label = %date% %time%
 label-font = 3
 
-[module/pulseaudio]
+[module/time]
+inherit = module/date
+format-prefix = " "
+label = %time%
+
+[module/volume-nobar]
 type = internal/pulseaudio
 interval = 2
 
-format-volume = <ramp-volume>  <bar-volume> <label-volume>
+format-volume = <ramp-volume>  <label-volume>
 label-volume = %percentage:02%%
 label-volume-foreground = ${root.foreground}
 
@@ -210,6 +214,11 @@ ramp-volume-2 = 墳
 
 label-muted = ﱝ MUTE
 label-muted-foreground = #999
+
+[module/volume]
+inherit = module/volume-nobar
+
+format-volume = <ramp-volume>  <bar-volume> <label-volume>
 
 bar-volume-width = 12
 bar-volume-foreground-0 = #55aa55

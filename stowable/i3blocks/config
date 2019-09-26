@@ -11,7 +11,7 @@ LABEL=♫
 signal=10
 interval=5
 align=center
-color=#545454
+color=#CFCFAF
 min_width=400
 
 [pacman]
@@ -30,37 +30,37 @@ interval=5
 
 [cpu_usage]
 color=#d15517
-label= 
+LABEL= 
 interval=10
 
 [load_average]
-label= 
+LABEL= 
 color=#d15517
 interval=10
 
 [separator]
 
 [memory]
-label= 
+LABEL= 
 color=#17d155
-interval=30
+interval=5
 
 [separator]
 
 [temperature]
-label= 
+LABEL= 
 SENSOR_CHIP=coretemp-isa-0000
 color=#d11793
 interval=10
 
 [temperature]
-label= 
+LABEL= 
 SENSOR_CHIP=it8620-isa-0a30
 color=#d11793
 interval=10
 
 [temperature]
-label= 
+LABEL= 
 SENSOR_CHIP=acpitz-acpi-0
 color=#d11793
 interval=10
@@ -89,7 +89,7 @@ interval=1800
 [iface -4]
 instance=enp3s0
 color=#1793D1
-label=
+LABEL= 
 interval=10
 
 [bandwidth -i  -o ]
@@ -107,7 +107,7 @@ interval=1
 
 [calendar]
 color=#d1ca16
-label= 
+LABEL= 
 interval=1
 
 [separator]

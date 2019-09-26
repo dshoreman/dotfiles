@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Requires sudoers set to NOPASSWD
+# Comment out if you'd rather run manually
+#
+# We use this instead of checkupdates so that
+# our `aurupdates` command is kept up to date
+sudo pacman -Sy > /dev/null
+updates=$(pacman -Sup | wc -l)
+
 updates=$(checkupdates | wc -l)
 
 if (( updates == 0 )); then

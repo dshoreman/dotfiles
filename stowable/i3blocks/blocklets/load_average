@@ -4,14 +4,16 @@
 #
 # Licensed under the terms of the GNU GPL v3, or any later version.
 
+label=${LABEL:-}
+
 load="$(cut -d ' ' -f1 /proc/loadavg)"
 cpus="$(nproc)"
 
 # full text
-echo "$load"
+echo "${label}${load}"
 
 # short text
-echo "$load"
+echo "${label}${load}"
 
 # color if load is too high
 awk -v cpus="$cpus" -v cpuload="$load" '

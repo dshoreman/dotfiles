@@ -5,6 +5,8 @@
 #
 # Licensed under the terms of the GNU GPL v3, or any later version.
 
+LABEL=${LABEL:-}
+
 # Use the provided interface, otherwise the device used for the default route.
 if [[ -n $BLOCK_INSTANCE ]]; then
     IF=$BLOCK_INSTANCE
@@ -17,8 +19,8 @@ fi
 [[ ! -d /sys/class/net/${IF} ]] && exit
 
 if [[ "$(cat "/sys/class/net/$IF/operstate")" = 'down' ]]; then
-    echo down # full text
-    echo down # short text
+    echo "${LABEL}down" # full text
+    echo "${LABEL}down" # short text
     echo \#FF0000 # color
     exit
 fi
@@ -39,5 +41,5 @@ case $BLOCK_BUTTON in
     3) echo -n "$IPADDR" | xclip -q -se c ;;
 esac
 
-echo "$IPADDR" # full text
-echo "$IPADDR" # short text
+echo "${LABEL}${IPADDR}" # full text
+echo "${LABEL}${IPADDR}" # short text

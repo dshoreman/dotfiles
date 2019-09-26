@@ -6,7 +6,7 @@
 
 TYPE="${BLOCK_INSTANCE:-mem}"
 
-awk -v type="$TYPE" '
+awk -v label="$LABEL" -v type="$TYPE" '
 /^MemTotal:/ {
     mem_total=$2
 }
@@ -42,10 +42,10 @@ END {
     }
 
     # full text
-    printf("%.1fG (%.f%%)\n", free, pct)
+    printf("%s%.1fG (%.f%%)\n", label, free, pct)
 
     # short text
-    printf("%.1fG\n", free)
+    printf("%s%.1fG\n", label, free)
 
     # color
     if (pct < 10) {

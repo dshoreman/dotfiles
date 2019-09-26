@@ -217,28 +217,7 @@ client.urgent           #2f343a99 #90000099 #ffffff99 #90000099 #2f343aaa
 client.placeholder      #00000000 #0c0c0c00 #ffffff00 #00000000
 client.background color #00000000
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        font pango:"Monoid Nerd Font Regular" 10
-        strip_workspace_numbers yes
-        position top
-        i3bar_command i3bar -t
-        status_command i3blocks
-        tray_output primary
-
-        colors {
-            background #00000066
-            statusline #ffffffcc
-            separator  #ffffffcc
-
-            active_workspace    #121212 #004caa #ffffff
-            focused_workspace   #121212 #0087af #ffffff
-            inactive_workspace  #121212 #121212 #ffffff
-            urgent_workspace    #121212 #dd0048 #ffffff
-        }
-}
-
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id "sleep 1; sh ~/.fehbg"
 exec --no-startup-id compton --daemon
 

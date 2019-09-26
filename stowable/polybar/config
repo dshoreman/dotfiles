@@ -43,11 +43,6 @@ modules-right = highmem cpu cpu-loadavg memory cputemp gputemp disktemp filesyst
 
 tray-position = right
 tray-padding = 2
-;tray-background = #0063ff
-
-;wm-restack = i3
-
-;override-redirect = true
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -57,14 +52,16 @@ cursor-click = pointer
 [bar/primary-alt]
 inherit = bar/primary
 monitor = HDMI-0
-
+tray-position = none
 compton-padding = 5
+
 modules-left = i3 compton httpd mariadb cups smb
 modules-center =
 
 [bar/secondary]
 inherit = bar/primary
 monitor = DVI-I-0
+tray-position = none
 
 font-0 = "Terminess Nerd Font Mono:style=Book:size=8;0"
 font-1 = "Monoid Nerd Font Mono:size=8;0"

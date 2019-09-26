@@ -37,7 +37,7 @@ font-4 = "mplus Nerd Font:style=light:size=10;1"
 font-5 = "Weather Icons:size=12;0"
 
 compton-padding = 15
-modules-left = i3 weather compton httpd mariadb cups smb wpm trash
+modules-left = i3 weather compton httpd mariadb cups smb wpm pacman trash
 modules-center = nowplaying
 modules-right = highmem cpu cpu-loadavg memory cputemp gputemp disktemp filesystem usbmedia eth date volume
 
@@ -190,6 +190,7 @@ exec = ~/.config/polybar/scripts/wpm.sh
 tail = true
 label-font = 3
 label-padding-left = 15
+label-padding-right = 5
 
 [module/trash]
 type = custom/script
@@ -201,7 +202,6 @@ label-padding-left = 5
 
 [module/pacman]
 type = custom/script
-format-prefix = " "
 exec = ~/.config/polybar/scripts/pacman
 
 [module/highmem]

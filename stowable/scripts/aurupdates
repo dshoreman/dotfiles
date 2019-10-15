@@ -37,7 +37,7 @@ gitcheck() {
 check_package() {
     local update srcdir="${HOME}/.cache/aurcheck-git/${package}"
 
-    fetch_metadata
+    fetch_metadata || (echo "Failed fetching metadata for ${srcdir}." && return)
     fetch_sources
     update="$(pkgver)"
 
@@ -52,7 +52,7 @@ fetch_metadata() {
     fi
 
     # shellcheck source=/usr/share/pacman/PKGBUILD-vcs.proto
-    source PKGBUILD
+    [ -f "PKGBUILD" ] && source PKGBUILD
 }
 
 fetch_sources() {

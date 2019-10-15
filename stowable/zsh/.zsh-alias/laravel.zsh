@@ -2,10 +2,10 @@
 
 [ -e make ] && alias dpa="$(make art)"
 
-alias cpu="clear; vendor/bin/phpunit"
+alias cpu="clear; pat"
 alias pa="php artisan"
 alias pas="pa serve"
-alias pat="vendor/bin/phpunit"
+alias pat="if [ -f Makefile ]; then make test; else vendor/bin/phpunit; fi"
 alias coverage="phpdbg -qrr vendor/bin/phpunit"
 alias covtext="coverage --coverage-text"
 alias covhtml="coverage --coverage-html tests/reports/$(date '+%Y-%m-%d_%H%M')"

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 pacupdates=$(checkupdates 2>/dev/null | wc -l)
-aurupdates=$(pacaur -Qum 2>/dev/null | wc -l)
+aurupdates=$(pacaur -Qum 2>/dev/null | grep -c -v '[ ignored ]')
 
 if (( pacupdates == 0 )) && (( aurupdates == 0 )); then
     echo ""

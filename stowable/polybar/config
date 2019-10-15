@@ -200,6 +200,7 @@ label-padding-left = 5
 [module/pacman]
 type = custom/script
 exec = ~/.config/polybar/scripts/pacman
+interval = 600
 
 [module/highmem]
 type = custom/script

@@ -512,6 +512,9 @@ key_bindings:
   #- { key: Q,      mods: Command, action: Quit             }
   #- { key: W,      mods: Command, action: Quit             }
 
+  - { key: T, mods: Control|Shift,  action: SpawnNewInstance                 }
+  - { key: Return, mods: Super|Shift,  action: SpawnNewInstance              }
+
   - { key: Paste,                   action: Paste                            }
   - { key: Copy,                    action: Copy                             }
   - { key: L,        mods: Control, action: ClearLogNotice                   }

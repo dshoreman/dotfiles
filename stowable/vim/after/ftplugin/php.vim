@@ -6,6 +6,8 @@ nmap <C-S-k> :vert terminal ++close pman <cword><CR>
 
 " ALE: {
     let b:ale_fixers = ['php_cs_fixer']
+    let b:ale_php_phpcs_standard = 'PSR12'
+    let b:ale_php_phpmd_ruleset = '.phpmd.xml'
 " }
 
 " PHPactor: {

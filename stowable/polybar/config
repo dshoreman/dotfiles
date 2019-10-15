@@ -1,0 +1,346 @@
+[colors]
+background = #AA222222
+background-alt = #444
+foreground = #dfdfdf
+foreground-alt = #555
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+
+[bar/primary]
+monitor = DP-0
+width = 100%
+height = 27
+radius = 0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = "Terminess Nerd Font Mono:style=Book:size=10;0"
+font-1 = "Monoid Nerd Font Mono:size=10;0"
+font-2 = "Lekton Nerd Font:pixelsize=12;1"
+font-3 = "Monoid Nerd Font Mono:size=18;0"
+font-4 = "mplus Nerd Font:style=light:size=10;1"
+font-5 = "Weather Icons:size=12;0"
+
+compton-padding = 15
+modules-left = i3 weather compton httpd mariadb cups smb wpm pacman trash
+modules-center = nowplaying
+modules-right = highmem cpu cpu-loadavg memory cputemp gputemp disktemp filesystem usbmedia eth date volume
+
+tray-position = right
+tray-padding = 2
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+
+[bar/primary-alt]
+inherit = bar/primary
+monitor = HDMI-0
+tray-position = none
+compton-padding = 5
+
+modules-left = i3 compton httpd mariadb cups smb
+modules-center =
+
+[bar/secondary]
+inherit = bar/primary
+monitor = DVI-I-0
+tray-position = none
+
+font-0 = "Terminess Nerd Font Mono:style=Book:size=8;0"
+font-1 = "Monoid Nerd Font Mono:size=8;0"
+font-2 = "Lekton Nerd Font:pixelsize=10;1"
+font-3 = "Monoid Nerd Font Mono:size=16;0"
+font-4 = "mplus Nerd Font:style=light:size=10;1"
+
+modules-left = i3
+modules-center = pacman
+modules-right = cpu cpu-loadavg mem cputemp gputemp disktemp filesystem usbmedia bandwidth date volume
+
+[module/filesystem]
+type = internal/fs
+fixed-values = true
+interval = 25
+
+mount-0 = /
+
+label-mounted = %{F#0a81f5}%{F-} %free%
+label-unmounted =
+
+[module/usbmedia]
+inherit = module/filesystem
+
+mount-0 = /run/media/dshoreman/data
+mount-1 = /run/media/dshoreman/sg
+
+label-mounted = %{F#0a81f5}禍%{F-} %free%
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+enable-scroll = false
+reverse-scroll = false
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+pin-workspaces = true
+strip-wsnumbers = true
+
+ws-icon-0 = "email;"
+ws-icon-1 = "0:;"
+ws-icon-2 = "1:www;爵"
+ws-icon-3 = "2:dev;"
+ws-icon-4 = "3;%{T2}3"
+ws-icon-5 = "4;%{T2}4"
+ws-icon-6 = "5;%{T2}5"
+ws-icon-7 = "6;%{T2}6"
+ws-icon-8 = "7;%{T2}7"
+ws-icon-9 = "8;%{T2}8"
+ws-icon-10 = "9;%{T2}9"
+ws-icon-11 = "10:comms;﬐"
+
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %icon%
+label-focused-font = 4
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %icon%
+label-unfocused-font = 4
+label-unfocused-padding = 2
+
+; visible = Active workspace on unfocused monitor
+label-visible = %icon%
+label-visible-font = 4
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %icon%
+label-urgent-font = 4
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+[module/weather]
+type = custom/script
+exec = ~/.config/polybar/scripts/weather.sh
+exec-if = ping openweathermap.org -c1
+interval = 600
+label-font = 6
+label-padding-left = 25
+
+[module/compton]
+type = custom/script
+exec = ~/.config/polybar/scripts/compton.sh
+click-left = ~/.config/polybar/scripts/compton.sh --toggle
+interval = 5
+label-font = 3
+label-padding-left = ${root.compton-padding}
+
+[module/mariadb]
+type = custom/script
+exec = UNIT=mariadb ~/.config/polybar/scripts/sysctl.sh
+tail = true
+interval = 5
+label-font = 3
+label-padding-left = 2
+
+[module/httpd]
+inherit = module/mariadb
+exec = UNIT=httpd ~/.config/polybar/scripts/sysctl.sh
+
+[module/cups]
+inherit = module/mariadb
+exec = UNIT=cups-browsed ~/.config/polybar/scripts/sysctl.sh
+
+[module/smb]
+inherit = module/mariadb
+exec = UNIT=smb ~/.config/polybar/scripts/sysctl.sh
+
+[module/wpm]
+type = custom/script
+exec = ~/.config/polybar/scripts/wpm.sh
+tail = true
+label-font = 3
+label-padding-left = 15
+label-padding-right = 5
+
+[module/trash]
+type = custom/script
+exec = ~/.config/polybar/scripts/trash.sh
+click-left = nautilus /run/media/dshoreman/data/.Trash-1000/files
+interval = 60
+label-font = 3
+label-padding-left = 5
+
+[module/pacman]
+type = custom/script
+exec = ~/.config/polybar/scripts/pacman
+interval = 600
+
+[module/highmem]
+type = custom/script
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+exec = ~/.config/polybar/scripts/highmem
+
+[module/nowplaying]
+type = custom/script
+exec = ~/.config/polybar/scripts/nowplaying.py
+tail = true
+label = %output%
+click-left = ~/.config/polybar/scripts/nowplaying.py previous
+click-right = ~/.config/polybar/scripts/nowplaying.py next
+click-middle = ~/.config/polybar/scripts/nowplaying.py play-pause
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = "龍 "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #f90000
+label = %percentage:2%%
+
+[module/cpu-loadavg]
+type = custom/script
+interval = 2
+
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #f90000
+
+exec = ~/.config/polybar/scripts/cpu-loadavg.sh
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #4bffdc
+label = %gb_free% (%percentage_free%%)
+
+[module/mem]
+inherit = module/memory
+label = %gb_free%
+
+[module/eth]
+type = internal/network
+interface = enp3s0
+interval = 3.0
+
+format-connected-underline = #55aa55
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.foreground-alt}
+label-connected = %local_ip%    %downspeed%    %upspeed%
+
+format-disconnected =
+
+[module/bandwidth]
+inherit = module/eth
+label-connected =  %downspeed%    %upspeed%
+
+[module/date]
+type = internal/date
+interval = 1
+date = "%a %d/%m"
+time = %H:%M:%S
+
+format-prefix = 
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #0a6cf5
+
+label = %{A1:yad --calendar --width=222 --height=173 --undecorated --fixed --no-buttons --posx=5410 --posy=25 --borders=0 --title="yad-calendar" > /dev/null &:}%date% %time%%{A}
+label-font = 3
+
+[module/volume]
+type = internal/pulseaudio
+interval = 2
+
+format-volume = <ramp-volume>  <bar-volume> <label-volume>
+label-volume = %{A3:pavucontrol --class=pavu_floating & sleep 0.2 && i3-msg '[class="pavu_floating"] floating enable, resize set 450px 500px, move position mouse, move down 25px' &:}%percentage:02%%%{A}
+label-volume-foreground = ${root.foreground}
+
+ramp-volume-0 = 奄
+ramp-volume-1 = 奔
+ramp-volume-2 = 墳
+
+label-muted = %{A3:pavucontrol --class=pavu_floating & sleep 0.2 && i3-msg '[class="pavu_floating"] floating enable, resize set 450px 500px, move position mouse, move down 25px' &:}ﱝ MUTE%{A}
+label-muted-foreground = #999
+
+bar-volume-format = %{A3:pavucontrol --class=pavu_floating & sleep 0.2 && i3-msg '[class="pavu_floating"] floating enable, resize set 450px 500px, move position mouse, move down 25px' &:}%fill%%indicator%%empty%%{A}
+bar-volume-width = 12
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = true
+bar-volume-indicator = 
+bar-volume-indicator-font = 2
+bar-volume-fill = 
+bar-volume-fill-font = 2
+bar-volume-empty = 
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+[module/disktemp]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+format-underline = #f50a4d
+format-warn = <ramp> <label-warn>
+format-warn-underline = ${self.format-underline}
+
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.secondary}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.foreground-alt}
+
+[module/cputemp]
+inherit = module/disktemp
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input
+
+[module/gputemp]
+inherit = module/disktemp
+hwmon-path = /sys/devices/platform/it87.2608/hwmon/hwmon2/temp1_input
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini

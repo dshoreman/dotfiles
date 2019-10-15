@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+pacupdates=$(checkupdates 2>/dev/null | wc -l)
+aurupdates=$(pacaur -Qum 2>/dev/null | grep -c -v '[ ignored ]')
+
+if (( pacupdates == 0 )) && (( aurupdates == 0 )); then
+    echo ""
+    exit
+fi
+
+fgcolor=""
+if (( pacupdates <= 10 )); then
+    fgcolor="#ffffff"
+elif (( pacupdates <= 25 )); then
+    fgcolor="#CCFF00"
+elif (( pacupdates <= 50 )); then
+    fgcolor="#ffb52a"
+elif (( pacupdates <= 75 )); then
+    fgcolor="#bd2c40"
+elif (( pacupdates < 100 )); then
+    fgcolor="#ff0000"
+fi
+
+fmt="%{F${fgcolor}}"
+
+if (( pacupdates >= 100 )); then
+    pacupdates+=" (!!)"
+    fmt+="%{F${fgcolor}}%{B#bd2c40}"
+elif (( pacupdates > 10 )); then
+    fmt+="%{u${fgcolor}}"
+fi
+
+echo -n "${fmt}     ${pacupdates}"
+
+if (( aurupdates > 0 )); then
+    echo -n "+$aurupdates"
+fi
+
+echo "   %{F-}%{u-}"

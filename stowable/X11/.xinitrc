@@ -27,5 +27,6 @@ albert &
 redshift-gtk &
 nextcloud &
 nextshot -t &
+xcape -e 'Caps_Lock=Escape'
 
 exec i3

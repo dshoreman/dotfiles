@@ -8,7 +8,10 @@ xorg-xrdb
 xorg-xrefresh
 xorg-xset
 xorg-xsetroot
+
+# Keyboard tweaks
 numlockx
+xcape
 
 # More awesome than awesome
 i3-gaps-next-git

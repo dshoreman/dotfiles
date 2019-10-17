@@ -22,7 +22,6 @@ numlockx &
 xrandr --output DP-0 --auto --primary --output DVI-I-0 --mode 1440x900 --rate 74.98 --rotate left --right-of DP-0
 xrandr --output HDMI-0 --auto --pos 0x900
 
-xrdb -merge ~/.Xresources &
 udiskie &
 albert &
 redshift-gtk &

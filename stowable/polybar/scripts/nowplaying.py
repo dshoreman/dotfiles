@@ -41,6 +41,23 @@ class PlayerManager:
 
     def connect(self):
         self._session_bus.add_signal_receiver(self.onOwnerChangedName, 'NameOwnerChanged')
+        self._session_bus.add_signal_receiver(self.onMPRISSignal, path = '/org/mpris/MediaPlayer2',
+            sender_keyword='sender', member_keyword='member')
+
+    def onMPRISSignal(self, interface, properties, signature, member = None, sender = None):
+        if (member == 'PropertiesChanged'):
+            if (sender in self.players):
+                player = self.players[sender]
+                # If we know this player, but haven't been able to set up a signal handler
+                if ('properties_changed' not in player._signals):
+                    # Then trigger the signal handler manually
+                    player.onPropertiesChanged(interface, properties, signature)
+            else:
+                # If we don't know this player, get its name and add it
+                bus_name = self.getBusNameFromOwner(sender)
+                self.addPlayer(bus_name, sender)
+                player = self.players[sender]
+                player.onPropertiesChanged(interface, properties, signature)
 
     def onOwnerChangedName(self, bus_name, old_owner, new_owner):
         if self.busNameIsAPlayer(bus_name):
@@ -50,6 +67,13 @@ class PlayerManager:
                 self.removePlayer(old_owner)
             else:
                 self.changePlayerOwner(bus_name, old_owner, new_owner)
+
+    def getBusNameFromOwner(self, owner):
+        player_bus_names = [ bus_name for bus_name in self._session_bus.list_names() if self.busNameIsAPlayer(bus_name) ]
+        for player_bus_name in player_bus_names:
+            player_bus_owner = self._session_bus.get_name_owner(player_bus_name)
+            if owner == player_bus_owner:
+                return player_bus_name
 
     def busNameIsAPlayer(self, bus_name):
         return bus_name.startswith('org.mpris.MediaPlayer2') and bus_name.split('.')[3] not in self.blacklist
@@ -67,10 +91,17 @@ class PlayerManager:
         self.players[player.owner] = player
 
     def removePlayer(self, owner):
-        self.players[owner].disconnect()
-        del self.players[owner]
+        if owner in self.players:
+            self.players[owner].disconnect()
+            del self.players[owner]
+        # If there are no more players, clear the output
         if len(self.players) == 0:
             _printFlush(ICON_NONE)
+        # Else, print the output of the next active player
+        else:
+            players = self.getSortedPlayerOwnerList()
+            if len(players) > 0:
+                self.players[players[0]].printStatus()
 
     def changePlayerOwner(self, bus_name, old_owner, new_owner):
         player = Player(self._session_bus, bus_name, owner = new_owner, connect = self._connect, _print = self.print)
@@ -234,10 +265,15 @@ class Player:
     def _parseMetadata(self):
         if self._metadata != None:
             artist = _getProperty(self._metadata, 'xesam:artist', [''])
-            if len(artist):
+            if artist != None and len(artist):
                 self.metadata['artist'] = re.sub(SAFE_TAG_REGEX, """\1\1""", artist[0])
             else:
-                self.metadata['artist'] = ''
+                artists = _getProperty(self._metadata, 'xesam:artists', [''])
+                if artists != None and len(artists):
+                    # Note: This only grabs the first artist
+                    self.metadata['artist'] = re.sub(SAFE_TAG_REGEX, """\1\1""", artists[0])
+                else:
+                    self.metadata['artist'] = '';
             self.metadata['album']  = re.sub(SAFE_TAG_REGEX, """\1\1""", _getProperty(self._metadata, 'xesam:album', ''))
             self.metadata['title']  = re.sub(SAFE_TAG_REGEX, """\1\1""", _getProperty(self._metadata, 'xesam:title', ''))
             self.metadata['track']  = _getProperty(self._metadata, 'xesam:trackNumber', '')
@@ -482,10 +518,10 @@ else:
         current_player.printStatus()
     elif args.command == 'list':
         print("\n".join(sorted([
-            "{} : {}".format(player.bus_name.split('.')[-1], player.status)
+            "{} : {}".format(player.bus_name.split('.')[3], player.status)
             for player in player_manager.players.values() ])))
     elif args.command == 'current' and current_player:
-        print("{} : {}".format(current_player.bus_name.split('.')[-1], current_player.status))
+        print("{} : {}".format(current_player.bus_name.split('.')[3], current_player.status))
     elif args.command == 'metadata' and current_player:
         print(_dbusValueToPython(current_player._metadata))
     elif args.command == 'raise' and current_player:

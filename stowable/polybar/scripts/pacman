@@ -1,7 +1,21 @@
 #!/usr/bin/env bash
 
-pacupdates=$(checkupdates 2>/dev/null | wc -l)
-aurupdates=$(pacaur -Qum 2>/dev/null | grep -c -v '[ ignored ]')
+# Requires sudoers set to NOPASSWD
+# Comment out if you'd rather run manually
+sudo pacman -Sy > /dev/null 2>&1
+
+# We use this instead of checkupdates so that
+# our `aurupdates` command is kept up to date
+pacupdates=$(pacman -Sup | wc -l)
+
+if command -v yay > /dev/null; then
+    aurupdates=$(yay -Qum 2>/dev/null | wc -l)
+elif command -v pacaur > /dev/null; then
+    # Pacaur includes ignored packages so we need to grep them out
+    aurupdates=$(pacaur -Qum 2>/dev/null | grep -c -v '[ ignored ]')
+else
+    aurupdates=0
+fi
 
 if (( pacupdates == 0 )) && (( aurupdates == 0 )); then
     echo ""

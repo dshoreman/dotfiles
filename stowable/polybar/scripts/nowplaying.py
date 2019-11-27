@@ -346,7 +346,11 @@ class Player:
         return self._positionTimerRunning
 
     def refreshPosition(self):
-        time_us = self._getProperty('org.mpris.MediaPlayer2.Player', 'Position')
+        try:
+            time_us = self._getProperty('org.mpris.MediaPlayer2.Player', 'Position')
+        except dbus.exceptions.DBusException:
+            time_us = 0
+
         self._timeAtLastUpdate = time.time()
         self._positionAtLastUpdate = time_us / 1000000
 

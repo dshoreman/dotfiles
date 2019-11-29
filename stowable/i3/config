@@ -53,6 +53,8 @@ for_window [class="Yad"] floating enable
 # float paypal checkout.js popups
 for_window [title="PayPal - Google Chrome"][window_role="pop-up"] floating enable
 for_window [class="Steam"][name="Steam Guard - Computer Authorization Required"] floating enable
+for_window [class="Steam"][name="Steam - Self Updater"] floating enable
+for_window [class="Steam"][name^="Steam - News"] floating enable
 for_window [class="SimpleScreenRecorder"] floating enable
 for_window [class="File-roller"] floating enable
 for_window [class="Nautilus"] floating enable

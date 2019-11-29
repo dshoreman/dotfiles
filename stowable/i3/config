@@ -62,6 +62,8 @@ for_window [class="Gimp-2.8"] floating enable
 for_window [class="Etherwall"] floating enable
 for_window [class="feh"] floating enable
 
+no_focus [class="nvmon"]
+assign [class="nvmon"] $wsEmail
 assign [class="Vmware"] $wsOSX
 assign [instance="weechat"] $ws10
 assign [class="transmission-gtk"] $ws10
@@ -225,10 +227,7 @@ exec --no-startup-id "sleep 3; sh ~/.fehbg"
 exec --no-startup-id compton --daemon
 
 exec --no-startup-id "alacritty --class=weechat -e zsh -ic weechat"
+exec --no-startup-id alacritty --class nvmon,nvmon --title "Nvidia Monitor" -e watch -n0.1 nvidia-smi
 
 exec --no-startup-id i3-msg "workspace $ws10; exec telegram-desktop; split v; exec transmission-gtk"
 exec --no-startup-id i3-msg "workspace $ws1; exec firefox"
-
-no_focus [class="gmail"]
-assign [class="gmail"] $wsEmail
-exec "google-chrome-beta --class=gmail"

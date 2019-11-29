@@ -63,7 +63,8 @@ for_window [class="Etherwall"] floating enable
 for_window [class="feh"] floating enable
 
 assign [class="Vmware"] $wsOSX
-assign [instance="weechat"] workspace $ws10
+assign [instance="weechat"] $ws10
+assign [class="transmission-gtk"] $ws10
 
 # kill focused window
 bindsym $mod+Shift+q kill

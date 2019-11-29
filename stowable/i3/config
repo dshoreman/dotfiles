@@ -197,7 +197,7 @@ bindsym $mod+p mode "audio"
 
 # enable $mod+bg to change wallpaper
 mode "wallpaper" {
-    bindsym g exec --no-startup-id sh ~/.fehbg
+    bindsym g exec --no-startup-id sleep 2 && sh ~/.fehbg
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
@@ -220,7 +220,7 @@ client.placeholder      #00000000 #0c0c0c00 #ffffff00 #00000000
 client.background color #00000000
 
 exec_always --no-startup-id ~/.config/polybar/launch.sh
-exec --no-startup-id "sleep 1; sh ~/.fehbg"
+exec --no-startup-id "sleep 3; sh ~/.fehbg"
 exec --no-startup-id compton --daemon
 
 exec --no-startup-id "alacritty --class=weechat -e zsh -ic weechat"

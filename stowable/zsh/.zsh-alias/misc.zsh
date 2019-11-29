@@ -21,6 +21,7 @@ vimsession() {
         vim -c "Obsession $sessfile"
     fi
 }
+alias v=vim
 alias vs=vimsession
 
 # Set gPodder config

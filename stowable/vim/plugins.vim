@@ -48,17 +48,25 @@ call plug#begin('~/.vim/plugged')
     Plug 'othree/html5.vim'
     Plug 'mattn/emmet-vim'
 
+    " Elixir
     Plug 'slashmili/alchemist.vim'
 
+    " Golang
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
+    " i3[-gaps] Config
     Plug 'PotatoesMaster/i3-vim-syntax'
 
+    " Markdown
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
+    " PHP
     Plug 'arnaud-lb/vim-php-namespace'
     Plug 'phpactor/phpactor', { 'for': 'php', 'branch': 'develop', 'do': 'composer install' }
     Plug 'StanAngeloff/php.vim'
+
+    " Vue/JS
+    Plug 'yardnsm/vim-import-cost', { 'do': 'npm install' }
 
 call plug#end()
 
@@ -107,6 +115,11 @@ call plug#end()
 
 " GutenTags: {
     let g:gutentags_cache_dir = '~/.cache/vim/tags'    " Keep tags files out of project directories
+" }
+
+
+" Import Cost: {
+    nmap <Leader>ic :ImportCost<CR>
 " }
 
 

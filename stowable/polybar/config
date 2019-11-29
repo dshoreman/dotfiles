@@ -210,7 +210,7 @@ exec = ~/.config/polybar/scripts/highmem
 
 [module/nowplaying]
 type = custom/script
-exec = ~/.config/polybar/scripts/nowplaying.py
+exec = ~/.config/polybar/scripts/nowplaying.py -f '{icon} {:artist:{artist} - :}{title}{:album: ({album}):}'
 tail = true
 label = %output%
 click-left = ~/.config/polybar/scripts/nowplaying.py previous

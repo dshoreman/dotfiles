@@ -31,6 +31,8 @@ export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
 
 source $ZSH/oh-my-zsh.sh
 
+zstyle ':completion:*:*:make:*' tag-order 'targets'
+
 for file in ~/.zsh-alias/*.zsh; do
     . $file
 done

@@ -5,8 +5,6 @@ source ~/.vim/plugins.vim
     syntax on                         " Enable syntax highlighting
     filetype plugin indent on         " Automatically detect file types
     set background=dark               " Set colours according to dark background
-    set termguicolors                 " Enable true 24-bit colour (>=7.4.1799)
-    set term=xterm-256color           " Vim doesn't understand the 'alacritty' $TERM value
     set backspace=indent,eol,start    " Backspace over everything in insert mode
     set history=1000                  " Number of lines in command history
     set ttimeoutlen=50                " Fix lag when leaving insert mode

@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/plugged')
     " Theme
     Plug 'KeitaNakamura/neodark.vim'
+    Plug 'dshoreman/neogumbat.vim'
 
     " UI
     Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
@@ -72,8 +73,9 @@ call plug#end()
 
 
 " Colour Scheme: {
-    colorscheme neodark
+    let g:neodark#terminal_transparent = 1
     let g:neodark#solid_vertsplit = 1
+    colorscheme neodark
 " }
 
 
@@ -95,6 +97,7 @@ call plug#end()
 
 
 " Airline: {
+    let g:airline_theme = 'neogumbat'                   " Neodark theme is broken with notermguicolors
     let g:airline_powerline_fonts = 1                   " Tell airline we want more awesome
     let g:airline#extensions#tabline#enabled = 1        " Enable tabline along the top
     let g:airline#extensions#tabline#tab_nr_type = 1    " Base numbers on tab num, not num splits

@@ -4,16 +4,19 @@
 # Comment out if you'd rather run manually
 sudo pacman -Sy > /dev/null 2>&1
 
-# We use this instead of checkupdates so that
-# our `aurupdates` command is kept up to date
-pacupdates=$(pacman -Sup | wc -l)
-
 if command -v yay > /dev/null; then
+    pacupdates=$(yay -Qun 2>/dev/null | wc -l)
     aurupdates=$(yay -Qum 2>/dev/null | wc -l)
 elif command -v pacaur > /dev/null; then
     # Pacaur includes ignored packages so we need to grep them out
+    pacupdates=$(pacaur -Qun 2>/dev/null | grep -c -v '[ ignored ]')
     aurupdates=$(pacaur -Qum 2>/dev/null | grep -c -v '[ ignored ]')
 else
+    # This was previously the only command being run for main repo
+    # updates. Hopefully aurupdates should still be in sync thanks
+    # to repos being updated on line 5. This breaks when there are
+    # broken dependencies, so it should be used as a last resort.
+    pacupdates=$(pacman -Sup 2>/dev/null | wc -l)
     aurupdates=0
 fi
 

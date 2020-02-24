@@ -27,10 +27,9 @@ compton
 lastpass-cli
 ranger w3m
 redshift
-nautilus
 nextshot
+thunar tumbler thunar-archive-plugin thunar-media-tags-plugin
 gtk-theme-arc
 
 dropbox
 dropbox-cli
-nautilus-dropbox

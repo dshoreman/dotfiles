@@ -1,8 +1,14 @@
 mplayer
 mpv
+mpv-mpris
+playerctl
+rhythmbox
+ripit
 yuna
 
-# Need to find a nice CLI alternative
-rhythmbox
-
+davinci-resolve
+gifcurry
+gimp
+screenkey
+silentcast
 simplescreenrecorder

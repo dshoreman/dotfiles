@@ -1,12 +1,6 @@
 # The basic driver
-nvidia
-nvidia-libgl
-lib32-nvidia-libgl
-
-# Hardware acceleration
-nvidia-utils
+nvidia nvidia-utils
+nvidia-settings
 libva-vdpau-driver
 opencl-nvidia
-
-# Just because
-nvidia-settings
+picom

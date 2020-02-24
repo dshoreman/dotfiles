@@ -1,21 +1,37 @@
 # Core bits
+apache
+elixir
 mariadb
 php
+php-apache
+php-ast
 php-gd
+php-imagick
 php-intl
-php-mcrypt
+php-pgsql
+php-phpdbg
 php-sqlite
+postgresql
 
 # Editors
+code
 vim
-phpstorm-eap
 
 # Tools
 rg
 fzf
 meld
+zeal
+mycli
 eslint
+phpunit
 vagrant
-virtualbox
-hub gitflow-avh
+composer
+datagrip
+dbeaver
+insomnia
+shellcheck
+docker-compose docker-machine
+virtualbox virtualbox-guest-iso
+git hub gitflow-avh
 the_silver_searcher

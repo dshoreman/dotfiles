@@ -14,23 +14,24 @@ numlockx
 xcape
 
 # More awesome than awesome
-i3-gaps-next-git
-i3blocks
-yad
+i3-gaps
+polybar polybar-scripts-git
 
 # Basic utility stuff
 alacritty
 albert
-archey3
-bash-pipes
-compton
 dunst
 lastpass-cli
+nextshot slop yad
 ranger highlight w3m
 redshift
-nextshot
 thunar tumbler thunar-archive-plugin thunar-media-tags-plugin
-gtk-theme-arc
 
-dropbox
-dropbox-cli
+# Appearance
+adapta-gtk-theme
+arc-gtk-theme
+arc-icon-theme
+breeze-adapta-cursor-theme-git
+juno-theme-git
+lxappearance
+qt5ct

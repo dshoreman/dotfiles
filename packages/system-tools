@@ -1,10 +1,12 @@
 feh
-scrot
+nextshot
 dconf-editor
 font-manager
 
-# Microcode updates
+# Hardware Stuff
+dmidecode
+efibootmgr
+hfsprogs
+ntfs-3g
 iucode-tool
-
-# S.M.A.R.T. tools (smartctl)
 smartmontools

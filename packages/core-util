@@ -3,12 +3,14 @@ curl
 rsync
 wget
 htop
+gotop
 tree
 openssh
 sysstat
-udisks2
+udiskie
 python-pip
 pv
 p7zip
+samba
 unrar
 unzip

@@ -14,6 +14,7 @@ phpstorm-eap
 rg
 fzf
 meld
+eslint
 vagrant
 virtualbox
 hub gitflow-avh

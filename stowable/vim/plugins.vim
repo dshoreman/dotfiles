@@ -17,6 +17,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'zirrostig/vim-schlepp'
 
     " Misc
+    Plug 'Shougo/context_filetype.vim'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-obsession'
     Plug 'tpope/vim-surround'
@@ -67,6 +68,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'StanAngeloff/php.vim'
 
     " Vue/JS
+    Plug 'posva/vim-vue'
     Plug 'yardnsm/vim-import-cost', { 'do': 'npm install' }
 
 call plug#end()
@@ -86,9 +88,9 @@ call plug#end()
     nmap <Leader>pc :PlugClean<CR>
     nmap <Leader>pC :PlugClean!<CR>
 " }
-"
-"
-" " ALE: {
+
+
+" ALE: {
     let g:ale_fix_on_save = 1
     let g:ale_fixers = {
                 \   '*': ['remove_trailing_lines'],

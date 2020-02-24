@@ -84,15 +84,28 @@ source ~/.vim/plugins.vim
 
 " Functions: {
     " Relative line numbers (`r)
-    fun! NumberToggle()
-        if(&relativenumber == 1)
-            set nornu
-            set nu
+    fun! NumberToggle(...)
+        let hidenums = get(a:, 1, 0)
+
+        if (hidenums == 1)
+            if (&number == 1)
+                set nornu
+                set nonu
+            else
+                set rnu
+                set nu
+            endif
         else
-            set rnu
+            set nu " Numbers should always be shown for rnu, otherwise current line is 0
+            if (&relativenumber == 1)
+                set nornu
+            else
+                set rnu
+            endif
         endif
     endfun
-    nnoremap <Leader>r :call NumberToggle()<cr>
+    nnoremap <Leader>r :call NumberToggle(0)<cr>
+    nnoremap <Leader>R :call NumberToggle(1)<cr>
 
     " Strip trailing whitespace (`ss)
     fun! WhitespaceFixer()

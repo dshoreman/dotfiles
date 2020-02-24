@@ -29,6 +29,9 @@ export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin"
 export PATH="$PATH:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
 
+setopt auto_cd
+cdpath=(~/dev/own)
+
 source $ZSH/oh-my-zsh.sh
 
 zstyle ':completion:*:*:make:*' tag-order 'targets'

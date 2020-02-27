@@ -1,7 +1,11 @@
 #!/usr/bin/env zsh
 
+BULLETTRAIN_CONTEXT_DEFAULT_USER="dshoreman"
 BULLETTRAIN_DIR_FG=236
 BULLETTRAIN_DIR_BG=green
+BULLETTRAIN_NVM_FG=65
+BULLETTRAIN_STATUS_BG=blue
+BULLETTRAIN_STATUS_EXIT_SHOW=true
 ENABLE_CORRECTION="true"
 HIST_STAMPS="yyyy-mm-dd"
 HYPHEN_INSENSITIVE="true"
@@ -31,7 +35,10 @@ zplug "lib/correction", from:oh-my-zsh
 zplug "lib/directories", from:oh-my-zsh
 zplug "lib/history", from:oh-my-zsh
 
-zplug "$STOWABLE/zsh/.oh-my-zsh/custom/themes", as:theme, from:local, use:bullet-train.zsh-theme
+zplug "petervanderdoes/git-flow-completion"
+zplug "supercrabtree/k"
+
+zplug "dshoreman/bullet-train.zsh", at:smart-versions, as:theme
 
 zplug check || zplug install
 zplug load

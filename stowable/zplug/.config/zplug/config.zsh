@@ -10,12 +10,17 @@ HYPHEN_INSENSITIVE="true"
 # Set the default editor
 export EDITOR="vim"
 
+# Relocate zcompdump files to ~/.cache
+mkdir -p "${XDG_CACHE_DIR}/zplug"
+export ZSH_ZCOMPDUMP="${XDG_CACHE_DIR}/zplug/zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
+
 # Load base plugins for shell features
 zplug "lib/completion", from:oh-my-zsh
 zplug "lib/correction", from:oh-my-zsh
 zplug "lib/directories", from:oh-my-zsh
 zplug "lib/history", from:oh-my-zsh
-zplug "zsh-users/zsh-history-substring-search"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-history-substring-search", defer:3
 
 # Enable automatic cd by typing only paths
 setopt auto_cd

@@ -3,6 +3,7 @@
 unalias k 2>/dev/null
 unalias l 2>/dev/null
 
+zplug "junegunn/fzf", use:"shell/*.zsh", defer:2
 zplug "supercrabtree/k"
 zplug "plugins/urltools", from:oh-my-zsh
 zplug "plugins/wd", from:oh-my-zsh

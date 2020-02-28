@@ -21,7 +21,6 @@ zplug "lib/correction", from:oh-my-zsh
 zplug "lib/directories", from:oh-my-zsh
 zplug "lib/history", from:oh-my-zsh
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-history-substring-search", defer:3
 
 # Enable automatic cd by typing only paths
 setopt auto_cd
@@ -29,9 +28,15 @@ setopt auto_cd
 # Assign search directories for automatic cd
 cdpath=(~/dev/own)
 
-# Bind up and down to history search
-bindkey '[A' history-substring-search-up
-bindkey '[B' history-substring-search-down
+# Bind up to previous line from history
+autoload -U up-line-or-beginning-search
+zle -N up-line-or-beginning-search
+bindkey '[A' up-line-or-beginning-search
+
+# Bind down to next line from history
+autoload -U down-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey '[B' down-line-or-beginning-search
 
 # Only show targets when completing make commands
 zstyle ':completion:*:*:make:*' tag-order 'targets'

@@ -19,7 +19,7 @@ fi
 source "${ZPLUG_CONFIG}/config.zsh"
 
 # Load custom aliases and helper functions
-for plug in "${ZPLUG_CONFIG}/plugs"; do
+for plug in "${ZPLUG_CONFIG}"/plugs/*.zsh; do
     source "${plug}"
 done
 

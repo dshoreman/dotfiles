@@ -11,9 +11,15 @@ HIST_STAMPS="yyyy-mm-dd"
 HYPHEN_INSENSITIVE="true"
 STOWABLE=~/dotfiles/stowable
 
+export EDITOR="vim"
+export ERL_AFLAGS="-kernel shell_history enabled"
+export GOBIN="$HOME/.local/bin/go"
+export GOPATH="$HOME/dev/go"
+export MIX_HOME="$HOME/.cache/ex-mix"
 export ZPLUG_BIN=~/.local/bin
 export ZPLUG_HOME=~/.local/lib/zplug
 export ZPLUG_CACHE_DIR=~/.cache/zplug
+export PATH="$PATH:$GOBIN"
 
 autoload -Uz colors; colors
 

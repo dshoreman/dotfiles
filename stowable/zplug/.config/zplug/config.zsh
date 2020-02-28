@@ -28,15 +28,8 @@ setopt auto_cd
 # Assign search directories for automatic cd
 cdpath=(~/dev/own)
 
-# Bind up to previous line from history
-autoload -U up-line-or-beginning-search
-zle -N up-line-or-beginning-search
-bindkey '[A' up-line-or-beginning-search
-
-# Bind down to next line from history
-autoload -U down-line-or-beginning-search
-zle -N down-line-or-beginning-search
-bindkey '[B' down-line-or-beginning-search
+# Load key bindings
+source "${ZPLUG_CONFIG}/key-bindings.zsh"
 
 # Only show targets when completing make commands
 zstyle ':completion:*:*:make:*' tag-order 'targets'

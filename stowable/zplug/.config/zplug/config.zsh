@@ -1,5 +1,20 @@
 #!/usr/bin/env zsh
 
+source "${ZPLUG_HOME}/init.zsh"
+
+# Configure oh-my-zsh libs
+ENABLE_CORRECTION="true"
+HIST_STAMPS="yyyy-mm-dd"
+HYPHEN_INSENSITIVE="true"
+
+# Set the default editor
+export EDITOR="vim"
+
+# Load base plugins for shell features
+zplug "lib/completion", from:oh-my-zsh
+zplug "lib/correction", from:oh-my-zsh
+zplug "lib/directories", from:oh-my-zsh
+zplug "lib/history", from:oh-my-zsh
 zplug "zsh-users/zsh-history-substring-search"
 
 # Enable automatic cd by typing only paths

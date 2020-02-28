@@ -11,6 +11,7 @@ HYPHEN_INSENSITIVE="true"
 export EDITOR="vim"
 
 # Relocate zcompdump files to ~/.cache
+: ${XDG_CACHE_DIR:=~/.cache}
 mkdir -p "${XDG_CACHE_DIR}/zplug"
 export ZSH_ZCOMPDUMP="${XDG_CACHE_DIR}/zplug/zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
 

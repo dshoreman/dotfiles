@@ -16,15 +16,15 @@ if [ ! -f "${ZPLUG_HOME}/init.zsh" ]; then
 fi
 
 # Load generic ZSH configuration
-source "config.zsh"
+source "${ZPLUG_CONFIG}/config.zsh"
 
 # Load custom aliases and helper functions
-for plug in ~/.config/zplug/plugs; do
+for plug in "${ZPLUG_CONFIG}/plugs"; do
     source "${plug}"
 done
 
 # Make things pretty
-source "theme.zsh"
+source "${ZPLUG_CONFIG}/theme.zsh"
 
 # Install any new plugins then load zplug
 zplug check || zplug install

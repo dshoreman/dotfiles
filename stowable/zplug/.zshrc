@@ -41,8 +41,6 @@ zplug "lib/correction", from:oh-my-zsh
 zplug "lib/directories", from:oh-my-zsh
 zplug "lib/history", from:oh-my-zsh
 
-zplug "supercrabtree/k"
-
 zplug "dshoreman/bullet-train.zsh", at:smart-versions, as:theme
 
 source "$HOME/.config/zplug/zplug.zsh"

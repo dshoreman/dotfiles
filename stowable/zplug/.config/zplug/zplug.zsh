@@ -1,8 +1,17 @@
 #!/usr/bin/env zsh
 
-local plugs=~/.config/zplug/plugs
+# Display system information where available
+hash neofetch 2>/dev/null && { echo; neofetch } || {
+    hash archey3 2>/dev/null && archey3
+}
 
-source "${plugs}/git.zsh"
-source "${plugs}/git-flow.zsh"
+# Load generic ZSH configuration
+source "config.zsh"
 
+# Load custom aliases and helper functions
+for plug in ~/.config/zplug/plugs; do
+    source "${plug}"
+done
+
+# Cleanup
 unset plugs

@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
 zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/github", from:oh-my-zsh
 
 alias gfe="git fetch"
 alias gu="git reset HEAD"

@@ -26,11 +26,9 @@ function d () {
 }
 compdef _dirs d
 
-alias k="k -h"
-
-alias l="k"
-alias la="k -A"
-alias ll="k"
+alias l="k -h"
+alias la="k -ha"
+alias ll="k -hA"
 alias lS="ls -lFSsh"
 
 alias tree="tree -I vendor"

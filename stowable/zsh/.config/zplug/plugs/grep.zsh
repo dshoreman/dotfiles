@@ -1,4 +1,4 @@
-# GREP aliases
+#!/usr/bin/env zsh
 
 alias grep="grep -n --color=auto"
 alias grep3="grep -n3"

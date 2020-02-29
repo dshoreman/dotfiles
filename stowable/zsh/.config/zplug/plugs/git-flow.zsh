@@ -1,17 +1,8 @@
-# Git aliases
+#!/usr/bin/env zsh
 
-hash 'hub' 2>/dev/null && alias git="hub"
+zplug "petervanderdoes/git-flow-completion"
 
 alias gf="git flow"
-alias gfe="git fetch"
-alias gpf="git push --force"
-alias gu="git reset HEAD"
-
-alias gst='unbuffer git status | sed -e "s/use \"git restore --staged/use \"git reset HEAD/" -e "s/use \"git restore/use \"git checkout --/"'
-alias cgst="clear; pwd;echo; gst"
-alias cgstt="clear;pwd;echo;gst;tree"
-
-# Git-flow Helpers
 
 function setversion {
     echo "Setting version to $1..."

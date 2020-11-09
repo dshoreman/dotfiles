@@ -1,0 +1,51 @@
+snippet tpl "A plain Vue component template" b
+<template>
+	${0:${VISUAL}}
+</template>
+
+<script>
+import { mapGetters, mapMutations, mapState } from 'vuex';
+import store from '../store';
+
+export default {
+	props: {
+		foo: {
+			type: Object,
+			default: () => ({}),
+		},
+		bat: {
+			type: Array,
+			default: () => [],
+		},
+		rat: {
+			type: String,
+			default: '',
+		},
+	},
+	data() {
+		return {
+			foo: 'bar',
+		};
+	},
+	computed: {
+		...mapState({
+			foo: state => state.foos.foo,
+		}),
+		...mapGetters({
+			bars: 'bars/barred',
+		}),
+		baz() {
+			return 'baz';
+		},
+	},
+	methods: {
+		...mapMutations({
+			filterFoos: 'foos/setFilter',
+		}),
+		bahhh() {
+			// do stuff
+		},
+	},
+};
+</script>
+endsnippet

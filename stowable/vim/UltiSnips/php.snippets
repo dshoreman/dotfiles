@@ -5,3 +5,17 @@ public function ${1:it_does_a_thing}()
 	${0:${VISUAL}}
 }
 endsnippet
+
+snippet php "PHP tag with namespace" b
+<?php
+
+namespace ${1:App};
+
+class ${2} extends ${3:Controller}
+{
+	public function ${4:__invoke}(${5:Request $request}): ${6:Response}
+	{
+		${0:${VISUAL}}
+	}
+}
+endsnippet

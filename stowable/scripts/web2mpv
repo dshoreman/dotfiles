@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
-mpv --ytdl-raw-options="cookies=$HOME/.cache/youtube-dl/cookies.txt,mark-watched=" "${1//mpv:/https:\/\/}"
+echo "${1//mpv:/https:\/\/}"
+mpv --fullscreen --ytdl-raw-options="cookies=$HOME/.cache/youtube-dl/cookies.txt,mark-watched=" "${1//mpv:/https:\/\/}"
 

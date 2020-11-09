@@ -1,0 +1,4 @@
+configuration {
+    combi-modi: "window,run,ssh";
+    modi: "combi,window,run,ssh";
+}

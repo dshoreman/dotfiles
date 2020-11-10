@@ -13,3 +13,8 @@ export ZPLUG_CACHE_DIR=~/.cache/zplug
 
 # Work some magic
 source "$HOME/.config/zplug/zplug.zsh"
+
+# Include .ssh/config definitions in SSH host completions
+# Source: https://www.zsh.org/mla/users/2015/msg00467.html
+zstyle -e ':completion:*:*:ssh:*' users-hosts \
+    '[[ -f ~/.ssh/config && $key = hosts ]] && key=my_hosts reply=()'

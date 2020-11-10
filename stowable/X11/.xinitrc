@@ -25,10 +25,15 @@ xcape -e 'Caps_Lock=Escape'
 # We seem to need this to position the left monitor, despite the xorg config.
 xrandr --output HDMI-0 --auto --left-of DP-4 && xrandr --output HDMI-0 --pos 0x900
 
+echo "Waiting for the storage drive to mount..."
 udiskie -ta -m nested &
-albert &
+while [ ! -d /run/media/dshoreman/data ]; do
+    sleep 1
+done
+
 redshift-gtk &
-nextcloud &
 nextshot -t &
+nextcloud &
+albert &
 
 exec i3

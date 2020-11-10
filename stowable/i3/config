@@ -223,16 +223,18 @@ client.urgent           #2f343a99 #90000099 #ffffff99 #90000099 #2f343aaa
 client.placeholder      #00000000 #0c0c0c00 #ffffff00 #00000000
 client.background color #00000000
 
-exec_always --no-startup-id ~/.config/polybar/launch.sh
-exec --no-startup-id "sleep 3; sh ~/.fehbg"
+exec --no-startup-id sh ~/.fehbg
+
 exec --no-startup-id compton --daemon
-
-exec --no-startup-id alacritty --class=weechat -e zsh -ic weechat
-exec --no-startup-id alacritty --class=gotop -e gotop --title="System Dashboard"
-exec --no-startup-id alacritty --class nvmon,nvmon --title "Nvidia Monitor" -e watch -n0.1 nvidia-smi
-
 exec --no-startup-id telegram-desktop
 exec --no-startup-id transmission-gtk
+
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+
+exec --no-startup-id alacritty --class nvmon,nvmon --title "Nvidia Monitor" -e watch -n0.1 nvidia-smi
+exec --no-startup-id alacritty --class=gotop -e gotop --title="System Dashboard"
+exec --no-startup-id alacritty --class=weechat -e zsh -ic weechat
+
 exec --no-startup-id i3-msg "workspace $ws1; exec firefox"
 
 # Scratchpad Config

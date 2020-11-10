@@ -17,8 +17,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'zirrostig/vim-schlepp'
 
     " Misc
+    Plug 'markonm/traces.vim'
     Plug 'Shougo/context_filetype.vim'
-    Plug 'tpope/vim-commentary'
+    Plug 'tyru/caw.vim'
     Plug 'tpope/vim-obsession'
     Plug 'tpope/vim-surround'
 

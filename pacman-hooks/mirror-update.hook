@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = pacman-mirrorlist
+
+[Action]
+Description = Remove mirrorlist.pacnew after pacman updates
+When = PostTransaction
+Depends = reflector
+Exec = /bin/sh -c "echo 'Pacman Updated\! Removing .pacnew...' && rm -f /etc/pacman.d/mirrorlist.pacnew"

@@ -5,20 +5,23 @@
     old = red bold
     new = green bold
     whitespace = red reverse
-[color "diff-highlight"]
-    oldNormal = red bold
-    oldHighlight = red bold 52
-    newNormal = green bold
-    newHighlight = green bold 22
 [commit]
     gpgsign = true
 [core]
-    pager = diff-so-fancy | less --tabs=4 -RFX
+    pager = delta
     excludesfile = /home/dshoreman/.config/git/gitignore
-[diff-so-fancy]
-    rulerWidth = 47
-    stripLeadingSymbols = false
-    markEmptyLines = false
+[delta]
+    features = line-numbers decorations side-by-side
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
+    hunk-header-decoration-style = yellow box
+[diff]
+    algorithm = patience
+    colorMoved = default
+[interactive]
+    diffFilter = delta --color-only
 [help]
     autocorrect = 1
 [merge]
@@ -29,3 +32,5 @@
     name = Dave Shoreman
     email = dshoreman@users.noreply.github.com
     signingkey = C920D1D63709F443
+[pull]
+    ff = only

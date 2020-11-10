@@ -31,6 +31,7 @@ datagrip
 dbeaver
 insomnia
 shellcheck
+diff-so-fancy
 docker-compose docker-machine
 virtualbox virtualbox-guest-iso
 git hub gitflow-avh

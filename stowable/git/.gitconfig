@@ -13,8 +13,12 @@
 [commit]
     gpgsign = true
 [core]
-    pager = /usr/share/git/diff-highlight/diff-highlight | less
+    pager = diff-so-fancy | less --tabs=4 -RFX
     excludesfile = /home/dshoreman/.config/git/gitignore
+[diff-so-fancy]
+    rulerWidth = 47
+    stripLeadingSymbols = false
+    markEmptyLines = false
 [help]
     autocorrect = 1
 [merge]

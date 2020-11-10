@@ -1,5 +1,5 @@
 [options]
-font = Source Code Pro for Powerline Medium 7
+font = Iosevka Term 10
 scrollback_lines = -1
 
 # $BROWSER is used by default if set, with xdg-open as a fallback

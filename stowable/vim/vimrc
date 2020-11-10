@@ -16,6 +16,8 @@ source ~/.vim/plugins.vim
     " Bindings to make saving easier
     nnoremap <Leader>w :w<CR>
     nnoremap <silent> <Leader>W :w !sudo tee % > /dev/null<CR>:edit!<CR>
+
+    nnoremap <silent> <Leader>bda :bufdo bwipeout<CR><CR>
 " }
 
 

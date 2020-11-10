@@ -23,7 +23,7 @@ setxkbmap \
 xcape -e 'Caps_Lock=Escape'
 
 # We seem to need this to position the left monitor, despite the xorg config.
-xrandr --output HDMI-0 --auto --left-of DP-0 && xrandr --output HDMI-0 --pos 0x900
+xrandr --output HDMI-0 --auto --left-of DP-4 && xrandr --output HDMI-0 --pos 0x900
 
 udiskie -ta -m nested &
 albert &

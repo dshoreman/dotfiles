@@ -124,7 +124,7 @@ bindsym $mod+a focus parent
 bindsym $mod+z focus child
 
 # assign workspace to specific monitors
-workspace $ws1 output DP-0
+workspace $ws1 output DP-4
 workspace $ws10 output DVI-I-0
 workspace $wsEmail output HDMI-0
 

@@ -227,8 +227,20 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id "sleep 3; sh ~/.fehbg"
 exec --no-startup-id compton --daemon
 
-exec --no-startup-id "alacritty --class=weechat -e zsh -ic weechat"
+exec --no-startup-id alacritty --class=weechat -e zsh -ic weechat
+exec --no-startup-id alacritty --class=gotop -e gotop --title="System Dashboard"
 exec --no-startup-id alacritty --class nvmon,nvmon --title "Nvidia Monitor" -e watch -n0.1 nvidia-smi
 
-exec --no-startup-id i3-msg "workspace $ws10; exec telegram-desktop; split v; exec transmission-gtk"
+exec --no-startup-id telegram-desktop
+exec --no-startup-id transmission-gtk
 exec --no-startup-id i3-msg "workspace $ws1; exec firefox"
+
+# Scratchpad Config
+bindsym $mod+o [instance="gotop"] scratchpad show
+for_window [instance="gotop"] move to scratchpad
+
+bindsym $mod+t [instance="telegram-desktop"] scratchpad show
+for_window [instance="telegram-desktop"] move to scratchpad
+
+bindsym $mod+d [instance="transmission-gtk"] scratchpad show
+for_window [instance="transmission-gtk"] move to scratchpad

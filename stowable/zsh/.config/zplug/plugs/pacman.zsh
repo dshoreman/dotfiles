@@ -1,8 +1,6 @@
 #!/usr/bin/env zsh
 
 alias packeys="sudo pacman-key --refresh-keys"
-alias pacmlist="sudo reflector --save /etc/pacman.d/mirrorlist --sort rate --verbose -p 'https' -c 'United Kingdom'"
+alias pacmlist='sudo reflector --save /etc/pacman.d/mirrorlist --score 5 --sort rate --verbose -p https -c "United Kingdom" && sudo pacman -Syy'
 
 alias pacrefresh="pacmlist && packeys"
-alias pacupdate="sudo pacman -Sy"
-alias sysupdate="sudo pacman -Syu"

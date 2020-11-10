@@ -4,9 +4,8 @@ alias mplaya="mpv --no-audio-display"
 alias shuffle="mpv --no-audio-display --shuffle"
 
 function mkplaylist {
-    local results="$(find ~/music/ -type f -iname "*.flac" -o -iname "*.m4a" -o -iname "*.mp3" -o -iname "*.wav" -o -iname "*.wma")"
-
-    cat "${results}" | \grep -v "Automatically Add to iTunes" > /tmp/playlist
+    fd . ~/music/ -tf -eflac -em4a -emp3 -ewav -ewma \
+        | \grep -v "Automatically Add to iTunes" > /tmp/playlist
 }
 
 alias shuffall="mkplaylist && shuffle --playlist=/tmp/playlist"

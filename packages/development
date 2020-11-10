@@ -18,7 +18,9 @@ code
 vim
 
 # Tools
+fd
 rg
+bat
 fzf
 meld
 zeal

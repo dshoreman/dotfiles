@@ -182,6 +182,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+bindsym $mod+Ctrl+Scroll_Lock exec rofi -show combi
+
 # audio [p]layer controls
 mode "audio" {
     bindsym h exec --no-startup-id playerctl previous

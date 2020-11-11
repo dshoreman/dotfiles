@@ -1,6 +1,6 @@
 configuration {
-    combi-modi: "window,drun,ssh";
-    modi: "combi,calc,window,drun,ssh";
+    combi-modi: "window,drun,ssh,power";
+    modi: "combi,calc,window,drun,ssh,power:~/.config/rofi/plugins/power/rofi-power-menu";
 
     location: 0;
     xoffset: 0;

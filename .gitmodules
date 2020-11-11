@@ -1,0 +1,3 @@
+[submodule "stowable/rofi/plugins/power"]
+	path = stowable/rofi/plugins/power
+	url = git://github.com/jluttine/rofi-power-menu.git

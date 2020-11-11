@@ -25,7 +25,7 @@ lastpass-cli
 nextshot slop yad
 ranger highlight w3m
 redshift
-rofi
+rofi rofi-calc
 thunar tumbler thunar-archive-plugin thunar-media-tags-plugin
 
 # Appearance

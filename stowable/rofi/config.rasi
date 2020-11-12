@@ -11,5 +11,9 @@ configuration {
     show-icons: true;
     terminal: "alacritty";
     fixed-num-lines: false;
+
+    matching: "fuzzy";
+    sort: true;
+    sorting-method: "fzf";
 }
 @import "themes/slate.rasi"

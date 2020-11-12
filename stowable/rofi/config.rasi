@@ -10,3 +10,4 @@ configuration {
     show-icons: true;
     terminal: "alacritty";
 }
+@import "themes/slate.rasi"

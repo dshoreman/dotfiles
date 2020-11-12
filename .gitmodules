@@ -1,0 +1,6 @@
+[submodule "stowable/rofi/plugins/power"]
+	path = stowable/rofi/plugins/power
+	url = git://github.com/jluttine/rofi-power-menu.git
+[submodule "stowable/rofi/plugins/kaomoji"]
+	path = stowable/rofi/plugins/kaomoji
+	url = https://gitlab.com/ceda_ei/kaomoji-rofi

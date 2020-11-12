@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# shellcheck source=../rofi/plugins/kaomoji/kaomoji.sh
+"${XDG_CONFIG_DIR:-$HOME/.config}"/rofi/plugins/kaomoji/kaomoji.sh -columns 3

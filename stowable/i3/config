@@ -182,7 +182,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym $mod+Ctrl+Scroll_Lock exec rofi -show combi
+bindsym $mod+space exec rofi -show combi
 bindsym $mod+equal exec rofi -show calc -modi calc -no-show-match -no-sort
 
 # audio [p]layer controls

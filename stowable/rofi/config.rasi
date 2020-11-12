@@ -4,10 +4,12 @@ configuration {
 
     location: 0;
     xoffset: 0;
-    yoffset: 100;
+    yoffset: -350;
     width: 900;
 
+    lines: 12;
     show-icons: true;
     terminal: "alacritty";
+    fixed-num-lines: false;
 }
 @import "themes/slate.rasi"

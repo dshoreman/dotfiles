@@ -16,6 +16,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
     Plug 'zirrostig/vim-schlepp'
 
+    " File Operations
+    Plug 'tpope/vim-eunuch'
+
     " Misc
     Plug 'markonm/traces.vim'
     Plug 'Shougo/context_filetype.vim'

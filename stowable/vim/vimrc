@@ -31,6 +31,7 @@ source ~/.vim/plugins.vim
     set cursorline                    " Highlight current line
     set laststatus=2                  " Always show the status line
     set noshowmode                    " Don't show default mode indicator
+    set noequalalways                 " Prevent automatic resize of split windows
     set splitbelow                    " Open new split below, not above
     set splitright                    " Open new vsplit to the right
     set scrolloff=10                  " Start scroll 10 lines away from top/bottom

@@ -64,6 +64,13 @@ source ~/.vim/plugins.vim
                                       "  ...but include full paths in the filenames (//)
     set undodir=~/.vim/undo//         " Same for persistent undo files
     set undofile                      "  ...which will work better if we turn it on
+
+    set viminfo=!,'1000,s100,h,n~/.cache/vim/viminfo    " Store viminfo for
+                                      " 1000 files, with no more than 100kB
+                                      " of data per register. Other settings
+                                      " make use of the `history` option.
+                                      " File path set in .cache/vim to avoid
+                                      " polluting the home directory.
 " }
 
 

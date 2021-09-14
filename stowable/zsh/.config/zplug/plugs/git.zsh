@@ -6,6 +6,8 @@ zplug "plugins/github", from:oh-my-zsh
 alias gfe="git fetch"
 alias gu="git reset HEAD"
 
+alias gcre='git commit -e --file .git/COMMIT_EDITMSG'
+
 alias gst='unbuffer git status | sed -e "s/use \"git restore --staged/use \"git reset HEAD/" -e "s/use \"git restore/use \"git checkout --/"'
 alias cgst="clear; pwd;echo; gst"
 alias cgstt="clear;pwd;echo;gst;tree"

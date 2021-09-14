@@ -1,5 +1,5 @@
 configuration {
-    combi-modi: "window,drun,run,ssh,power,emoji";
+    combi-modi: "window,drun,run,ssh,emoji";
     modi: "combi,emoji,calc,window,drun,ssh,power:~/.config/rofi/plugins/power/rofi-power-menu";
 
     location: 0;

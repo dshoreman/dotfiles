@@ -52,6 +52,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'mattn/emmet-vim'
 
     " Elixir
+    Plug 'elixir-lsp/elixir-ls', { 'tag': 'v0.7.0', 'do': 'mkdir -p rel; mix deps.get && mix compile; mix elixir_ls.release -o rel' }
     Plug 'slashmili/alchemist.vim'
 
     " Golang
@@ -92,6 +93,7 @@ call plug#end()
 
 
 " ALE: {
+    let g:ale_completion_enabled = 1
     let g:ale_fix_on_save = 1
     let g:ale_fixers = {
                 \   '*': ['remove_trailing_lines'],

@@ -61,6 +61,7 @@ for_window [class="File-roller"] floating enable
 for_window [class="Nautilus"] floating enable
 for_window [class="Gimp-2.8"] floating enable
 for_window [class="Etherwall"] floating enable
+for_window [class="Zeal"] floating enable
 for_window [class="feh"] floating enable
 
 assign [class="Vmware"] $wsOSX

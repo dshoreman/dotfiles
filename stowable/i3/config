@@ -67,7 +67,6 @@ no_focus [class="nvmon"]
 assign [class="nvmon"] $wsEmail
 assign [class="Vmware"] $wsOSX
 assign [instance="weechat"] $ws10
-assign [class="transmission-gtk"] $ws10
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -227,11 +226,7 @@ client.placeholder      #00000000 #0c0c0c00 #ffffff00 #00000000
 client.background color #00000000
 
 exec --no-startup-id sh ~/.fehbg
-
 exec --no-startup-id compton --daemon
-exec --no-startup-id telegram-desktop
-exec --no-startup-id transmission-gtk
-
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 exec --no-startup-id alacritty --class nvmon,nvmon --title "Nvidia Monitor" -e watch -n0.1 nvidia-smi
@@ -244,8 +239,5 @@ exec --no-startup-id i3-msg "workspace $ws1; exec firefox"
 bindsym $mod+o [instance="gotop"] scratchpad show
 for_window [instance="gotop"] move to scratchpad
 
-bindsym $mod+t [instance="telegram-desktop"] scratchpad show
-for_window [instance="telegram-desktop"] move to scratchpad
-
-bindsym $mod+d [instance="transmission-gtk"] scratchpad show
-for_window [instance="transmission-gtk"] move to scratchpad
+bindsym $mod+d [title="Transmission"] scratchpad show
+for_window [title="Transmission"] move to scratchpad

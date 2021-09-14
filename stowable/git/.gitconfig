@@ -11,7 +11,7 @@
     pager = delta
     excludesfile = /home/dshoreman/.config/git/gitignore
 [delta]
-    features = line-numbers decorations side-by-side
+    features = line-numbers decorations
 [delta "decorations"]
     commit-decoration-style = bold yellow box ul
     file-style = bold yellow ul
@@ -34,3 +34,7 @@
     signingkey = C920D1D63709F443
 [pull]
     ff = only
+[log]
+	showSignature = true
+[init]
+	defaultBranch = master

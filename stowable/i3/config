@@ -63,10 +63,8 @@ for_window [class="Gimp-2.8"] floating enable
 for_window [class="Etherwall"] floating enable
 for_window [class="feh"] floating enable
 
-no_focus [class="nvmon"]
-assign [class="nvmon"] $wsEmail
 assign [class="Vmware"] $wsOSX
-assign [instance="weechat"] $ws10
+assign [instance="weechat"] $wsEmail
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -123,9 +121,8 @@ bindsym $mod+a focus parent
 bindsym $mod+z focus child
 
 # assign workspace to specific monitors
-workspace $ws1 output DP-4
-workspace $ws10 output DVI-I-0
-workspace $wsEmail output HDMI-0
+workspace $ws1 output DP1
+workspace $ws10 output HDMI2
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -230,7 +227,6 @@ exec --no-startup-id sh ~/.fehbg
 exec --no-startup-id compton --daemon
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
-exec --no-startup-id alacritty --class nvmon,nvmon --title "Nvidia Monitor" -e watch -n0.1 nvidia-smi
 exec --no-startup-id alacritty --class=gotop --title="Process Monitor" -e gotop
 exec --no-startup-id alacritty --class=weechat -e zsh -ic weechat
 

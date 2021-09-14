@@ -22,8 +22,11 @@ setxkbmap \
     -option caps:ctrl_modifier
 xcape -e 'Caps_Lock=Escape'
 
-# We seem to need this to position the left monitor, despite the xorg config.
-xrandr --output HDMI-0 --auto --left-of DP-4 && xrandr --output HDMI-0 --pos 0x900
+# Three monitor setup
+# xrandr --output HDMI-0 --auto --left-of DP-4 && xrandr --output HDMI-0 --pos 0x900
+
+# Dual monitor setup
+# xrandr --output DP1 --auto --output HDMI2 --left-of DP1
 
 redshift-gtk &
 nextshot -t &

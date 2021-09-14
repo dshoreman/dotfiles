@@ -231,7 +231,7 @@ exec --no-startup-id compton --daemon
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 exec --no-startup-id alacritty --class nvmon,nvmon --title "Nvidia Monitor" -e watch -n0.1 nvidia-smi
-exec --no-startup-id alacritty --class=gotop -e gotop --title="System Dashboard"
+exec --no-startup-id alacritty --class=gotop --title="Process Monitor" -e gotop
 exec --no-startup-id alacritty --class=weechat -e zsh -ic weechat
 
 exec --no-startup-id i3-msg "workspace $ws1; exec firefox"

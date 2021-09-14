@@ -97,6 +97,7 @@ call plug#end()
 
 " ALE: {
     let g:ale_completion_enabled = 1
+    let g:ale_javascript_eslint_options = '-c build/eslint/config.json'
     let g:ale_fix_on_save = 1
     let g:ale_fixers = {
                 \   '*': ['remove_trailing_lines'],
@@ -107,6 +108,8 @@ call plug#end()
 " Airline: {
     let g:airline_theme = 'neogumbat'                   " Neodark theme is broken with notermguicolors
     let g:airline_powerline_fonts = 1                   " Tell airline we want more awesome
+    let g:airline_highlighting_cache = 1                " Potentially fix lag issues in JS/vue files
+    let g:airline_section_b = airline#section#create_left(['hunks'])
     let g:airline#extensions#tabline#enabled = 1        " Enable tabline along the top
     let g:airline#extensions#tabline#tab_nr_type = 1    " Base numbers on tab num, not num splits
 " }

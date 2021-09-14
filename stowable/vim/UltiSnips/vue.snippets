@@ -49,3 +49,27 @@ export default {
 };
 </script>
 endsnippet
+
+snippet data "Start a data block" b
+data() {
+	return {
+		$1: ${0:${VISUAL}},
+	};
+},
+endsnippet
+
+snippet comp "Start a computed block" b
+computed: {
+	${1}(${2}) {
+		${0:${VISUAL}}
+	},
+},
+endsnippet
+
+snippet meth "Start a methods block" b
+methods: {
+	${1}(${2}) {
+		${0:${VISUAL}}
+	},
+},
+endsnippet

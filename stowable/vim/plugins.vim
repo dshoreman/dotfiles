@@ -66,7 +66,7 @@ call plug#begin('~/.vim/plugged')
 
     " PHP
     Plug 'arnaud-lb/vim-php-namespace'
-    Plug 'phpactor/phpactor', { 'for': 'php', 'branch': 'develop', 'do': 'composer install' }
+    Plug 'phpactor/phpactor', { 'for': 'php', 'branch': 'develop', 'do': 'composer install --no-dev -o' }
     Plug 'StanAngeloff/php.vim'
 
     " Vue/JS
@@ -166,7 +166,7 @@ call plug#end()
 
 
 " PHPactor: {
-    let g:phpactorBranch = 'develop'                    " Used by phpactor#Update()
+    " let g:phpactorBranch = 'develop'                    " Used by phpactor#Update()
 " }
 
 

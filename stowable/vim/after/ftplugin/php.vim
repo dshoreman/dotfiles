@@ -6,8 +6,11 @@ nmap <C-S-k> :vert terminal ++close pman <cword><CR>
 
 " ALE: {
     let b:ale_fixers = ['php_cs_fixer']
-    let b:ale_php_phpcs_standard = 'PSR12'
-    let b:ale_php_phpmd_ruleset = '.phpmd.xml'
+    let g:ale_php_cs_fixer_options = '--config=build/php-cs-fixer/config.php'
+    let g:ale_php_phpcs_standard = 'PSR12'
+    let g:ale_php_phpmd_ruleset = 'build/phpmd/rules.xml'
+    let g:ale_php_phpstan_configuration = 'build/phpstan/config.neon'
+    call ale#Set('psalm_langserver_options', '-c build/psalm/psalm.xml')
 " }
 
 " PHPactor: {

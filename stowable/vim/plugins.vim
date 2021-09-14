@@ -117,7 +117,7 @@ call plug#end()
 
 " CtrlP: {
     if executable('rg')
-        let $FZF_DEFAULT_COMMAND = 'rg --follow --hidden --no-ignore-vcs -li ""'
+        let $FZF_DEFAULT_COMMAND = 'rg --follow --hidden --column --line-number --no-heading --smart-case -li ""'
         command! -bang -nargs=* Rg
                     \ call fzf#vim#grep(
                     \   'rg --column --line-number --no-heading '

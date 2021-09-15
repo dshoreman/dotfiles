@@ -18,7 +18,12 @@ fi
 # Load generic ZSH configuration
 source "${ZPLUG_CONFIG}/config.zsh"
 
-# Load custom aliases and helper functions
+# Load nested zplug lines
+for plug in "${ZPLUG_CONFIG}"/plugs/*.zsh; do
+    source "${plug}"
+done
+
+# Reload custom aliases and helper functions
 zplug "${ZPLUG_CONFIG}/plugs", from:local, defer:1
 
 # Make things pretty
@@ -26,4 +31,4 @@ source "${ZPLUG_CONFIG}/theme.zsh"
 
 # Install any new plugins then load zplug
 zplug check || zplug install
-zplug load && zplug load
+zplug load

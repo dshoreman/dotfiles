@@ -19,13 +19,11 @@ fi
 source "${ZPLUG_CONFIG}/config.zsh"
 
 # Load custom aliases and helper functions
-for plug in "${ZPLUG_CONFIG}"/plugs/*.zsh; do
-    source "${plug}"
-done
+zplug "${ZPLUG_CONFIG}/plugs", from:local, defer:1
 
 # Make things pretty
 source "${ZPLUG_CONFIG}/theme.zsh"
 
 # Install any new plugins then load zplug
 zplug check || zplug install
-zplug load
+zplug load && zplug load

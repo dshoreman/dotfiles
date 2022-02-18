@@ -1,24 +1,24 @@
 #!/bin/sh
 
 get_status() {
-    if [ "$(pgrep -x compton)" ]; then
-        echo "%{u#55aa55}compton%{u-}"
+    if [ "$(pgrep -x picom)" ]; then
+        echo "%{u#55aa55}picom%{u-}"
     else
-        echo "%{u#e60053}compton%{u-}"
+        echo "%{u#e60053}picom%{u-}"
     fi
 }
 
-toggle_compton() {
-    if [ "$(pgrep -x compton)" ]; then
-        pkill compton
+toggle_picom() {
+    if [ "$(pgrep -x picom)" ]; then
+        pkill picom
     else
-        compton -b
+        picom -b --experimental-backends
     fi
 }
 
 case "$1" in
     --toggle)
-        toggle_compton ;;
+        toggle_picom ;;
     *)
         get_status ;;
 esac

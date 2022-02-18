@@ -18,3 +18,6 @@ source "$HOME/.config/zplug/zplug.zsh"
 # Source: https://www.zsh.org/mla/users/2015/msg00467.html
 zstyle -e ':completion:*:*:ssh:*' users-hosts \
     '[[ -f ~/.ssh/config && $key = hosts ]] && key=my_hosts reply=()'
+
+export PATH="${PATH}:${HOME}/dotfiles/stowable/scripts"
+alias speeds="sudo iftop"

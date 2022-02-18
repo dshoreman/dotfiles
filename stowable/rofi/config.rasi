@@ -16,4 +16,4 @@ configuration {
     sort: true;
     sorting-method: "fzf";
 }
-@import "themes/slate.rasi"
+@theme "slate"

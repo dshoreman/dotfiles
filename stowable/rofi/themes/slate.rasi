@@ -1,42 +1,103 @@
+/**
+ * This theme is a cross between Slate (from rofi-themes)
+ * and Sqared Everforest (lr-tech/rofi-themes-collection)
+ */
+
 * {
-  background-color: #282C33;
-  border-color: #2e343f;
-  text-color: #8ca0aa;
+  font: "FiraCode Nerd Font Light 13";
+
+  /* bg-primary: #282C33; */
+  bg-primary: #283339;
+  bg-secondary: #323D43;
+  fg-primary: #8ca0aa;
+
+  accent:     #A7C080;
+  urgent:     #DBBC7F;
+
+  background-color: transparent;
+  text-color:       @fg-primary;
+
+  margin:  0;
+  padding: 0;
   spacing: 0;
 }
 
-inputbar {
-  border: 0 0 1px 0;
-  children: [prompt,entry];
+window {
+  location: center;
+  width:    960px;
+  y-offset: -360;
+
+  background-color: @bg-primary;
 }
 
-prompt {
+inputbar {
+  spacing: 8px;
+  padding: 8px;
+
+  background-color: @bg-secondary;
+}
+
+prompt { /* mode indicator */
+  font: "FiraCode Nerd Font Medium 15";
+  text-color: @accent;
   padding: 16px;
-  border: 0 1px 0 0;
+}
+
+entry { /* actual text input */
+  font: "FiraCode Nerd Font Medium 15";
+  padding: 16px;
+  cursor: text;
+}
+
+prompt, entry, element-icon, element-text {
+  vertical-align: 0.5;
 }
 
 textbox {
-  background-color: #2e343f;
-  border: 0 0 1px 0;
-  border-color: #282C33;
-  padding: 8px 16px;
+  font: "FiraCode Nerd Font Medium 15";
+  background-color: @bg-secondary;
+  padding: 16px 32px;
 }
 
-entry {
-  padding: 16px;
-}
-
-listview {
-  cycle: false;
-  margin: 0 0 -1px 0;
-  scrollbar: false;
+listview { /* groups all the elements */
+  padding: 4px 0;
 }
 
 element {
-  border: 0 0 1px 0;
-  padding: 16px;
+  padding: 12px; /* entire row */
+  spacing: 16px; /* after icon */
+}
+
+element normal normal {
+  text-color: @fg-primary;
+}
+
+element normal urgent {
+  text-color: @urgent;
+}
+
+element normal active {
+  text-color: @accent;
 }
 
 element selected {
-  background-color: #2e343f;
+  text-color: @bg-primary;
 }
+
+element selected normal, element selected active {
+  background-color: @accent;
+}
+
+element selected urgent {
+  background-color: @urgent;
+}
+
+element-icon {
+  size: 1.5em;
+}
+
+element-text {
+  text-color: inherit;
+}
+
+/* vi:ft=css sw=2

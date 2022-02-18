@@ -37,7 +37,7 @@ font-4 = "mplus Nerd Font:style=light:size=10;1"
 font-5 = "Weather Icons:size=12;0"
 
 compton-padding = 15
-modules-left = i3 weather compton httpd mariadb cups smb wpm pacman trash
+modules-left = i3 weather compton httpd mariadb cups smb pacman trash
 modules-center = nowplaying
 modules-right = highmem cpu cpu-loadavg memory cputemp gputemp disktemp filesystem usbmedia eth date volume
 
@@ -167,14 +167,6 @@ exec = UNIT=cups-browsed ~/.config/polybar/scripts/sysctl.sh
 inherit = module/mariadb
 exec = UNIT=smb ~/.config/polybar/scripts/sysctl.sh
 
-[module/wpm]
-type = custom/script
-exec = ~/.config/polybar/scripts/wpm.sh
-tail = true
-label-font = 3
-label-padding-left = 15
-label-padding-right = 5
-
 [module/trash]
 type = custom/script
 exec = ~/.config/polybar/scripts/trash.sh
@@ -234,20 +226,13 @@ inherit = module/memory
 label = %gb_free%
 
 [module/eth]
-type = internal/network
-interface = enp7s0
-interval = 3.0
-
-format-connected-underline = #55aa55
-format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%    %downspeed%    %upspeed%
-
-format-disconnected =
-
-[module/bandwidth]
-inherit = module/eth
-label-connected =  %downspeed%    %upspeed%
+type = custom/script
+exec = ~/.config/polybar/scripts/eth.sh
+format-underline = #55aa55
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+interval = 2
+tail = true
 
 [module/date]
 type = internal/date

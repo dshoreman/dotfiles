@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+SCANNER="net:dynamite:hpaio:/usb/Deskjet_1510_series?serial=CN3B219NJS05YR"
+DEFAULT="./scan-$(date '+%Y%m%d %H%M%S').jpg"
+FILENAME="${1:-$DEFAULT}"
+
+echo "Checking for scanner..."
+
+if ! scanimage -L | grep "$SCANNER"; then
+    echo "Scanner not found! Is it on?"
+    exit
+fi
+
+attempt=1
+hasPreview=0
+echo -e "\nStarting preview scan..."
+
+#
+# This loop is to workaround a race condition somewhere between sane and scanimage.
+# Often the first attempt will fail with "scanimage: sane_start: Invalid argument",
+# but simply repeating the attempts seems to be enough to kick it into touch.
+#
+# Related: https://gitlab.com/sane-project/backends/-/issues/439#note_513864798
+#
+while (( hasPreview == 0 )) && (( attempt <= 3 ))
+do
+    echo "[Attempt ${attempt} of 3]"
+
+    scanimage -d "${SCANNER}" --format=jpeg --mode=color > /tmp/scan-preview.jpg \
+        && echo "Preview scan success! Opening the image..." \
+        && hasPreview=1 && feh /tmp/scan-preview.jpg
+
+    attempt=$((attempt+1))
+done
+
+echo
+read -rsn1 -p "Look about right? Press any key to continue! Otherwise, hit Ctrl-C and try again."
+
+echo "Great! Starting full-res scan..."
+echo
+
+scanimage -d "${SCANNER}" --format=jpeg --resolution 300 --mode color > "${FILENAME}" \
+    && feh "$FILENAME"
+
+echo "Scan saved to ${FILENAME}"

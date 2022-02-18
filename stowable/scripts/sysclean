@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+echo "Pruning Pacman package cache..."
+paccache -rk3 -i firefox,firefox-developer-edition,firefox-i18n-en-gb,postgresql,postgresql-libs,linux,linux-firmware,linux-headers
+paccache -rk8 linux linux-firmware linux-headers
+echo
+
+echo "Pruning Vim tmp tags and any older than 6 months..."
+rm -f ~/.cache/vim/tags/tmp-*
+fd . -d1 -tf --change-older-than 6months ~/.cache/vim/tags -x rm -vf
+echo
+
+echo "Clearing yarn cache..."
+yarn cache clean
+echo
+
+echo "Done!"

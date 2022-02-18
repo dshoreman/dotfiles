@@ -20,6 +20,7 @@ polybar polybar-scripts-git
 # Basic utility stuff
 alacritty
 albert
+dolphin
 dunst
 lastpass-cli
 nextshot slop yad

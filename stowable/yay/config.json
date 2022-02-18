@@ -1,6 +1,7 @@
 {
     "sortmode": 1,
     "sortby": "name",
+    "removemake": "yes",
     "sudoloop": true,
     "diffmenu": false,
     "editmenu": true

@@ -214,7 +214,7 @@ bindsym $mod+b mode "wallpaper"
 gaps inner 15
 gaps outer 10
 smart_gaps on
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 2
 for_window [class="albert"] border pixel 0
 
 # class                 border    backgr.   text      indicator child_border
@@ -228,12 +228,14 @@ client.background color #00000000
 
 exec --no-startup-id sh ~/.fehbg
 exec --no-startup-id picom --daemon --experimental-backends
+exec --no-startup-id SVPManager -tray
+exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
-exec --no-startup-id alacritty --class=gotop --title="Process Monitor" -e gotop
 exec --no-startup-id alacritty --class=weechat -e zsh -ic weechat
 
 exec --no-startup-id i3-msg "workspace $ws1; exec firefox"
+exec_always xscreensaver --no-splash
 
 # Scratchpad Config
 bindsym $mod+o [instance="gotop"] scratchpad show

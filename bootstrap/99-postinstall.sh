@@ -31,13 +31,9 @@ if [ "$OS" == "arch" ]; then
     sudo sed -ie 's/^\(\[mariadb]\)$/\1\ndefault_time_zone="+0:00"/' /etc/mysql/my.cnf.d/server.cnf && echo " [DONE]"
     sudo systemctl restart mariadb.service
 
-    if [ ! -f /etc/udev/rules.d/60-vboxdrv.rules ]; then
-        echo -n "Applying Virtualbox USB patch..."
-        sudo cp "$BOOTSTRAP_ROOT/patches/vbox-usb.patch" /etc/udev/rules.d/60-vboxdrv.rules
-
-        if [[ ! $(id -Gn $(whoami) | grep '\bvboxusers\b') ]]; then
-            sudo usermod -aG vboxusers $(whoami)
-        fi
+    if [[ ! $(id -Gn $(whoami) | grep '\bvboxusers\b') ]]; then
+        echo -n "Adding you to the vboxusers group..."
+        sudo usermod -aG vboxusers $(whoami)
         echo " [DONE]"
     fi
 

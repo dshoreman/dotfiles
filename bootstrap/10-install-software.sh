@@ -21,10 +21,6 @@ else
     done
 fi
 
-# Install Oh-my-zsh early, so stow can install bullet train later
-omz_installer="robbyrussell/oh-my-zsh/master/tools/install.sh"
-sh -c "$(wget https://raw.githubusercontent.com/${omz_installer} -O -)"
-
 # Remove default zshrc ready for stow to replace our own
 rm ~/.zshrc
 

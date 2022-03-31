@@ -10,7 +10,10 @@ gset() {
     gsettings set "$schema" "$2" "$3" && echo "Done!"
 }
 
-echo -n "Adding web2mpv handler..."
+echo; echo "Stowing configs from dotfiles..."
+"$DOTFILES_PATH"/stowable/scripts/dotfiles
+
+echo; echo -n "Adding web2mpv handler..."
 mimelist="$HOME/.config/mimeapps.list"
 [ -f "${mimelist}" ] && grep -q "web2mpv" "${mimelist}" || echo "x-scheme-handler/mpv=web2mpv.desktop;" >> "${mimelist}"
 echo " [DONE]"

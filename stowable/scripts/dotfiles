@@ -1,42 +1,38 @@
 #!/bin/bash
 
-depend_on stow
-cd stowable
+cd ~/.files || cd ~/dotfiles || exit
+hash stow 2>/dev/null || exit
 
-case $1 in
-    cleanup|purge)
-        action="Deleting"
-        action_flag="--delete"
-        ;;
+case $(grep "^ID=" /etc/os-release | sed 's/ID=//') in
+    arch) sudo pacman -S stow ;;
+    ubuntu) sudo apt-get install -qy stow ;;
+    *) echo "[ERROR] Don't know how to install stow!"; exit 1 ;;
 esac
+
+[[ $1 =~ ^(clean(up)?|purge)$ ]] \
+    && action="Deleting" flag="--delete" \
+    || action="Stowing" flag="--stow"
 
 for package in *; do
     lockfile="$package/.stowlock"
     targetfile="$package/.stowtarget"
-    target=$( [[ -f $targetfile ]] && echo $(eval echo $(<$targetfile)) || echo "$HOME/.config/$package" )
+    target="$( [[ -f "$targetfile" ]] && eval echo "$(<"$targetfile")" || echo "$HOME/.config/$package" )"
 
-    mkdir -p $target
+    mkdir -p "$target"
 
-    if [[ -z $action ]]; then
-        if [[ -f "$lockfile" ]]; then
-            action="Restowing"
-            action_flag="--restow"
-        else
-            action="Stowing"
-            action_flag="--stow"
-        fi
+    if [[ -f "$lockfile" ]] && [[ $action == "Stowing" ]]; then
+         action="Restowing" flag="--restow"
     fi
 
     echo "$action package '$package'" && touch "$lockfile"
 
     [[ $target == /home/* ]] && cmd="stow" || cmd="sudo stow"
 
-    # Stow supposedly accepts regexp but --ignore='.stow*' does nothing. This could get ugly.
-    $cmd --target="$target" --ignore=".stowlock" --ignore=".stowtarget" $action_flag $package
+    $cmd --target="$target" --ignore=".stowlock" --ignore=".stowtarget" $flag "$package"
 
-    if [[ "$action_flag" == "--delete" ]]; then
+    if [[ "$flag" == "--delete" ]]; then
         rm "$lockfile"
     else
-        unset action action_flag
+        unset action flag
     fi
-done
+done && echo "Done!"

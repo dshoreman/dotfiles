@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-. ~/.profile
+[ -f ~/.profile ] && . ~/.profile
 
 # Required by gpg-agent? Maybe this is the secret key
 # to get curses AND gtk based on the UI calling it...
@@ -15,7 +15,7 @@ export GPG_TTY=$(tty)
 # fi
 
 if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty2" ]; then
-    exec sway
+    hash sway 2>/dev/null && exec sway
 fi
 
 # Display system information where available

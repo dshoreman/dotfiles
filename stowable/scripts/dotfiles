@@ -1,17 +1,14 @@
 #!/bin/bash
 
-cd ~/.files || cd ~/dotfiles || exit
-hash stow 2>/dev/null || exit
+[[ $1 =~ ^(clean(up)?|purge)$ ]] && PURGING="Y"
 
-case $(grep "^ID=" /etc/os-release | sed 's/ID=//') in
-    arch) sudo pacman -S stow ;;
+cd "${DOTFILES_PATH:-$HOME/.files}"/stowable || cd ~/dotfiles/stowable || exit
+
+hash stow 2>/dev/null || case $(grep "^ID=" /etc/os-release | sed 's/ID=//') in
+    arch) sudo pacman --noconfirm -S stow ;;
     ubuntu) sudo apt-get install -qy stow ;;
     *) echo "[ERROR] Don't know how to install stow!"; exit 1 ;;
 esac
-
-[[ $1 =~ ^(clean(up)?|purge)$ ]] \
-    && action="Deleting" flag="--delete" \
-    || action="Stowing" flag="--stow"
 
 for package in *; do
     lockfile="$package/.stowlock"
@@ -20,8 +17,12 @@ for package in *; do
 
     mkdir -p "$target"
 
-    if [[ -f "$lockfile" ]] && [[ $action == "Stowing" ]]; then
-         action="Restowing" flag="--restow"
+    if [[ -n $PURGING ]]; then
+        action="Deleting" flag="--delete"
+    elif [[ -f "$lockfile" ]]; then
+        action="Restowing" flag="--restow"
+    else
+        action="Stowing" flag="--stow"
     fi
 
     echo "$action package '$package'" && touch "$lockfile"
@@ -32,7 +33,5 @@ for package in *; do
 
     if [[ "$flag" == "--delete" ]]; then
         rm "$lockfile"
-    else
-        unset action flag
     fi
 done && echo "Done!"

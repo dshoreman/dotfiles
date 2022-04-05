@@ -1,39 +1,25 @@
-# Core bits
-apache
-elixir
-mariadb
-php
-php-apache
-php-ast
-php-gd
-php-imagick
-php-intl
-php-pgsql
-php-phpdbg
-php-sqlite
-postgresql
-
 # Editors
-code
-vim
+bless neovim python-pynvim vim code cowsay
+phpstorm-eap phpstorm-eap-jre
+
+# Debugging
+shellcheck strace ltrace php-ast php-phpdbg php-pcov
+
+# Hardware Dev
+android-tools arduino i2c-ch341-dkms
+
+# HTTP/DBs
+nginx insomnia
+mariadb postgresql dbeaver datagrip mycli pgcli sqlitebrowser
+
+# Langs
+elixir go php-fpm rust typescript
+php-gd php-imagick php-intl php-pgsql php-sqlite
 
 # Tools
-fd
-rg
-bat
-fzf
-meld
-zeal
-mycli
-eslint
-phpunit
-vagrant
-composer
-datagrip
-dbeaver
-insomnia
-shellcheck
-docker-compose docker-machine
-virtualbox virtualbox-guest-iso
-git hub git-delta gitflow-avh
-the_silver_searcher
+composer discount git-delta gitflow-avh github-cli hub meld zeal
+
+# Virtualisation
+vagrant docker docker-compose docker-machine
+qemu qt-virt-manager virt-manager vmware-workstation
+virtualbox virtualbox-ext-oracle virtualbox-guest-iso

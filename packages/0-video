@@ -1,6 +1,0 @@
-# The basic driver
-nvidia nvidia-utils
-nvidia-settings
-libva-vdpau-driver
-opencl-nvidia
-picom

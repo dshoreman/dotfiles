@@ -1,39 +1,29 @@
-# The necessary evil
-xorg-server
-xorg-xinit
-xorg-xinput
-xorg-xmodmap
-xorg-xrandr
-xorg-xrdb
-xorg-xrefresh
-xorg-xset
-xorg-xsetroot
+# Desktop Utilities
+baobab dconf-editor file-roller font-manager gparted lxappearance qt5ct
+diskmonitor hardinfo i-nex
+nextcloud-client sendanywhere nextshot slop yad
+browserpass browserpass-firefox gpa 
+rofi-calc rofi-emoji
 
-# Keyboard tweaks
-numlockx
-xcape
+# Chat Apps
+discord telegram-desktop weechat
+skypeforlinux-stable-bin
 
-# More awesome than awesome
-i3-gaps
-polybar polybar-scripts-git
+# File Managers
+dolphin dolphin-plugins
+thunar tumbler thunar-archive-plugin thunar-media-tags-plugin gvfs-afc gvfs-mtp
 
-# Basic utility stuff
-alacritty
-albert
-dolphin
-dunst
-lastpass-cli
-nextshot slop yad
-ranger highlight w3m
-redshift
-rofi rofi-calc rofi-emoji
-thunar tumbler thunar-archive-plugin thunar-media-tags-plugin
+# Other Software
+google-earth libreoffice-fresh-en-GB sweethome3d
 
 # Appearance
 adapta-gtk-theme
-arc-gtk-theme
-arc-icon-theme
+arc-gtk-theme arc-icon-theme
 breeze-adapta-cursor-theme-git
 juno-theme-git
-lxappearance
-qt5ct
+
+# Screensavers
+electricsheep xscreensaver-aerial xscreensaver-xmatrix-color
+
+# X/Session Utils
+perl-file-mimeinfo polkit-kde-agent wmctrl xcape xclip xorg-xwininfo

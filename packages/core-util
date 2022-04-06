@@ -4,20 +4,25 @@ pavucontrol-qt pulsemixer pulseaudio-equalizer
 lib32-libpulse lib32-alsa-plugins
 
 # Devices
-hplip cups sane brother-hl1210w
+hplip cups sane
+aur:brother-hl1210w
 
 # Hardware
-dmidecode inxi hwinfo nohang-git ps_mem sysstat smartmontools
+dmidecode hwinfo ps_mem sysstat smartmontools
+aur: inxi nohang-git
 
 # Networking
 iftop iptraf-ng mtr nethogs nmap samba
 
 # Package Management
-namcap pacman-contrib pacvis-git
+namcap pacman-contrib
+aur: pacvis-git
 
 # Storage
 dmg2img ext4magic hdparm iotop testdisk udiskie
-exfatprogs hfsprogs nfs-utils ntfs-3g
+exfatprogs nfs-utils ntfs-3g
+aur:hfsprogs
 
 # Shell utils
-neofetch pass pass-import tmux ventoy-bin
+neofetch pass tmux
+aur: pass-import ventoy-bin

@@ -1,25 +1,28 @@
 # Editors
 bless neovim python-pynvim vim code cowsay
-phpstorm-eap phpstorm-eap-jre
+aur:phpstorm-eap phpstorm-eap-jre
 
 # Debugging
-shellcheck strace ltrace php-ast php-phpdbg php-pcov
+shellcheck strace ltrace php-phpdbg
+aur: php-ast php-pcov
 
 # Hardware Dev
-android-tools arduino i2c-ch341-dkms
+android-tools arduino
+aur: i2c-ch341-dkms
 
 # HTTP/DBs
-nginx insomnia
-mariadb postgresql dbeaver datagrip mycli pgcli sqlitebrowser
+nginx mariadb postgresql dbeaver sqlitebrowser
+aur: datagrip insomnia mycli pgcli
 
 # Langs
 elixir go php-fpm rust typescript
 php-gd php-imagick php-intl php-pgsql php-sqlite
 
 # Tools
-composer discount git-delta gitflow-avh github-cli hub meld zeal
+composer discount git-delta github-cli hub meld
+aur: gitflow-avh zeal
 
 # Virtualisation
 vagrant docker docker-compose docker-machine
-qemu qt-virt-manager virt-manager vmware-workstation
-virtualbox virtualbox-ext-oracle virtualbox-guest-iso
+qemu virt-manager virtualbox virtualbox-guest-iso
+aur: qt-virt-manager virtualbox-ext-oracle vmware-workstation

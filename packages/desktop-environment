@@ -7,7 +7,7 @@ rofi-calc rofi-emoji
 
 # Chat Apps
 discord telegram-desktop weechat
-skypeforlinux-stable-bin
+aur:skypeforlinux-stable-bin
 
 # File Managers
 dolphin dolphin-plugins

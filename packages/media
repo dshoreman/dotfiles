@@ -1,13 +1,15 @@
 # Editors
-darktable davinci-resolve gifcurry gimp krita-git shotcut
+darktable gimp shotcut
+aur: davinci-resolve gifcurry krita-git
 
 # Players
-mpv-mpris rhythmbox vlc yuna playerctl
-mpv-vapoursynth mpv-thumbnail-script svp
+mpv-mpris rhythmbox vlc playerctl
+aur:mpv-vapoursynth mpv-thumbnail-script svp yuna
 
 # Viewers
 feh geeqie
 
 # Tools
-ripit screenkey simplescreenrecorder untrunc-git
-yt-dlp nicotine+ soulseekqt transmission-gtk
+screenkey simplescreenrecorder
+transmission-gtk nicotine+ yt-dlp
+aur: ripit untrunc-git soulseekqt

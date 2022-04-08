@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
 main() {
+    echo "Installing Pacman packages..."
+    "$DOTFILES_PATH"/stowable/scripts/pkgstrap --repo
+
     echo -e "\n  Databases\n#############"
     echo -n "[mariadb] Forcing default timezone to GMT/UTC..."
     if [[ -f /etc/mysql/my.cnf.d/server.cnf ]]; then

@@ -1,7 +1,7 @@
 # Audio
-alsa-utils pulseaudio pulseaudio-alsa
-pavucontrol-qt pulsemixer pulseaudio-equalizer
-lib32-libpulse lib32-alsa-plugins
+pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber
+alsa-utils pavucontrol-qt pulsemixer pulseaudio-equalizer
+lib32-pipewire lib32-pipewire-jack
 
 # Devices
 hplip cups sane

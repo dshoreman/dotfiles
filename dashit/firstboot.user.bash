@@ -10,6 +10,9 @@ gset() {
     gsettings set "$schema" "$2" "$3" && echo "Done!"
 }
 
+echo; echo "Installing packages from the AUR..."
+"$DOTFILES_PATH"/stowable/scripts/pkgstrap --aur
+
 echo; echo "Stowing configs from dotfiles..."
 "$DOTFILES_PATH"/stowable/scripts/dotfiles
 

@@ -18,8 +18,9 @@ echo; echo "Stowing configs from dotfiles..."
 
 echo; echo -n "Adding web2mpv handler..."
 mimelist="$HOME/.config/mimeapps.list"
-[ -f "${mimelist}" ] && grep -q "web2mpv" "${mimelist}" || echo "x-scheme-handler/mpv=web2mpv.desktop;" >> "${mimelist}"
-echo " [DONE]"
+if [ -f "${mimelist}" ] && grep -q web2mpv "${mimelist}" 2>/dev/null; then echo " [SKIP]"; else
+    echo "x-scheme-handler/mpv=web2mpv.desktop;" >> "${mimelist}" && echo " [DONE]"
+fi
 
 echo; echo "Configuring GTK file chooser..."
 gset chooser date-format with-time

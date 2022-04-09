@@ -1,9 +1,9 @@
 # Desktop Utilities
 baobab dconf-editor file-roller font-manager gparted lxappearance qt5ct
-diskmonitor hardinfo i-nex
-nextcloud-client sendanywhere nextshot slop yad
+aur: diskmonitor hardinfo-git i-nex
+nextcloud-client rofi-calc rofi-emoji slop yad
 browserpass browserpass-firefox gpa 
-rofi-calc rofi-emoji
+aur: sendanywhere nextshot
 
 # Chat Apps
 discord telegram-desktop weechat

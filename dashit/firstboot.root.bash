@@ -26,14 +26,14 @@ main() {
 
 sdnd-append() {
     echo -n "[systemd-networkd] Setting $1 to '$2'... "
-    if grep -q "^$1=" /etc/systemd/20-wired.network 2>/dev/null; then echo "[SKIP]"; else
-        echo "$1=$2" >> /etc/systemd/20-wired.network && echo "[DONE]"
+    if grep -q "^$1=" /etc/systemd/network/20-wired.network 2>/dev/null; then echo "[SKIP]"; else
+        echo "$1=$2" >> /etc/systemd/network/20-wired.network && echo "[DONE]"
     fi
 }
 sdrd-set() {
-    echo -n "[systemd-resolved] Setting $2 to '$3'... "
-    if [[ -f /etc/systemd/resolved.conf.d/$1 ]]; then echo "[SKIP]"; else
-        echo -e "[Resolve]\n$3=$4" > /etc/systemd/resolved.conf.d/"$1" && echo "[DONE]"
+    echo -n "[systemd-resolved] Setting $1 to '$2'... "
+    if [[ -f /etc/systemd/resolved.conf.d/$3 ]]; then echo "[SKIP]"; else
+        echo -e "[Resolve]\n$1=$2" > /etc/systemd/resolved.conf.d/"$3" && echo "[DONE]"
     fi
 }
 

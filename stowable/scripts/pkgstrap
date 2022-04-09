@@ -13,7 +13,7 @@ main() {
     if [[ $src =~ ""|repo|--repo|all|--all ]]; then
         echo "Installing official repo packages..."
         [ $EUID -gt 0 ] && cmd="sudo pacman" || cmd="pacman"
-        $cmd -Syu --needed "${repoPackages[@]}"
+        $cmd -Syu --noconfirm --needed "${repoPackages[@]}"
     fi
 
     if [[ $src =~ ""|aur|--aur|all|--all ]]; then
@@ -21,7 +21,7 @@ main() {
         if [ $EUID -eq 0 ]; then
             echo "Can't install AUR packages as root!" && exit 1
         fi
-        yay -Syu --needed "${aurPackages[@]}"
+        yay -Syu --needed --removemake --noprovides --noconfirm "${aurPackages[@]}"
     fi
 }
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 main() {
-    local aurPackages=() repoPackages=() src="${1,,}"
+    local aurPackages=() repoPackages=() src="${1:-all}"
 
     cd "${DOTFILES_PATH:-$HOME/.files}/packages" || exit
     grep -q '^ID=arch$' /etc/os-release 2>/dev/null || exit
@@ -10,13 +10,13 @@ main() {
         load-packages-from "$category"
     done
 
-    if [[ $src =~ ""|repo|--repo|all|--all ]]; then
+    if [[ $src =~ repo|--repo|all|--all ]]; then
         echo "Installing official repo packages..."
         [ $EUID -gt 0 ] && cmd="sudo pacman" || cmd="pacman"
         $cmd -Syu --noconfirm --needed "${repoPackages[@]}"
     fi
 
-    if [[ $src =~ ""|aur|--aur|all|--all ]]; then
+    if [[ $src =~ aur|--aur|all|--all ]]; then
         echo "Installing AUR packages..."
         if [ $EUID -eq 0 ]; then
             echo "Can't install AUR packages as root!" && exit 1

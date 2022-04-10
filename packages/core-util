@@ -1,6 +1,6 @@
 # Audio
 pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber
-alsa-utils pavucontrol-qt pulsemixer pulseaudio-equalizer
+alsa-utils easyeffects pavucontrol-qt pulsemixer
 lib32-pipewire lib32-pipewire-jack
 
 # Devices

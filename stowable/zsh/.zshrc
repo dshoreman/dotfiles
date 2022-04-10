@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 
+export DOTFILES_PATH="$HOME/$([[ -d .files ]] && echo .files || echo dotfiles)"
 [ -f ~/.profile ] && . ~/.profile
 
 # Required by gpg-agent? Maybe this is the secret key
@@ -37,7 +38,10 @@ source "$HOME/.config/zplug/zplug.zsh"
 zstyle -e ':completion:*:*:ssh:*' users-hosts \
     '[[ -f ~/.ssh/config && $key = hosts ]] && key=my_hosts reply=()'
 
-export PATH="${PATH}:${HOME}/dotfiles/stowable/scripts"
+export PATH="${PATH}:${DOTFILES_PATH}/stowable/scripts"
+[[ -n $DISPLAY && ! -f $DOTFILES_PATH/.installed.gsettings ]] && \
+    apply-gsettings
+
 alias speeds="sudo iftop"
 
 typecount() {

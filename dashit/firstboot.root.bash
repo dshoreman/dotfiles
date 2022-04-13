@@ -15,9 +15,11 @@ main() {
     [[ -d /etc/systemd/resolved.conf.d ]] || mkdir -p /etc/systemd/resolved.conf.d
     sdnd-append MulticastDNS yes
     sdnd-append DNS "9.9.9.9#dns.quad9.net 2620:fe::9#dns.quad9.net"
+    systemctl restart systemd-networkd.service
     sdrd-set FallbackDNS '1.1.1.1#cloudflare-dns.com 2606:4700:4700::1111#cloudflare-dns.com' fallback-dns.conf
     sdrd-set DNSSEC 'allow-downgrade' dnssec.conf
     sdrd-set DNSOverTLS 'yes' dns-over-tls.conf
+    systemctl restart systemd-resolved.service
 
     echo -e "\n  Virtual Machines\n####################"
     echo -n "[virtualbox] Adding $DASHIT_USER to the vboxusers group... "

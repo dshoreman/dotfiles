@@ -14,16 +14,15 @@ dolphin dolphin-plugins
 thunar tumbler thunar-archive-plugin thunar-media-tags-plugin gvfs-afc gvfs-mtp
 
 # Other Software
-google-earth libreoffice-fresh-en-GB sweethome3d
+libreoffice-fresh-en-gb sweethome3d
+aur: google-earth-pro
 
 # Appearance
-adapta-gtk-theme
-arc-gtk-theme arc-icon-theme
-breeze-adapta-cursor-theme-git
-juno-theme-git
+adapta-gtk-theme arc-gtk-theme arc-icon-theme
+aur: breeze-adapta-cursor-theme-git juno-theme-git
 
 # Screensavers
-electricsheep xscreensaver-aerial xscreensaver-xmatrix-color
+aur: electricsheep xscreensaver-aerial xscreensaver-xmatrix-color
 
 # X/Session Utils
 perl-file-mimeinfo polkit-kde-agent wmctrl xcape xclip xorg-xwininfo

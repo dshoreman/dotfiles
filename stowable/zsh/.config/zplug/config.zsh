@@ -37,4 +37,4 @@ source "${ZPLUG_CONFIG}/key-bindings.zsh"
 zstyle ':completion:*:*:make:*' tag-order 'targets'
 
 # Set gPodder config
-source ~/.pam_environment
+[ -f ~/.pam_environment ] && . ~/.pam_environment

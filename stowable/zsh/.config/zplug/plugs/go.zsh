@@ -1,7 +1,9 @@
 #!/usr/bin/env zsh
 
-export GO=/usr/bin/go
-export GOBIN="$HOME/.local/bin/go"
-export GOPATH="$HOME/dev/go"
+if hash go 2>/dev/null; then
+    export GO=/usr/bin/go
+    export GOBIN="$HOME/.local/bin/go"
+    export GOPATH="$HOME/dev/go"
 
-export PATH="$PATH:$GOBIN"
+    export PATH="$PATH:$GOBIN"
+fi

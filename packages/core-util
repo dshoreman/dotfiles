@@ -1,16 +1,26 @@
-zsh
-curl
-rsync
-wget
-htop
-gotop
-tree
-openssh
-sysstat
-udiskie
-python-pip
-pv
-p7zip
-samba
-unrar
-unzip
+# Audio
+alsa-utils easyeffects pavucontrol-qt pulsemixer
+
+# Devices
+hplip cups sane
+aur:brother-hl1210w
+
+# Hardware
+dmidecode hwinfo ps_mem sysstat smartmontools
+aur: inxi nohang-git
+
+# Networking
+iftop iptraf-ng mtr nethogs nmap samba
+
+# Package Management
+namcap pacman-contrib
+aur: pacvis-git
+
+# Storage
+dmg2img ext4magic hdparm iotop testdisk udiskie
+exfatprogs nfs-utils ntfs-3g
+aur:hfsprogs
+
+# Shell utils
+neofetch pass tmux
+aur: pass-import ventoy-bin

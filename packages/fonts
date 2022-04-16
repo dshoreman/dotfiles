@@ -1,28 +1,10 @@
-adobe-source-code-pro-fonts
-adobe-source-sans-pro-fonts
-cantarell-fonts
-font-bh-ttf
-gnu-free-fonts
-mathjax
-nerd-fonts-complete
-ttf-anonymous-pro
-ttf-bitstream-vera
-ttf-cheapskate
-ttf-dejavu
-ttf-droid
-ttf-envy-code-r
-ttf-fira-mono
-ttf-fira-sans
-ttf-inconsolata
-ttf-liberation
-ttf-monaco
-ttf-monofur
-ttf-mononoki
-ttf-mph-2b-damase
-ttf-opensans
-ttf-oxygen
-ttf-roboto
-ttf-roboto-mono
-ttf-ubuntu-font-family
-ttf-vista-fonts
-ttf-weather-icons
+# Generic fonts
+cantarell-fonts gnu-free-fonts mathjax ttf-bitstream-vera ttf-opensans
+ttf-droid ttf-roboto ttf-roboto-mono ttf-ubuntu-font-family
+
+# Code/terminal fonts
+ttf-fira-mono ttf-fira-sans ttf-monofur
+aur: ttf-monaco ttf-mononoki nerd-fonts-terminus ttf-weather-icons
+
+# Novelty/design fonts
+aur: ttf-cheapskate ttf-mph-2b-damase ttf-vista-fonts

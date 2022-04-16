@@ -1,0 +1,26 @@
+#!/usr/bin/env zsh
+
+main() {
+    echo -e "Starting at $(date)...\n\n"
+    pushd "$DOTFILES_PATH"/gsettings || { echo "Couldn't find $DOTFILES_PATH/gsettings"; exit; }
+
+    for target in *; do
+        # shellcheck source=../../gsettings/meld.zsh
+        source "$target"
+    done
+
+    date > "$DOTFILES_PATH"/.installed.gsettings
+    popd || exit 0
+}
+
+gset() {
+    schema="${1//chooser/org.gtk.Settings.FileChooser}"
+    schema="${schema//rhythm/org.gnome.rhythmbox}"
+    schema="${schema//meld/org.gnome.meld}"
+    schema="${schema//vm/org.virt-manager.virt-manager}"
+
+    echo -n "  Setting value of '$1' in $schema to $2... "
+    DISPLAY=:0 gsettings set "$schema" "$2" "$3" && echo "Done!"
+}
+
+main 2>&1 >> "$DOTFILES_PATH"/gsettings.log

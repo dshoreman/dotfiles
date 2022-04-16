@@ -1,14 +1,15 @@
-mplayer
-mpv
-mpv-mpris
-playerctl
-rhythmbox
-ripit
-yuna
+# Editors
+darktable gimp shotcut
+aur: davinci-resolve gifcurry krita-git
 
-davinci-resolve
-gifcurry
-gimp
-screenkey
-silentcast
-simplescreenrecorder
+# Players
+mpv-mpris rhythmbox vlc playerctl
+aur:mpv-vapoursynth mpv-thumbnail-script svp yuna
+
+# Viewers
+feh geeqie
+
+# Tools
+screenkey simplescreenrecorder
+transmission-gtk nicotine+ yt-dlp
+aur: ripit untrunc-git soulseekqt

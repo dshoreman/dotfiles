@@ -1,8 +1,0 @@
-[Unit]
-Description=Update Pacman's mirrorlist 
-
-[Timer]
-OnCalendar=Sat 2:00
-AccuracySec=4hrs
-Persistent=true
-WakeSystem=false

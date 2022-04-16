@@ -4,7 +4,7 @@ zplug "junegunn/fzf", use:"shell/*.zsh", defer:2
 zplug "plugins/urltools", from:oh-my-zsh
 zplug "plugins/wd", from:oh-my-zsh
 
-alias cat="bat"
+hash bat 2>/dev/null && alias cat="bat"
 alias df="df -h"
 alias diff="diff -s"
 alias fuck='sudo $(fc -ln -1)'

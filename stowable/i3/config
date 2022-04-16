@@ -238,8 +238,5 @@ exec --no-startup-id i3-msg "workspace $ws1; exec firefox"
 exec_always xscreensaver --no-splash
 
 # Scratchpad Config
-bindsym $mod+o [instance="gotop"] scratchpad show
-for_window [instance="gotop"] move to scratchpad
-
 bindsym $mod+d [title="Transmission"] scratchpad show
 for_window [title="Transmission"] move to scratchpad

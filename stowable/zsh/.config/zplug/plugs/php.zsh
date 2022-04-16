@@ -1,5 +1,5 @@
-zplug "plugins/composer", from:oh-my-zsh
-zplug "plugins/vagrant", from:oh-my-zsh
+hash composer 2>/dev/null && zplug "plugins/composer", from:oh-my-zsh
+hash vagrant 2>/dev/null && zplug "plugins/vagrant", from:oh-my-zsh
 
 # Artisan
 [ -e make ] && alias dpa="$(make art)"

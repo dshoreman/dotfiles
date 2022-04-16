@@ -1,6 +1,0 @@
-[Unit]
-Description=Refresh Pacman mirrorlist
-
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/reflector --save /etc/pacman.d/mirrorlist --sort rate -c "United Kingdom"

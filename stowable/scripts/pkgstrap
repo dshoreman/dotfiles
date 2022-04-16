@@ -1,0 +1,48 @@
+#!/bin/bash
+
+main() {
+    local aurPackages=() repoPackages=() src="${1:-all}"
+
+    cd "${DOTFILES_PATH:-$HOME/.files}/packages" || exit
+    grep -q '^ID=arch$' /etc/os-release 2>/dev/null || exit
+
+    for category in *; do
+        load-packages-from "$category"
+    done
+
+    if [[ $src =~ repo|--repo|all|--all ]]; then
+        echo "Installing official repo packages..."
+        [ $EUID -gt 0 ] && cmd="sudo pacman" || cmd="pacman"
+        $cmd -Syu --noconfirm --needed "${repoPackages[@]}"
+    fi
+
+    if [[ $src =~ aur|--aur|all|--all ]]; then
+        echo "Installing AUR packages..."
+        if [ $EUID -eq 0 ]; then
+            echo "Can't install AUR packages as root!" && exit 1
+        fi
+        yay -Syu --needed --removemake --noprovides --noconfirm "${aurPackages[@]}"
+    fi
+}
+
+load-packages-from() {
+    echo "Parsing packages from category '$1'..."
+
+    while read -r line; do
+        if [ "${line:0:4}" == "aur:" ]; then
+            parse-aur-line "${line:4}"
+        else
+            parse-repo-line "$line"
+        fi
+    done <<< "$(grep -vE '^(\s*$|#)' "$1")"
+}
+
+parse-aur-line() {
+    for pkg in $1; do aurPackages+=("$pkg"); done
+}
+
+parse-repo-line() {
+    for pkg in $1; do repoPackages+=("$pkg"); done
+}
+
+main "$@"

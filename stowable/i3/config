@@ -211,6 +211,13 @@ mode "wallpaper" {
 }
 bindsym $mod+b mode "wallpaper"
 
+# dunst startup/controls
+exec dunst
+bindsym Ctrl+space exec dunstctl close
+bindsym Ctrl+Shift+space exec dunstctl close-all
+bindsym Ctrl+Grave exec dunstctl history-pop
+bindsym Ctrl+Shift+Period exec dunstctl context
+
 gaps inner 15
 gaps outer 10
 smart_gaps on

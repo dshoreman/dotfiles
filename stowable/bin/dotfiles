@@ -29,7 +29,7 @@ for package in *; do
 
     [[ $target == /home/* ]] && cmd="stow" || cmd="sudo stow"
 
-    $cmd --target="$target" --ignore=".stowlock" --ignore=".stowtarget" $flag "$package"
+    $cmd $flag -t "$target" --dotfiles --ignore="\.stow(lock|target)" "$package"
 
     if [[ "$flag" == "--delete" ]]; then
         rm "$lockfile"

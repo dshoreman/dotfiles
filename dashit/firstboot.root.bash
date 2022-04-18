@@ -2,7 +2,7 @@
 
 main() {
     echo "Installing Pacman packages..."
-    "$DOTFILES_PATH"/stowable/scripts/pkgstrap --repo
+    "$DOTFILES_PATH"/stowable/bin/pkgstrap --repo
 
     echo -e "\n  Databases\n#############"
     echo -n "[mariadb] Forcing default timezone to GMT/UTC..."
@@ -20,6 +20,11 @@ main() {
     sdrd-set DNSSEC 'allow-downgrade' dnssec.conf
     sdrd-set DNSOverTLS 'yes' dns-over-tls.conf
     systemctl restart systemd-resolved.service
+
+    echo -e "\n  Customisations\n##################"
+    echo -n "[polybar] Allowing 'pacman -Sy' and 'ps_mem' to run without sudo pass... "
+    echo "$DASHIT_USER ALL=(ALL) NOPASSWD:/usr/bin/pacman -Sy,/usr/bin/ps_mem" \
+        >> /etc/sudoers.d/"$DASHIT_USER" && echo "[DONE]"
 
     echo -e "\n  Virtual Machines\n####################"
     echo -n "[virtualbox] Adding $DASHIT_USER to the vboxusers group... "

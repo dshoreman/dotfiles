@@ -38,7 +38,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'roxma/nvim-yarp'
     Plug 'pbogut/ncm2-alchemist', {'for': 'elixir'}
     Plug 'ncm2/ncm2-bufword'
-    Plug 'fgrsnau/ncm2-otherbuf'
+    Plug 'fgrsnau/ncm2-otherbuf', {'branch': 'master'}
     Plug 'ncm2/ncm2-html-subscope'
     Plug 'ncm2/ncm2-markdown-subscope', {'for': 'markdown'}
     Plug 'ncm2/ncm2-path'

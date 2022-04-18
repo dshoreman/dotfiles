@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 echo; echo "Installing packages from the AUR..."
-"$DOTFILES_PATH"/stowable/scripts/pkgstrap --aur
+"$DOTFILES_PATH"/stowable/bin/pkgstrap --aur
 
 echo; echo "Stowing configs from dotfiles..."
-"$DOTFILES_PATH"/stowable/scripts/dotfiles
+"$DOTFILES_PATH"/stowable/bin/dotfiles
 
 echo; echo -n "Adding web2mpv handler..."
 mimelist="$HOME/.config/mimeapps.list"

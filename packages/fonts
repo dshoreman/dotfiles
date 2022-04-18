@@ -4,7 +4,7 @@ ttf-droid ttf-roboto ttf-roboto-mono ttf-ubuntu-font-family
 
 # Code/terminal fonts
 ttf-fira-mono ttf-fira-sans ttf-monofur
-aur: ttf-monaco ttf-mononoki nerd-fonts-terminus ttf-weather-icons
+aur: ttf-monaco ttf-mononoki nerd-fonts-monoid nerd-fonts-terminus ttf-weather-icons
 
 # Novelty/design fonts
 aur: ttf-cheapskate ttf-mph-2b-damase ttf-vista-fonts

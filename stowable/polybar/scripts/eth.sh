@@ -27,7 +27,7 @@ print_bit() {
 }
 
 INTERVAL=3
-INTERFACES="enp6s0"
+INTERFACES="$(ip -brief link | grep ^en | awk '{ print $1 }')"
 
 declare -A addresses
 declare -A bytes

@@ -35,6 +35,3 @@ source "${ZPLUG_CONFIG}/key-bindings.zsh"
 
 # Only show targets when completing make commands
 zstyle ':completion:*:*:make:*' tag-order 'targets'
-
-# Set gPodder config
-[ -f ~/.pam_environment ] && . ~/.pam_environment

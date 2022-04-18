@@ -15,10 +15,6 @@ export GPG_TTY=$(tty)
 #     export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 # fi
 
-if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty2" ]; then
-    hash sway 2>/dev/null && exec sway
-fi
-
 # Display system information where available
 hash neofetch 2>/dev/null && { echo; neofetch } || {
     hash archey3 2>/dev/null && archey3
@@ -38,7 +34,6 @@ source "$HOME/.config/zplug/zplug.zsh"
 zstyle -e ':completion:*:*:ssh:*' users-hosts \
     '[[ -f ~/.ssh/config && $key = hosts ]] && key=my_hosts reply=()'
 
-export PATH="${PATH}:${DOTFILES_PATH}/stowable/scripts"
 [[ -n $DISPLAY && ! -f $DOTFILES_PATH/.installed.gsettings ]] && \
     apply-gsettings
 

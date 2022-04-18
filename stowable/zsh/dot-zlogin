@@ -1,0 +1,6 @@
+#!/usr/bin/env zsh
+
+[[ -z $DISPLAY ]] && case $XDG_VTNR in
+    1) hash startx 2>/dev/null && exec startx ;;
+    2) hash sway 2>/dev/null && exec sway ;;
+esac

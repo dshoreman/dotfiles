@@ -3,7 +3,7 @@ baobab dconf-editor file-roller font-manager gparted lxappearance qt5ct
 aur: diskmonitor hardinfo-git i-nex
 nextcloud-client rofi-calc rofi-emoji slop yad
 browserpass browserpass-firefox gpa 
-aur: sendanywhere nextshot
+aur: electron8-bin sendanywhere nextshot
 
 # Chat Apps
 discord telegram-desktop weechat
@@ -22,7 +22,7 @@ adapta-gtk-theme arc-gtk-theme arc-icon-theme
 aur: breeze-adapta-cursor-theme-git juno-theme-git
 
 # Screensavers
-aur: electricsheep xscreensaver-aerial xscreensaver-xmatrix-color
+aur: xscreensaver-aerial xscreensaver-xmatrix-color
 
 # X/Session Utils
 perl-file-mimeinfo polkit-kde-agent wmctrl xcape xclip xorg-xwininfo

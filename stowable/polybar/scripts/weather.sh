@@ -35,6 +35,8 @@ get_duration() {
 
 }
 
+[ -f ~/.config/polybar/weather.cnf ] || exit
+
 # shellcheck disable=SC1090
 . ~/.config/polybar/weather.cnf
 

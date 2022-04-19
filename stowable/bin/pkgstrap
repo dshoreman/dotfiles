@@ -21,7 +21,7 @@ main() {
         if [ $EUID -eq 0 ]; then
             echo "Can't install AUR packages as root!" && exit 1
         fi
-        yay -Syu --needed --removemake --noprovides --noconfirm "${aurPackages[@]}"
+        yay -Syu --needed --removemake --noprovides --noconfirm --norebuild "${aurPackages[@]}"
     fi
 }
 

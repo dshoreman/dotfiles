@@ -1,10 +1,12 @@
 # Editors
-darktable gimp shotcut
-aur: davinci-resolve gifcurry krita-git
+darktable gimp krita shotcut
+aur: davinci-resolve gifcurry
 
-# Players
-mpv-mpris rhythmbox vlc playerctl
-aur:mpv-vapoursynth mpv-thumbnail-script svp yuna
+# Players (tessdata needed for vapoursynth)
+rhythmbox vlc playerctl tesseract-data-eng
+aur:mpv-vapoursynth mpv-thumbnail-script svp
+# Yuna's package is old and fails to build
+# aur: yuna
 
 # Viewers
 feh geeqie

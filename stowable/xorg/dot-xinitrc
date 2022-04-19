@@ -20,11 +20,7 @@ for autostart in udiskie numlockx redshift-gtk; do
     [ -x $autostart ] && $autostart &
 done
 
-setxkbmap \
-    -option compose:menu \
-    -option keypad:pointerkeys \
-    -option caps:ctrl_modifier
-xcape -e 'Caps_Lock=Escape'
+setxkbmap -option compose:menu
 
 nextshot -t &
 [ -d ~/nextcloud ] && nextcloud &

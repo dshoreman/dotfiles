@@ -22,6 +22,9 @@ main() {
     systemctl restart systemd-resolved.service
 
     echo -e "\n  Customisations\n##################"
+    echo "[interception] Enabling udevmon service for caps lock remapping..."
+    systemctl enable udevmon.service
+
     echo -n "[polybar] Allowing 'pacman -Sy' and 'ps_mem' to run without sudo pass... "
     echo "$DASHIT_USER ALL=(ALL) NOPASSWD:/usr/bin/pacman -Sy,/usr/bin/ps_mem" \
         >> /etc/sudoers.d/"$DASHIT_USER" && echo "[DONE]"

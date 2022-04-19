@@ -25,4 +25,4 @@ aur: breeze-adapta-cursor-theme-git juno-theme-git
 aur: xscreensaver-aerial xscreensaver-xmatrix-color
 
 # X/Session Utils
-perl-file-mimeinfo polkit-kde-agent wmctrl xcape xclip xorg-xwininfo
+interception-caps2esc perl-file-mimeinfo polkit-kde-agent wmctrl xclip xorg-xwininfo

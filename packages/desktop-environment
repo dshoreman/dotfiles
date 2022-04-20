@@ -2,7 +2,7 @@
 baobab dconf-editor file-roller font-manager gparted lxappearance qt5ct
 aur: diskmonitor hardinfo-git i-nex
 nextcloud-client rofi-calc rofi-emoji slop yad
-browserpass browserpass-firefox gpa 
+browserpass browserpass-firefox browserpass-chromium gpa 
 aur: electron8-bin sendanywhere nextshot
 
 # Chat Apps

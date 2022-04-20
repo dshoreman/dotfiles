@@ -7,9 +7,9 @@ while pgrep -u $UID -x polybar > /dev/null; do
     sleep 1
 done
 
-for definition in $(polybar -m); do
-    out=$(echo "$definition" | cut -d':' -f1)
-    res=$(echo "$definition" | cut -d' ' -f2 | cut -dx -f1)
+for definition in $(polybar -m | sed 's/\(.*\): \(.*\)x.*/\1:\2/'); do
+    out=$(echo "$definition" | cut -d: -f1)
+    res=$(echo "$definition" | cut -d: -f2)
 
     if (( res >= 1920 )); then
         MONITOR=$out polybar primary -q & disown

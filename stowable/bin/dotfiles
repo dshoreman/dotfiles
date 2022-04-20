@@ -5,7 +5,9 @@
 cd "${DOTFILES_PATH:-$HOME/.files}"/stowable || cd ~/dotfiles/stowable || exit
 
 hash stow 2>/dev/null || case $(grep "^ID=" /etc/os-release | sed 's/ID=//') in
-    arch) sudo pacman --noconfirm -S stow ;;
+    # The -dotfiles-git AUR package fixes an issue when stowing nested .config dirs.
+    # If the author of stow ever merges and releases the PR, this can switch back.
+    arch) yay --noconfirm -S stow-dotfiles-git ;;
     ubuntu) sudo apt-get install -qy stow ;;
     *) echo "[ERROR] Don't know how to install stow!"; exit 1 ;;
 esac

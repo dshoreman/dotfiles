@@ -12,7 +12,7 @@ aur: i2c-ch341-dkms
 
 # HTTP/DBs
 nginx mariadb postgresql dbeaver sqlitebrowser
-aur: datagrip insomnia mycli pgcli
+aur: datagrip insomnia-bin mycli pgcli
 
 # Langs
 elixir go php-fpm rust typescript

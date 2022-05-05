@@ -31,7 +31,12 @@ for package in *; do
 
     [[ $target == /home/* ]] && cmd="stow" || cmd="sudo stow"
 
-    $cmd $flag -t "$target" --dotfiles --ignore="\.stow(lock|target)" "$package"
+    # The grep is to ignore a warning that happens when stowing any package that
+    # targets $HOME/ explicitely, if the homedir has absolute symlinks not owned
+    # by Stow itself (eg ~/.steam{pid,path}). A patch never happened, though the
+    # warning can be ignored: https://github.com/aspiers/stow/issues/65
+    $cmd $flag -t "$target" --dotfiles --ignore="\.stow(lock|target)" "$package" 2>&1 |\
+        grep -v 'BUG in find_stowed_path? Absolute/relative mismatch between Stow dir'
 
     if [[ "$flag" == "--delete" ]]; then
         rm "$lockfile"

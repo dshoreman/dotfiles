@@ -11,9 +11,8 @@ HYPHEN_INSENSITIVE="true"
 export EDITOR="vim"
 
 # Relocate zcompdump files to ~/.cache
-: ${XDG_CACHE_DIR:=~/.cache}
-mkdir -p "${XDG_CACHE_DIR}/zplug"
-export ZSH_ZCOMPDUMP="${XDG_CACHE_DIR}/zplug/zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
+mkdir -p "${XDG_CACHE_HOME}/zplug"
+export ZSH_ZCOMPDUMP="${XDG_CACHE_HOME}/zplug/zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
 
 # Load base plugins for shell features
 zplug "lib/completion", from:oh-my-zsh

@@ -6,6 +6,10 @@ echo; echo "Installing packages from the AUR..."
     # which then conflicts with mpv-vapoursynth.
     sudo pacman -S --no-confirm --needed mpv-mpris
 
+echo; echo "Creating XDG directories..."
+mkdir -p ~/.local/share/xdg/{desktop,public,templates}
+mkdir -p ~/{docs,dl,music,pictures,videos}
+
 echo; echo "Stowing configs from dotfiles..."
 "$DOTFILES_PATH"/stowable/bin/dotfiles
 

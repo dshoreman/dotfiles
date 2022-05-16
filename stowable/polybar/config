@@ -178,13 +178,14 @@ label-padding-left = 5
 [module/pacman]
 type = custom/script
 exec = ~/.config/polybar/scripts/pacman
-interval = 600
+interval = 3600
 
 [module/highmem]
 type = custom/script
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-exec = ~/.config/polybar/scripts/highmem
+exec = sudo memwatch
+tail = true
 
 [module/nowplaying]
 type = custom/script

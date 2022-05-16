@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# This script is called by Polybar to show the process
+# (or group of processes) currently using most RAM.
+#
+# It is called once there with sudo and `tail = true` to
+# avoid the journal being spammed constantly with logs.
+
+(( EUID == 0 )) || { echo Must run as root; exit 1; }
+
+# shellcheck disable=2016  # we dont *want* to parse the "vars"
+filter='{ proc=$9 $10; usage=$7 $8; print proc " [" usage "]" }'
+
+while true; do
+    ps_mem | tail -n4 | head -n1 | awk "$filter"
+    sleep 3
+done

@@ -1,5 +1,7 @@
 [CompactMode]
-FontWeight=50
+FontFamily=Fira Sans UltraLight
+FontSize=8
+FontWeight=12
 IconSize=32
 MaximumTextWidthIndex=3
 UseSystemFont=false
@@ -23,12 +25,17 @@ ShowToolTips=true
 UseTabForSwitchingSplitView=true
 
 [IconsMode]
+FontFamily=Fira Sans UltraLight
 FontSize=9
-FontWeight=50
+FontWeight=12
 MaximumTextLines=2
 PreviewSize=112
 TextWidthIndex=0
 UseSystemFont=false
+
+[KFileDialog Settings]
+Places Icons Auto-resize=false
+Places Icons Static Size=22
 
 [MainWindow]
 MenuBar=Disabled
@@ -36,7 +43,6 @@ ToolBarsMovable=Disabled
 
 [Open-with settings]
 CompletionMode=1
-History=neovim
 
 [PreviewSettings]
 Plugins=appimagethumbnail,audiothumbnail,comicbookthumbnail,cursorthumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,directorythumbnail,imagethumbnail,jpegthumbnail,windowsexethumbnail,windowsimagethumbnail,opendocumentthumbnail,svgthumbnail,textthumbnail

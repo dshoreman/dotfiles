@@ -1,0 +1,25 @@
+diff --git a/Jolly Kvantum Themes/Jolly-Kvantum/Jolly-Kvantum.kvconfig b/Jolly Kvantum Themes/Jolly-Kvantum/Jolly-Kvantum.kvconfig
+index 83b55b4..ce07092 100644
+--- a/Jolly Kvantum Themes/Jolly-Kvantum/Jolly-Kvantum.kvconfig	
++++ b/Jolly Kvantum Themes/Jolly-Kvantum/Jolly-Kvantum.kvconfig	
+@@ -1,6 +1,6 @@
+ [%General]
+ author=l4k1
+-comment=Jolly-Kvantum Dark Theme
++comment=Jolly Dark Theme
+ x11drag=menubar_and_primary_toolbar
+ alt_mnemonic=true
+ left_tabs=true
+diff --git a/Jolly Kvantum Themes/Jolly-Kvantum/Jolly-Kvantum.svg b/Jolly Kvantum Themes/Jolly-Kvantum/Jolly-Kvantum.svg
+index 1d33c61..e67706f 100644
+--- a/Jolly Kvantum Themes/Jolly-Kvantum/Jolly-Kvantum.svg	
++++ b/Jolly Kvantum Themes/Jolly-Kvantum/Jolly-Kvantum.svg	
+@@ -1,7 +1,7 @@
+ <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+ <svg
+    inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+-   sodipodi:docname="Jolly-Kvantum.svg"
++   sodipodi:docname="Jolly.svg"
+    id="svg1764"
+    viewBox="0 0 380.74613 635.00043"
+    version="1.1"

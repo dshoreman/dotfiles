@@ -1,0 +1,99 @@
+# Maintainer: Dave Shoreman <aur+jolly-theme-git at dsdev dot io>
+
+pkgname=jolly-theme-git
+_pkgname="${pkgname%-git}"
+pkgver=r436.7659083
+pkgrel=1
+pkgdesc="Jolly icons, colours and themes for GTK, KVantum and SDDM"
+arch=(any)
+url="https://github.com/L4ki/Jolly-Plasma-Themes"
+license=('GPL3')
+depends=()
+makedepends=('git')
+optdepends=(kvantum)
+source=("$_pkgname::git+$url.git"
+    colours.patch
+    icons.patch
+    kvantum.patch
+    sddm.patch)
+sha256sums=(SKIP SKIP SKIP SKIP SKIP)
+options=(!strip)
+
+pkgver() {
+    cd "$srcdir/$_pkgname"
+
+    printf "r%s.%s" \
+        "$(git rev-list --count HEAD)" \
+        "$(git rev-parse --short HEAD)"
+}
+
+prepare() {
+    cd "$srcdir/$_pkgname"
+
+    for patch in ${source[@]}; do
+        [[ $patch = *.patch ]] || continue
+        echo "Applying $patch..."
+        patch -Np1 -i "../$patch"
+    done
+}
+
+package() {
+    cd "$srcdir/$_pkgname"
+    pkg="$pkgdir/usr/share"
+
+    # Aurorae
+    # TODO: Figure out where these are supposed to live...
+    #       Seems to just be titlebar buttons though, may not need it.
+
+    # Colour Schemes
+    colours="Jolly Color Schemes"
+    install -Dm644 "$colours/JollyDarkColor.colors" "$pkg/color-schemes/JollyDark.colors"
+    install -Dm644 "$colours/JollyLightColor.colors" "$pkg/color-schemes/JollyLight.colors"
+
+    # GTK Themes
+    install_dir "Jolly GTK Themes/Jolly-GTK" themes/Jolly
+    mv "$pkg/themes/Jolly/asetts" "$pkg/themes/Jolly/assets"
+
+    # Icons
+    install_dir "Jolly Icons Themes/Jolly-Dark-Icons" "icons/Jolly-Dark"
+
+    # Konsole
+    # Don't use it, don't need it.
+
+    # KVantum Theme
+    kvsrc="Jolly Kvantum Themes/Jolly-Kvantum"
+    install -Dm644 "$kvsrc/Jolly-Kvantum.kvconfig" "$pkg/Kvantum/Jolly/Jolly.kvconfig"
+    install -Dm644 "$kvsrc/Jolly-Kvantum.svg" "$pkg/Kvantum/Jolly/Jolly.svg"
+
+    # Plasma Theme
+    # TODO: Lives in /usr/share/plasma/desktoptheme/jolly
+
+    # SDDM
+    install_dir "Jolly SDDM Themes/Jolly-SDDM" "sddm/themes/Jolly"
+    install -Dm644 "Jolly Wallpapers/Jolly-Nebula Wallpaper Without Plasma Logo.jpg" \
+        "$pkg/sddm/themes/Jolly/Jolly-Nebula.jpg"
+
+    rm "$pkg/sddm/themes/Jolly/Jolly-Nebula Wallpaper With Plasma Logo.jpg"
+    rm "$pkg/sddm/themes/Jolly/Text File.txt"
+
+    # Wallpapers
+    # Don't need 'em, got our own.
+
+    # Splash / Global Theme
+    # TODO: Lives in plasma/look-and-feel (not needed outside real kde/plasma).
+    # Ignore Jolly Splashscreen Themes, it's included in Jolly-Global-Themes.
+}
+
+install_dir() {
+    # Recurse child directories
+    for item in "$1/"*/; do
+        [ -d "$item" ] && install_dir "${item%/}" "$2/$(basename "$item")"
+    done
+
+    # Bail if there aren't any files here
+    [ "0" = $(find "$srcdir/$_pkgname/$1" -maxdepth 1 -type f -printf x | wc -c) ] && return
+
+    # But if there are, install 'em
+    find "$srcdir/$_pkgname/$1" -maxdepth 1 -type f -print0 \
+        | xargs -0 install -Dm644 -t "$pkgdir/usr/share/$2"
+}

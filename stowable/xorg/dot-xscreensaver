@@ -1,8 +1,8 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-settings 6.02 for dshoreman on Thu Apr  7 06:01:34 2022.
+# Written by xscreensaver-settings 6.03 for ds on Mon Apr 25 01:54:54 2022.
 # https://www.jwz.org/xscreensaver/
 
-timeout:	12:00:00
+timeout:	0:05:00
 cycle:		0:10:00
 lock:		False
 lockTimeout:	0:00:00
@@ -19,7 +19,7 @@ unfade:		True
 fadeSeconds:	0:00:01
 ignoreUninstalledPrograms:False
 font:		
-dpmsEnabled:	False
+dpmsEnabled:	True
 dpmsQuickOff:	False
 dpmsStandby:	2:00:00
 dpmsSuspend:	2:00:00
@@ -290,8 +290,9 @@ programs:								      \
 - GL: 				sphereeversion -root			    \n\
 				binaryhorizon -root			    \n\
 				marbling -root				    \n\
+- GL: 				mapscroller -root			    \n\
+  GL: 				squirtorus -root			    \n\
 
 
 pointerHysteresis:  10
 authWarningSlack:   20
-

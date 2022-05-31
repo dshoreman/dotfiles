@@ -1,0 +1,101 @@
+diff --git a/Jolly SDDM Themes/Jolly-SDDM/Main.qml b/Jolly SDDM Themes/Jolly-SDDM/Main.qml
+index 891c041..fbd35d4 100644
+--- a/Jolly SDDM Themes/Jolly-SDDM/Main.qml	
++++ b/Jolly SDDM Themes/Jolly-SDDM/Main.qml	
+@@ -202,28 +202,28 @@ PlasmaCore.ColorScope {
+ 
+                 actionItems: [
+                     ActionButton {
+-                        iconSource: "/usr/share/sddm/themes/Jolly-SDDM/components/artwork/suspend_primary.svg"
++                        iconSource: "/usr/share/sddm/themes/Jolly/components/artwork/suspend_primary.svg"
+                         text: i18ndc("plasma_lookandfeel_org.kde.lookandfeel","Suspend to RAM","Sleep")
+                         onClicked: sddm.suspend()
+                         enabled: sddm.canSuspend
+                         visible: !inputPanel.keyboardActive
+                     },
+                     ActionButton {
+-                        iconSource: "/usr/share/sddm/themes/Jolly-SDDM/components/artwork/restart_primary.svg"
++                        iconSource: "/usr/share/sddm/themes/Jolly/artwork/restart_primary.svg"
+                         text: i18nd("plasma_lookandfeel_org.kde.lookandfeel","Restart")
+                         onClicked: sddm.reboot()
+                         enabled: sddm.canReboot
+                         visible: !inputPanel.keyboardActive
+                     },
+                     ActionButton {
+-                        iconSource: "/usr/share/sddm/themes/Jolly-SDDM/components/artwork/shutdown_primary.svg"
++                        iconSource: "/usr/share/sddm/themes/Jolly/components/artwork/shutdown_primary.svg"
+                         text: i18nd("plasma_lookandfeel_org.kde.lookandfeel","Shut Down")
+                         onClicked: sddm.powerOff()
+                         enabled: sddm.canPowerOff
+                         visible: !inputPanel.keyboardActive
+                     },
+                     ActionButton {
+-                        iconSource: "/usr/share/sddm/themes/Jolly-SDDM/components/artwork/switch_primary.svg"
++                        iconSource: "/usr/share/sddm/themes/Jolly/components/artwork/switch_primary.svg"
+                         text: i18ndc("plasma_lookandfeel_org.kde.lookandfeel", "For switching to a username and password prompt", "Other...")
+                         onClicked: mainStack.push(userPromptComponent)
+                         enabled: true
+@@ -381,28 +381,28 @@ PlasmaCore.ColorScope {
+ 
+                 actionItems: [
+                     ActionButton {
+-                        iconSource: "/usr/share/sddm/themes/Jolly-SDDM/components/artwork/suspend_primary.svg"
++                        iconSource: "/usr/share/sddm/themes/Jolly/components/artwork/suspend_primary.svg"
+                         text: i18ndc("plasma_lookandfeel_org.kde.lookandfeel","Suspend to RAM","Sleep")
+                         onClicked: sddm.suspend()
+                         enabled: sddm.canSuspend
+                         visible: !inputPanel.keyboardActive
+                     },
+                     ActionButton {
+-                        iconSource: "/usr/share/sddm/themes/Jolly-SDDM/components/artwork/restart_primary.svg"
++                        iconSource: "/usr/share/sddm/themes/Jolly/components/artwork/restart_primary.svg"
+                         text: i18nd("plasma_lookandfeel_org.kde.lookandfeel","Restart")
+                         onClicked: sddm.reboot()
+                         enabled: sddm.canReboot
+                         visible: !inputPanel.keyboardActive
+                     },
+                     ActionButton {
+-                        iconSource: "/usr/share/sddm/themes/Jolly-SDDM/components/artwork/shutdown_primary.svg"
++                        iconSource: "/usr/share/sddm/themes/Jolly/components/artwork/shutdown_primary.svg"
+                         text: i18nd("plasma_lookandfeel_org.kde.lookandfeel","Shut Down")
+                         onClicked: sddm.powerOff()
+                         enabled: sddm.canPowerOff
+                         visible: !inputPanel.keyboardActive
+                     },
+                     ActionButton {
+-                        iconSource: "/usr/share/sddm/themes/Jolly-SDDM/components/artwork/list_users.svg"
++                        iconSource: "/usr/share/sddm/themes/Jolly/components/artwork/list_users.svg"
+                         text: i18nd("plasma_lookandfeel_org.kde.lookandfeel","List Users")
+                         onClicked: mainStack.pop()
+                         visible: !inputPanel.keyboardActive
+diff --git a/Jolly SDDM Themes/Jolly-SDDM/metadata.desktop b/Jolly SDDM Themes/Jolly-SDDM/metadata.desktop
+index 2bf5c28..5a9e972 100644
+--- a/Jolly SDDM Themes/Jolly-SDDM/metadata.desktop	
++++ b/Jolly SDDM Themes/Jolly-SDDM/metadata.desktop	
+@@ -1,6 +1,6 @@
+ [SddmGreeterTheme]
+-Name=Jolly-SDDM
+-Description=Jolly-SDDM Theme
++Name=Jolly
++Description=Jolly Theme
+ Author=l4k1
+ License=GPLv3
+ Type=sddm-theme
+@@ -11,5 +11,5 @@ MainScript=Main.qml
+ ConfigFile=theme.conf
+ TranslationsDirectory=translations
+ Email=l4k1987@gmail.com
+-Theme-Id=Jolly-SDDM
++Theme-Id=Jolly
+ Theme-API=2.0
+diff --git a/Jolly SDDM Themes/Jolly-SDDM/theme.conf b/Jolly SDDM Themes/Jolly-SDDM/theme.conf
+index 7f0463b..d660c32 100644
+--- a/Jolly SDDM Themes/Jolly-SDDM/theme.conf	
++++ b/Jolly SDDM Themes/Jolly-SDDM/theme.conf	
+@@ -2,5 +2,4 @@
+ type=image
+ color=#1f1d36
+ fontSize=10
+-background=Jolly-Nebula Wallpaper With Plasma Logo.jpg
+-
++background=Jolly-Nebula.jpg

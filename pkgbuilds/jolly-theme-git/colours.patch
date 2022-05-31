@@ -1,0 +1,30 @@
+diff --git a/Jolly Color Schemes/JollyDarkColor.colors b/Jolly Color Schemes/JollyDarkColor.colors
+index 7261f72..b42d55e 100644
+--- a/Jolly Color Schemes/JollyDarkColor.colors	
++++ b/Jolly Color Schemes/JollyDarkColor.colors	
+@@ -106,8 +106,8 @@ ForegroundPositive=0,170,127
+ ForegroundVisited=235,203,139
+ 
+ [General]
+-ColorScheme=JollyDarkColor
+-Name=Jolly-Dark-Color
++ColorScheme=JollyDark
++Name=Jolly-Dark
+ shadeSortColumn=true
+ 
+ [KDE]
+diff --git a/Jolly Color Schemes/JollyLightColor.colors b/Jolly Color Schemes/JollyLightColor.colors
+index f9699d7..3f5124d 100644
+--- a/Jolly Color Schemes/JollyLightColor.colors	
++++ b/Jolly Color Schemes/JollyLightColor.colors	
+@@ -131,8 +131,8 @@ ForegroundPositive=0,170,127
+ ForegroundVisited=155,89,182
+ 
+ [General]
+-ColorScheme=JollyLightColor
+-Name=Jolly-Light-Color
++ColorScheme=JollyLight
++Name=Jolly-Light
+ shadeSortColumn=true
+ 
+ [KDE]

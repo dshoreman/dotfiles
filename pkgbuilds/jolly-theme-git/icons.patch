@@ -1,0 +1,18 @@
+diff --git a/Jolly Icons Themes/Jolly-Dark-Icons/index.theme b/Jolly Icons Themes/Jolly-Dark-Icons/index.theme
+index cf5a1c5..97ce0d3 100644
+--- a/Jolly Icons Themes/Jolly-Dark-Icons/index.theme	
++++ b/Jolly Icons Themes/Jolly-Dark-Icons/index.theme	
+@@ -1,9 +1,9 @@
+ [Icon Theme]
+-Name=Jolly-Dark-Icons
+-Name[en_GB]=Jolly-Dark-Icons
++Name=Jolly-Dark
++Name[en_GB]=Jolly-Dark
+ 
+-Comment=Jolly-Dark-Icons
+-Comment[en_GB]=Jolly-Dark-Icons
++Comment=Jolly-Dark Icons
++Comment[en_GB]=Jolly-Dark Icons
+ 
+ DisplayDepth=32
+ 

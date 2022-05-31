@@ -18,7 +18,7 @@ libreoffice-fresh-en-gb sweethome3d
 aur: google-earth-pro
 
 # Appearance
-adapta-gtk-theme arc-gtk-theme arc-icon-theme
+adapta-gtk-theme arc-gtk-theme arc-icon-theme kvantum qt5ct
 aur: breeze-adapta-cursor-theme-git juno-theme-git
 
 # Screensavers

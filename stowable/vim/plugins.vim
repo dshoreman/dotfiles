@@ -51,6 +51,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'sheerun/vim-polyglot'
 
     " Specific Languages
+    Plug 'Firef0x/PKGBUILD.vim'
     Plug 'othree/html5.vim'
     Plug 'mattn/emmet-vim'
 

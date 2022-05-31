@@ -13,7 +13,7 @@ aur: inxi nohang-git
 iftop iptraf-ng mtr nethogs nmap samba
 
 # Package Management
-namcap pacman-contrib
+arch-install-scripts namcap pacman-contrib
 aur: pacvis-git
 
 # Storage

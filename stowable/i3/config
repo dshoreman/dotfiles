@@ -241,7 +241,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 exec --no-startup-id alacritty --class=weechat -e zsh -ic weechat
 
-exec --no-startup-id i3-msg "workspace $ws1; exec firefox"
+exec --no-startup-id i3-msg "workspace $ws1; exec vivaldi-stable"
 exec_always xscreensaver --no-splash
 
 # Scratchpad Config

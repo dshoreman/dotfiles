@@ -11,7 +11,8 @@ aur:skypeforlinux-stable-bin
 
 # File Managers
 dolphin dolphin-plugins
-thunar tumbler thunar-archive-plugin thunar-media-tags-plugin gvfs-afc gvfs-mtp
+gvfs-afc gvfs-mtp xdg-user-dirs
+thunar tumbler thunar-archive-plugin thunar-media-tags-plugin
 
 # Other Software
 libreoffice-fresh-en-gb sweethome3d

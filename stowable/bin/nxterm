@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+# This script is simply an alias for alacritty.
+# Its purpose is to fix GNOME apps such as file-roller,
+# which is unable to open files in an archive because
+# GNOME has an explicit list of terminals it checks.
+#
+# nxterm is used here because it's the first supported
+# terminal in that code block which uses `-e` not `-x`.
+#
+# ---
+#
+# Full terminal list:
+# https://gitlab.gnome.org/GNOME/glib/-/blob/c1a11c02e5ef458f328c1ed938d6077a4fd7deb3/gio/gdesktopappinfo.c#L2548-2586
+#
+# More context:
+# https://gitlab.com/mobian1/issues/-/issues/392#note_750735107
+
+/usr/bin/alacritty "${@}"

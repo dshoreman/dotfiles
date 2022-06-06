@@ -204,7 +204,7 @@ bindsym $mod+p mode "audio"
 
 # enable $mod+bg to change wallpaper
 mode "wallpaper" {
-    bindsym g exec --no-startup-id sleep 2 && sh ~/.fehbg
+    bindsym g exec --no-startup-id sleep 2 && fehbg
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
@@ -233,7 +233,7 @@ client.urgent           #2f343a99 #90000099 #ffffff99 #90000099 #2f343aaa
 client.placeholder      #00000000 #0c0c0c00 #ffffff00 #00000000
 client.background color #00000000
 
-exec --no-startup-id sh ~/.fehbg
+exec --no-startup-id fehbg
 exec --no-startup-id picom --daemon --experimental-backends
 exec --no-startup-id SVPManager -tray
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1

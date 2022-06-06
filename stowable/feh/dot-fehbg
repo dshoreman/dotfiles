@@ -1,2 +1,0 @@
-#!/bin/sh
-feh --bg-scale ~/pictures/wallpaper/4K/* --randomize --no-fehbg

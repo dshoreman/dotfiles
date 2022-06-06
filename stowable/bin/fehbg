@@ -1,0 +1,2 @@
+#!/bin/sh
+feh --bg-scale "$(xdg-user-dir PICTURES)"/wallpaper/4K/* --randomize --no-fehbg

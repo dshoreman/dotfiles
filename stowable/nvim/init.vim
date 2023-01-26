@@ -17,7 +17,9 @@
     set title                         " Display filename in the terminal title
     set number                        " Display line numbers
     set relativenumber                " Show line number relative to current
+    set signcolumn=yes                " Don't hide sign column to avoid jumping code
     set showmatch                     " Show matching brackets on insert
+    set updatetime=300                " Delay for cursor idle, used for symbol highlight
     set cursorline                    " Highlight current line
     set noequalalways                 " Prevent automatic resize of split windows
     set splitbelow                    " Open new split below, not above
@@ -51,6 +53,9 @@
     nmap <S-Tab> <<
     imap <S-Tab> <C-o><<
 " }
+
+
+source ~/.config/nvim/configs/coc.vim
 
 
 " Functions: {

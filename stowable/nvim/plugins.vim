@@ -3,6 +3,11 @@ call plug#begin()
     " Theme
     Plug 'KeitaNakamura/neodark.vim'
 
+    " Snippets / Code Completion
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'phpactor/phpactor', {'for': 'php', 'tag': '*',
+                \'do': 'composer install --no-dev -o'}
+
 call plug#end()
 
 

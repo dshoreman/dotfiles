@@ -2,6 +2,7 @@
     let mapleader=" "
     source ~/.config/nvim/plugins.vim
 
+    set timeoutlen=400                " Don't delay for so long after <leader>
     set nrformats="alpha,bin,hex"     " Let ^A^X in/decrease binary, hex or single letters
     set wildmode=list:longest,full    " Enhance command-line completion
 
@@ -21,6 +22,7 @@
     set showmatch                     " Show matching brackets on insert
     set updatetime=300                " Delay for cursor idle, used for symbol highlight
     set cursorline                    " Highlight current line
+    set noshowmode                    " Don't show default mode indicator
     set noequalalways                 " Prevent automatic resize of split windows
     set splitbelow                    " Open new split below, not above
     set splitright                    " Open new vsplit to the right
@@ -56,6 +58,9 @@
 
 
 source ~/.config/nvim/configs/coc.vim
+source ~/.config/nvim/configs/airline.vim
+source ~/.config/nvim/configs/nvim-tree.lua
+source ~/.config/nvim/configs/startify.vim
 
 
 " Functions: {

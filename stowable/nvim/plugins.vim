@@ -2,6 +2,12 @@ call plug#begin()
 
     " Theme
     Plug 'KeitaNakamura/neodark.vim'
+    Plug 'dshoreman/neogumbat.vim'
+
+    " UI
+    Plug 'vim-airline/vim-airline'
+    Plug 'mhinz/vim-startify'
+    Plug 'nvim-tree/nvim-tree.lua'
 
     " Snippets / Code Completion
     Plug 'neoclide/coc.nvim', {'branch': 'release'}

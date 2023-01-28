@@ -4,10 +4,14 @@ call plug#begin()
     Plug 'KeitaNakamura/neodark.vim'
     Plug 'dshoreman/neogumbat.vim'
 
-    " UI
+    " UI / Navigation
     Plug 'vim-airline/vim-airline'
+    Plug 'junegunn/vim-peekaboo'
     Plug 'mhinz/vim-startify'
+    Plug 'nvim-lua/plenary.nvim' |
+                \ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.*' }
     Plug 'nvim-tree/nvim-tree.lua'
+    Plug 'liuchengxu/vista.vim'
 
     " Snippets / Code Completion
     Plug 'neoclide/coc.nvim', {'branch': 'release'}

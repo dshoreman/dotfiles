@@ -61,6 +61,8 @@ source ~/.config/nvim/configs/coc.vim
 source ~/.config/nvim/configs/airline.vim
 source ~/.config/nvim/configs/nvim-tree.lua
 source ~/.config/nvim/configs/startify.vim
+source ~/.config/nvim/configs/telescope.vim
+source ~/.config/nvim/configs/vista.vim
 
 
 " Functions: {

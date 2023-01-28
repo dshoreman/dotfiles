@@ -30,3 +30,9 @@ setlocal iskeyword+=$
     " Extract method from selection
     vmap <silent><Leader>em :<C-U>call phpactor#ExtractMethod()<CR>
 " }
+
+" PHP Namespace: {
+    " Sort use statements alphabetically
+    imap <buffer> <Leader>s <Esc>:call PhpSortUse()<CR>
+    nmap <buffer> <Leader>s :call PhpSortUse()<CR>
+" }

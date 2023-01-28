@@ -20,6 +20,7 @@
     set relativenumber                " Show line number relative to current
     set signcolumn=yes                " Don't hide sign column to avoid jumping code
     set showmatch                     " Show matching brackets on insert
+    set inccommand=split              " Preview :substitute results in a split
     set updatetime=300                " Delay for cursor idle, used for symbol highlight
     set cursorline                    " Highlight current line
     set noshowmode                    " Don't show default mode indicator
@@ -59,7 +60,11 @@
 
 source ~/.config/nvim/configs/coc.vim
 source ~/.config/nvim/configs/airline.vim
+source ~/.config/nvim/configs/gutentags.vim
+source ~/.config/nvim/configs/import-cost.vim
+source ~/.config/nvim/configs/mundo.vim
 source ~/.config/nvim/configs/nvim-tree.lua
+source ~/.config/nvim/configs/schlepp.vim
 source ~/.config/nvim/configs/startify.vim
 source ~/.config/nvim/configs/telescope.vim
 source ~/.config/nvim/configs/vista.vim

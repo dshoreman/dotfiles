@@ -1,10 +1,10 @@
 let g:coc_global_extensions = [
-      \ 'coc-html', 'coc-css', 'coc-html-css-support',
-      \ 'coc-git', 'coc-json', 'coc-yaml',
+      \ 'coc-html', 'coc-htmlhint', 'coc-css', 'coc-html-css-support',
+      \ 'coc-json', '@yaegassy/coc-nginx', 'coc-yaml',
+      \ 'coc-git', 'coc-sh', 'coc-vimlsp',
       \ 'coc-eslint', 'coc-tsserver',
       \ 'coc-blade', 'coc-phpactor',
-      \ 'coc-sh', 'coc-vimlsp',
-      \ 'coc-elixir',
+      \ 'coc-go', 'coc-elixir',
       \ ]
 
 " Code Completion Menu: {

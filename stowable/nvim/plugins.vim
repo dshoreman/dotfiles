@@ -15,6 +15,13 @@ call plug#begin()
 
     " Snippets / Code Completion
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+    " Extra Syntaxes
+    Plug 'sheerun/vim-polyglot'
+    Plug 'PotatoesMaster/i3-vim-syntax'
+    Plug 'Firef0x/PKGBUILD.vim'
+
+    " Language Tooling
     Plug 'phpactor/phpactor', {'for': 'php', 'tag': '*',
                 \'do': 'composer install --no-dev -o'}
 

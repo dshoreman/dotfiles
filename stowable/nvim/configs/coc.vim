@@ -1,3 +1,12 @@
+let g:coc_global_extensions = [
+      \ 'coc-html', 'coc-css', 'coc-html-css-support',
+      \ 'coc-git', 'coc-json', 'coc-yaml',
+      \ 'coc-eslint', 'coc-tsserver',
+      \ 'coc-blade', 'coc-phpactor',
+      \ 'coc-sh', 'coc-vimlsp',
+      \ 'coc-elixir',
+      \ ]
+
 " Code Completion Menu: {
     " Select with <Tab>, or open menu if cursor isn't after a space
     inoremap <silent><expr> <Tab>

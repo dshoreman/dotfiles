@@ -1,0 +1,6 @@
+{
+  "html-css-support.enable": true,
+  "html-css-support.enabledLanguages": [
+    "blade", "html", "php", "vue"
+  ]
+}

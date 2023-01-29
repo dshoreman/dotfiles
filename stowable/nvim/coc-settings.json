@@ -7,4 +7,5 @@
     "htm", "html", "twig", "vue"
   ],
   "markdown-preview-enhanced.previewTheme": "atom-material.css",
+  "snippets.userSnippetsDirectory": "~/.vim/UltiSnips",
 }

@@ -1,22 +1,26 @@
 let g:coc_global_extensions = [
+      \ 'coc-markdownlint', 'coc-markdown-preview-enhanced', 'coc-markmap', 'coc-webview',
+      \ 'coc-git', 'coc-json', '@yaegassy/coc-nginx', 'coc-sh', 'coc-vimlsp', 'coc-yaml',
       \ 'coc-html', 'coc-htmlhint', 'coc-css', 'coc-html-css-support',
-      \ 'coc-json', 'coc-markdownlint', '@yaegassy/coc-nginx', 'coc-yaml',
-      \ 'coc-markdown-preview-enhanced', 'coc-markmap', 'coc-webview',
-      \ 'coc-git', 'coc-sh', 'coc-vimlsp',
-      \ 'coc-eslint', 'coc-tsserver',
       \ 'coc-blade', 'coc-phpactor',
-      \ 'coc-go', 'coc-elixir',
+      \ 'coc-eslint', 'coc-tsserver',
+      \ 'coc-lightbulb', 'coc-snippets',
+      \ 'coc-elixir', 'coc-go',
       \ ]
 
 " Code Completion Menu: {
     " Select with <Tab>, or open menu if cursor isn't after a space
-    inoremap <silent><expr> <Tab>
+    imap <silent><expr> <Tab>
           \ coc#pum#visible() ? coc#_select_confirm() :
+          \ coc#expandableOrJumpable() ?
+          \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump', ''])\<CR>" :
           \ CheckBackspace() ? "\<Tab>" :
           \ coc#refresh()
 
     " Confirm selected item on enter
-    inoremap <silent><expr> <CR> coc#pum#visible() && coc#pum#info()['index'] != -1 ? coc#pum#confirm() : "\<CR>"
+    inoremap <silent><expr> <CR>
+                \ coc#pum#visible() && coc#pum#info()['index'] != -1 ?
+                \ coc#pum#confirm() : "\<CR>"
 " }
 
 " Code Navigation: {

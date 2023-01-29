@@ -15,11 +15,13 @@ call plug#begin()
     Plug 'tpope/vim-surround'
     Plug 'nvim-lua/plenary.nvim' |
                 \ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.*' }
-    Plug 'nvim-tree/nvim-tree.lua'
+    Plug 'nvim-tree/nvim-web-devicons' |
+                \ Plug 'nvim-tree/nvim-tree.lua'
     Plug 'tpope/vim-unimpaired'
     Plug 'liuchengxu/vista.vim'
 
     " File/Code Manipulation
+    Plug 'jiangmiao/auto-pairs'
     Plug 'Shougo/context_filetype.vim' |
                 \ Plug 'tyru/caw.vim'
     Plug 'tpope/vim-eunuch'
@@ -28,6 +30,7 @@ call plug#begin()
 
     " Snippets / Code Completion
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'SirVer/ultisnips'
 
     " Extra Syntaxes
     Plug 'sheerun/vim-polyglot'

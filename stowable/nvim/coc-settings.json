@@ -6,4 +6,5 @@
   "htmlhint.documentSelector": [
     "htm", "html", "twig", "vue"
   ],
+  "markdown-preview-enhanced.previewTheme": "atom-material.css",
 }

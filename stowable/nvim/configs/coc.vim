@@ -1,6 +1,7 @@
 let g:coc_global_extensions = [
       \ 'coc-html', 'coc-htmlhint', 'coc-css', 'coc-html-css-support',
-      \ 'coc-json', '@yaegassy/coc-nginx', 'coc-yaml',
+      \ 'coc-json', 'coc-markdownlint', '@yaegassy/coc-nginx', 'coc-yaml',
+      \ 'coc-markdown-preview-enhanced', 'coc-markmap', 'coc-webview',
       \ 'coc-git', 'coc-sh', 'coc-vimlsp',
       \ 'coc-eslint', 'coc-tsserver',
       \ 'coc-blade', 'coc-phpactor',

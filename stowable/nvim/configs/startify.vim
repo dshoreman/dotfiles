@@ -24,17 +24,19 @@ let g:startify_skiplist = [
             \ '^/tmp',
             \ ]
 
-lua <<EOF
-function _G.getWebDevIcon(path)
-    local file = vim.fn.fnamemodify(path, ':t')
-    local ext = vim.fn.fnamemodify(path, ':e')
+if has('nvim')
+    lua <<EOF
+    function _G.getWebDevIcon(path)
+        local file = vim.fn.fnamemodify(path, ':t')
+        local ext = vim.fn.fnamemodify(path, ':e')
 
-    return require('nvim-web-devicons').get_icon(file, ext, {
-        default = true,
-    })
-end
+        return require('nvim-web-devicons').get_icon(file, ext, {
+            default = true,
+        })
+    end
 EOF
 
-function! StartifyEntryFormat() abort
-    return 'v:lua.getWebDevIcon(absolute_path) . " " . entry_path'
-endfunction
+    function! StartifyEntryFormat() abort
+        return 'v:lua.getWebDevIcon(absolute_path) . " " . entry_path'
+    endfunction
+endif

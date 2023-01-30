@@ -27,6 +27,7 @@ call plug#begin()
     Plug 'tpope/vim-eunuch'
     Plug 'simnalamburt/vim-mundo'
     Plug 'zirrostig/vim-schlepp'
+    Plug 'mcauley-penney/tidy.nvim'
 
     " Snippets / Code Completion
     Plug 'neoclide/coc.nvim', {'branch': 'release'}

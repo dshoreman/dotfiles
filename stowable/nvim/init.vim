@@ -69,6 +69,7 @@ source ~/.config/nvim/configs/schlepp.vim
 source ~/.config/nvim/configs/snippets.vim
 source ~/.config/nvim/configs/startify.vim
 source ~/.config/nvim/configs/telescope.vim
+source ~/.config/nvim/configs/tidy.lua
 source ~/.config/nvim/configs/vista.vim
 
 

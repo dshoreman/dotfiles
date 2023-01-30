@@ -1,6 +1,7 @@
 {
   "coc.preferences.formatOnSave": true,
   "coc.preferences.formatOnType": true,
+  "colors.enable": true,
   "eslint.autoFixOnSave": true,
   "eslint.lintTask.options": [
     "--config", "build/eslint/config.json", "."

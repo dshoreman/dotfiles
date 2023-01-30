@@ -3,8 +3,8 @@ let g:coc_global_extensions = [
       \ 'coc-git', 'coc-json', '@yaegassy/coc-nginx', 'coc-sh', 'coc-vimlsp', 'coc-yaml',
       \ 'coc-blade', 'coc-html', 'coc-htmlhint', 'coc-css', 'coc-html-css-support',
       \ 'coc-phpactor', 'coc-php-cs-fixer', 'coc-psalm', '@yaegassy/coc-phpstan',
+      \ 'coc-discord-rpc', 'coc-lightbulb', 'coc-snippets',
       \ 'coc-eslint', 'coc-tsserver',
-      \ 'coc-lightbulb', 'coc-snippets',
       \ 'coc-elixir', 'coc-go',
       \ ]
 

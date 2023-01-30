@@ -1,4 +1,20 @@
-let mapleader=" "
+let data_dir = $HOME . '/.vim'
+let mapleader = " "
+
+if !isdirectory(data_dir . '/autoload')
+    echo "Creating autoload dir for vim-plug..."
+    call mkdir(data_dir . '/autoload', 'p')
+endif
+
+if !isdirectory(data_dir . '/swap')
+    echo "Creating swap dir for file backups..."
+    call mkdir(data_dir . '/swap', 'p')
+endif
+
+if !isdirectory(data_dir . '/undo')
+    echo "Creating undo dir for file history..."
+    call mkdir(data_dir . '/undo', 'p')
+endif
 
 source ~/.config/nvim/plugins.vim
 source ~/.vim/settings.vim

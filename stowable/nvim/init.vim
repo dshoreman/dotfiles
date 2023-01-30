@@ -1,4 +1,5 @@
-let mapleader=" "
+let data_dir = stdpath('data') . '/site'
+let mapleader = " "
 
 source ~/.config/nvim/plugins.vim
 source ~/.config/nvim/settings.vim

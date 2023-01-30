@@ -1,1 +1,1 @@
-let g:sh_fold_enabled=3
+source ~/.config/nvim/after/ftplugin/sh.vim

@@ -11,6 +11,14 @@ setlocal iskeyword+=$
     " Invoke the navigation menu
     nmap <Leader>nn :call phpactor#Navigate()<CR>
 
+    if !has('nvim')
+        " Goto definition of class or class member under the cursor
+        nmap <Leader>o :call phpactor#GotoDefinition()<CR>
+
+        " Show brief information about the symbol under the cursor
+        nmap <Leader>K :call phpactor#Hover()<CR>
+    endif
+
     " Transform the classes in the current file
     " Can be used to complete constructors, implement interface methods, etc
     nmap <Leader>tt :call phpactor#Transform()<CR>
@@ -36,3 +44,22 @@ setlocal iskeyword+=$
     imap <buffer> <Leader>s <Esc>:call PhpSortUse()<CR>
     nmap <buffer> <Leader>s :call PhpSortUse()<CR>
 " }
+
+if !has('nvim')
+    " Hit K for PHP docs. Run `sync-pman` in shell to update
+    setlocal keywordprg=:terminal\ ++close\ pman
+
+    " Same thing but bound with ctrl to open in vsplit
+    nmap <C-S-k> :vert terminal ++close pman <cword><CR>
+
+    " ALE: {
+        let b:ale_fixers = ['php_cs_fixer']
+        let g:ale_php_cs_fixer_options = '--config=build/php-cs-fixer/config.php'
+
+        let g:ale_php_phpcs_standard = 'PSR12'
+        let g:ale_php_phpmd_ruleset = 'build/phpmd/rules.xml'
+        let g:ale_php_phpstan_configuration = 'build/phpstan/config.neon'
+
+        call ale#Set('psalm_langserver_options', '-c build/psalm/psalm.xml')
+    " }
+endif

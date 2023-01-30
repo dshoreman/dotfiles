@@ -11,7 +11,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 1
 
 " Enable CoC diagnostics support
-let g:airline#extensions#coc#error_symbol = 'WUT'
+let g:airline#extensions#coc#error_symbol =  '✘ '
 
 " And finally, add a section to the left showing Git hunks
 let g:airline_section_b = airline#section#create_left(['hunks'])

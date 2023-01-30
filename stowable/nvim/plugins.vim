@@ -13,12 +13,21 @@ call plug#begin()
     Plug 'tpope/vim-speeddating'
     Plug 'mhinz/vim-startify'
     Plug 'tpope/vim-surround'
-    Plug 'nvim-lua/plenary.nvim' |
-                \ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.*' }
-    Plug 'nvim-tree/nvim-web-devicons' |
-                \ Plug 'nvim-tree/nvim-tree.lua'
     Plug 'tpope/vim-unimpaired'
-    Plug 'liuchengxu/vista.vim'
+    if has('nvim')
+        Plug 'nvim-lua/plenary.nvim' |
+                    \ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.*' }
+        Plug 'nvim-tree/nvim-web-devicons' |
+                    \ Plug 'nvim-tree/nvim-tree.lua'
+        Plug 'liuchengxu/vista.vim'
+    else
+        Plug 'junegunn/fzf.vim'
+        Plug 'airblade/vim-gitgutter'
+        Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
+        Plug 'tpope/vim-obsession'
+        Plug 'majutsushi/tagbar'
+        Plug 'markonm/traces.vim'
+    endif
 
     " File/Code Manipulation
     Plug 'jiangmiao/auto-pairs'
@@ -30,13 +39,31 @@ call plug#begin()
     Plug 'mcauley-penney/tidy.nvim'
 
     " Snippets / Code Completion
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    if has('nvim')
+        Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    else
+        Plug 'roxma/vim-hug-neovim-rpc' | Plug 'roxma/nvim-yarp' |
+                    \ Plug 'ncm2/ncm2'
+        Plug 'ncm2/ncm2-bufword'
+        Plug 'fgrsnau/ncm2-otherbuf', {'branch': 'master'}
+        Plug 'ncm2/ncm2-html-subscope'
+        Plug 'ncm2/ncm2-markdown-subscope', {'for': 'markdown'}
+        Plug 'ncm2/ncm2-path'
+        Plug 'phpactor/ncm2-phpactor', {'for': 'php'}
+        Plug 'ncm2/ncm2-ultisnips'
+    endif
     Plug 'SirVer/ultisnips'
 
     " Extra Syntaxes
     Plug 'sheerun/vim-polyglot'
     Plug 'PotatoesMaster/i3-vim-syntax'
     Plug 'Firef0x/PKGBUILD.vim'
+    if !has('nvim')
+        Plug 'w0rp/ale'
+        Plug 'othree/html5.vim'
+        Plug 'StanAngeloff/php.vim'
+        Plug 'posva/vim-vue'
+    endif
 
     " Language Tooling
     Plug 'ludovicchabant/vim-gutentags'
@@ -44,16 +71,11 @@ call plug#begin()
                 \'do': 'composer install --no-dev -o'}
     Plug 'arnaud-lb/vim-php-namespace'
     Plug 'yardnsm/vim-import-cost', { 'do': 'npm install' }
+    if !has('nvim')
+        Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+    endif
 
 call plug#end()
-
-
-" Colour Scheme: {
-    let g:neodark#terminal_transparent = 1
-    let g:neodark#solid_vertsplit = 1
-    let g:neodark#italics = 1
-    colorscheme neodark
-" }
 
 
 " Plug Bindings: {

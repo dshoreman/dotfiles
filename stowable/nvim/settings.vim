@@ -1,7 +1,7 @@
 " General: {
     set timeoutlen=400                " Increase allowed time for mapped sequences
     set nrformats="alpha,bin,hex"     " Let ^A^X in/decrease binary, hex or single letters
-    set wildmode=list:longest         " List matches, complete longest common string
+    set wildmode=list:longest,full    " List matches, complete longest common string
 
     " Bindings to make saving easier
     nnoremap <Leader>w :w<CR>

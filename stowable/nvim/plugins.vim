@@ -64,6 +64,7 @@ call plug#begin()
         Plug 'ncm2/ncm2-ultisnips'
     endif
     Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
 
     " Extra Syntaxes
     Plug 'sheerun/vim-polyglot'

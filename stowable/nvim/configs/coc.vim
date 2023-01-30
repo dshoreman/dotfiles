@@ -3,7 +3,8 @@ let g:coc_global_extensions = [
       \ 'coc-git', 'coc-json', '@yaegassy/coc-nginx', 'coc-sh', 'coc-vimlsp', 'coc-yaml',
       \ 'coc-blade', 'coc-html', 'coc-htmlhint', 'coc-css', 'coc-html-css-support',
       \ 'coc-phpactor', 'coc-php-cs-fixer', 'coc-psalm', '@yaegassy/coc-phpstan',
-      \ 'coc-discord-rpc', 'coc-lightbulb', 'coc-snippets',
+      \ 'coc-browser', 'coc-discord-rpc', 'coc-emoji',
+      \ 'coc-lightbulb', 'coc-snippets', 'coc-tag',
       \ 'coc-eslint', 'coc-tsserver',
       \ 'coc-elixir', 'coc-go',
       \ ]
@@ -20,7 +21,7 @@ let g:coc_global_extensions = [
     " Confirm selected item on enter
     inoremap <silent><expr> <CR>
                 \ coc#pum#visible() && coc#pum#info()['index'] != -1 ?
-                \ coc#pum#confirm() : "\<CR>"
+                \ coc#pum#confirm() : "\<C-g>u\<CR>"
 " }
 
 " Code Navigation: {

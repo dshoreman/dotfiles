@@ -832,6 +832,9 @@ key_bindings:
   - { key: T, mods: Control|Shift,  action: SpawnNewInstance                 }
   - { key: Return, mods: Super|Shift,  action: SpawnNewInstance              }
 
+  # Stuff for vim
+  - { key: P, mods: Control|Shift, chars: "\x1b[80;5u" }
+
   # Old key bindings from default config. Still necessary? No idea.
   - { key: Home,                    chars: "\x1bOH",        mode: AppCursor  }
   - { key: Home,                    chars: "\x1b[H",        mode: ~AppCursor }

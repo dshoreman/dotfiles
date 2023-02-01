@@ -26,10 +26,11 @@ call plug#begin()
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-unimpaired'
     if has('nvim')
-        Plug 'nvim-lua/plenary.nvim' |
-                    \ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.*' }
-        Plug 'nvim-tree/nvim-web-devicons' |
-                    \ Plug 'nvim-tree/nvim-tree.lua'
+        Plug 'nvim-lua/plenary.nvim'
+                    \| Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+                    \| Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.*' }
+        Plug 'nvim-tree/nvim-web-devicons'
+                    \| Plug 'nvim-tree/nvim-tree.lua'
         Plug 'liuchengxu/vista.vim'
     else
         Plug 'junegunn/fzf.vim'
@@ -42,8 +43,8 @@ call plug#begin()
 
     " File/Code Manipulation
     Plug 'jiangmiao/auto-pairs'
-    Plug 'Shougo/context_filetype.vim' |
-                \ Plug 'tyru/caw.vim'
+    Plug 'Shougo/context_filetype.vim'
+                \| Plug 'tyru/caw.vim'
     Plug 'tpope/vim-eunuch'
     Plug 'simnalamburt/vim-mundo'
     Plug 'zirrostig/vim-schlepp'
@@ -53,8 +54,8 @@ call plug#begin()
     if has('nvim')
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
     else
-        Plug 'roxma/vim-hug-neovim-rpc' | Plug 'roxma/nvim-yarp' |
-                    \ Plug 'ncm2/ncm2'
+        Plug 'roxma/vim-hug-neovim-rpc' | Plug 'roxma/nvim-yarp'
+                    \| Plug 'ncm2/ncm2'
         Plug 'ncm2/ncm2-bufword'
         Plug 'fgrsnau/ncm2-otherbuf', {'branch': 'master'}
         Plug 'ncm2/ncm2-html-subscope'
@@ -80,7 +81,7 @@ call plug#begin()
     " Language Tooling
     Plug 'ludovicchabant/vim-gutentags'
     Plug 'phpactor/phpactor', {'for': 'php', 'tag': '*',
-                \'do': 'composer install --no-dev -o'}
+                \ 'do': 'composer install --no-dev -o'}
     Plug 'arnaud-lb/vim-php-namespace'
     Plug 'yardnsm/vim-import-cost', { 'do': 'npm install' }
     if !has('nvim')

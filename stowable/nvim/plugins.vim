@@ -12,7 +12,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin()
 
     " Theme
-    Plug 'KeitaNakamura/neodark.vim'
+    Plug 'dshoreman/neodark.vim', { 'branch': 'better-transparency' }
     Plug 'dshoreman/neogumbat.vim'
 
     " UI / Navigation

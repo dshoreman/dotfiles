@@ -1,7 +1,7 @@
 let g:neodark#terminal_transparent = 1
 let g:neodark#solid_cursorline = 0
 let g:neodark#italics = 1
-if !has('neovim')
+if !has('nvim')
     let g:neodark#solid_vertsplit = 1
 endif
 

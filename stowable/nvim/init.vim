@@ -23,3 +23,10 @@ source ~/.config/nvim/configs/telescope.lua
 source ~/.config/nvim/configs/tidy.lua
 source ~/.config/nvim/configs/treesitter.lua
 source ~/.config/nvim/configs/vista.vim
+
+" Restore cursor position when loading files
+" It worked with sessions, but not others.
+autocmd BufReadPost *
+            \ if line("'\"") > 0 && line("'\"") <= line('$') |
+            \   exe "normal! g`\"" |
+            \ endif

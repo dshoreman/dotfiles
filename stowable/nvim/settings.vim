@@ -11,6 +11,30 @@
 " }
 
 
+" Clipboard: {
+    " Paste over visual selection without losing paste buffer
+    xmap <Leader>p "_dP
+
+    " Yank (or delete) into the system clipboard
+    nmap <Leader>y "+y
+    vmap <Leader>y "+y
+    nmap <Leader>Y "+Y
+    nmap <Leader>d "+d
+    vmap <Leader>d "+d
+" }
+
+
+" Navigation: {
+    " Keep cursor centred when scrolling half-pages
+    nmap <C-d> <C-d>zz
+    nmap <C-u> <C-u>zz
+
+    " Same but for jumping between matches, with auto-unfold
+    nmap n nzzzv
+    nmap N Nzzzv
+" }
+
+
 " UI: {
     set title                         " Display filename in the terminal title
     set number                        " Display line numbers
@@ -50,8 +74,4 @@
     set expandtab                     " Insert spaces instead of tabs
     set tabstop=4                     " Width existing TAB characters are displayed as
     set shiftwidth=4                  " Spaces shifted when using << and >>
-
-    " Emulate "outdenting" shift-tab functionality of other editors
-    nmap <S-Tab> <<
-    imap <S-Tab> <C-o><<
 " }

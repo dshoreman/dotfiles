@@ -1,5 +1,6 @@
 local telescope, builtin = require('telescope'), require('telescope.builtin')
 local maxPreviewSize, previewers = 2048, require('telescope.previewers')
+local gitLogCmd = {'git', 'log', '--oneline', '--abbrev-commit', '--no-show-signature'}
 local escToClose = {i = {["<Esc>"] = "close"}}
 
 local previewer = function(filepath, buffer, opts)
@@ -60,6 +61,15 @@ telescope.setup{
     winblend = 30,
   },
   pickers = {
+    builtin = {
+      mappings = escToClose,
+      theme = 'dropdown',
+      previewer = false,
+      use_default_opts = true,
+    },
+    colorscheme = {
+      enable_preview = true,
+    },
     commands = {
       mappings = escToClose,
       theme = 'dropdown',
@@ -67,7 +77,13 @@ telescope.setup{
     find_files = {
       find_command = rgCmd({'files', 'no-ignore-vcs'}),
       path_display = {'smart'},
-    }
+    },
+    git_bcommits = {
+      git_command = gitLogCmd,
+    },
+    git_commits = {
+      git_command = gitLogCmd,
+    },
   },
 }
 
@@ -83,8 +99,27 @@ function fuzzyFindFiles()
   })
 end
 
+function dotFiles()
+  builtin.find_files({
+    prompt_title = 'Dotfiles',
+    path_display = {'full'},
+    cwd = '~/.files/stowable',
+  })
+end
+
 vim.keymap.set('n', '<C-g>', '<cmd>lua fuzzyFindFiles{}<cr>', {})
 vim.keymap.set('n', '<C-p>', '<cmd>Telescope find_files<cr>', {})
+vim.keymap.set('n', '<leader>ccsc', '<cmd>Telescope colorscheme<cr>', {})
 vim.keymap.set('n', '<C-S-p>', '<cmd>Telescope commands<cr>', {})
+vim.keymap.set('n', '<leader>df', '<cmd>lua dotFiles{}<cr>', {})
 vim.keymap.set('n', '<leader>fb', '<cmd>Telescope buffers<cr>', {})
+vim.keymap.set('n', '<leader>ff', '<cmd>Telescope current_buffer_fuzzy_find<cr>', {})
 vim.keymap.set('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', {})
+vim.keymap.set('n', '<leader>ft', '<cmd>Telescope builtin<cr>', {})
+vim.keymap.set('n', '<leader>gb', '<cmd>Telescope git_branches<cr>', {})
+vim.keymap.set('n', '<leader>gcl', '<cmd>Telescope git_commits<cr>', {})
+vim.keymap.set('n', '<leader>gcb', '<cmd>Telescope git_bcommits<cr>', {})
+vim.keymap.set('n', '<leader>gst', '<cmd>Telescope git_status<cr>', {})
+vim.keymap.set('n', '<leader>gsta', '<cmd>Telescope git_stash<cr>', {})
+vim.keymap.set('n', '<leader>vo', '<cmd>Telescope vim_options<cr>', {})
+vim.keymap.set('n', '<leader>?', '<cmd>Telescope keymaps<cr>', {})

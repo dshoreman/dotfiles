@@ -31,6 +31,7 @@ call plug#begin()
                     \| Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.*' }
         Plug 'nvim-tree/nvim-web-devicons'
                     \| Plug 'nvim-tree/nvim-tree.lua'
+        Plug 'nvim-treesitter/nvim-treesitter' " , { 'do': ':TSUpdate' }
         Plug 'liuchengxu/vista.vim'
     else
         Plug 'junegunn/fzf.vim'
@@ -44,7 +45,7 @@ call plug#begin()
     " File/Code Manipulation
     Plug 'jiangmiao/auto-pairs'
     Plug 'Shougo/context_filetype.vim'
-                \| Plug 'tyru/caw.vim'
+                \| Plug 'dshoreman/caw.vim'
     Plug 'tpope/vim-eunuch'
     Plug 'simnalamburt/vim-mundo'
     Plug 'zirrostig/vim-schlepp'

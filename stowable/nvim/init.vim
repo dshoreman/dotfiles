@@ -21,4 +21,5 @@ source ~/.config/nvim/configs/nvim-tree.lua
 source ~/.config/nvim/configs/snippets.vim
 source ~/.config/nvim/configs/telescope.lua
 source ~/.config/nvim/configs/tidy.lua
+source ~/.config/nvim/configs/treesitter.lua
 source ~/.config/nvim/configs/vista.vim

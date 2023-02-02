@@ -1,6 +1,7 @@
 {
   "coc.preferences.formatOnSave": true,
   "coc.preferences.formatOnType": true,
+  "coc.preferences.extensionUpdateCheck": "weekly",
   "colors.enable": true,
   "eslint.autoFixOnSave": true,
   "eslint.lintTask.options": [

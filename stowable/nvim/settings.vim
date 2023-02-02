@@ -7,6 +7,7 @@
     nnoremap <Leader>w :w<CR>
     nnoremap <silent> <Leader>W :w !sudo tee % > /dev/null<CR>:edit!<CR>
 
+    nnoremap <silent> <Leader>bd :bd<CR>
     nnoremap <silent> <Leader>bda :bufdo bwipeout<CR><CR>
 " }
 
@@ -32,6 +33,12 @@
     " Same but for jumping between matches, with auto-unfold
     nmap n nzzzv
     nmap N Nzzzv
+
+    " Switch between windows without <C-w>
+    nnoremap <A-h> <C-w>h
+    nnoremap <A-j> <C-w>j
+    nnoremap <A-k> <C-w>k
+    nnoremap <A-l> <C-w>l
 " }
 
 
@@ -44,7 +51,7 @@
         set signcolumn=yes            " Don't hide sign column to avoid jumping code
         set inccommand=split          " Preview :substitute results in a split
     endif
-    set updatetime=300                " Delay for cursor idle, used for symbol highlight
+    set updatetime=50                 " Delay for cursor idle, used for symbol highlight
     set cursorline                    " Highlight current line
     set noshowmode                    " Don't show default mode indicator
     set noequalalways                 " Prevent automatic resize of split windows

@@ -1,128 +1,37 @@
-let mapleader="`"
-source ~/.vim/plugins.vim
+let data_dir = $HOME . '/.vim'
+let mapleader = " "
 
-" General: {
-    syntax on                         " Enable syntax highlighting
-    filetype plugin indent on         " Automatically detect file types
-    set background=dark               " Set colours according to dark background
-    set backspace=indent,eol,start    " Backspace over everything in insert mode
-    set history=1000                  " Number of lines in command history
-    set ttimeoutlen=50                " Fix lag when leaving insert mode
-    set timeoutlen=250                " ...but allow time for mapped sequences
-    set nrformats="alpha,bin,hex"     " Let ^A^X in/decrease binary, hex or single letters
-    set wildmenu                      " Enhance command-line completion
-    set wildmode=list:longest,full
+if !isdirectory(data_dir . '/autoload')
+    echo "Creating autoload dir for vim-plug..."
+    call mkdir(data_dir . '/autoload', 'p')
+endif
 
-    " Bindings to make saving easier
-    nnoremap <Leader>w :w<CR>
-    nnoremap <silent> <Leader>W :w !sudo tee % > /dev/null<CR>:edit!<CR>
+if !isdirectory(data_dir . '/swap')
+    echo "Creating swap dir for file backups..."
+    call mkdir(data_dir . '/swap', 'p')
+endif
 
-    nnoremap <silent> <Leader>bda :bufdo bwipeout<CR><CR>
-" }
+if !isdirectory(data_dir . '/undo')
+    echo "Creating undo dir for file history..."
+    call mkdir(data_dir . '/undo', 'p')
+endif
 
+source ~/.config/nvim/plugins.vim
+source ~/.vim/settings.vim
+source ~/.config/nvim/functions.vim
 
-" UI: {
-    set title                         " Display filename in the terminal title
-    set ruler                         " Display cursor position
-    set number                        " Display line numbers
-    set relativenumber                " Show line number relative to current
-    set showcmd                       " Display command or visual selection info
-    set showmatch                     " Show matching brackets on insert
-    set cursorline                    " Highlight current line
-    set laststatus=2                  " Always show the status line
-    set noshowmode                    " Don't show default mode indicator
-    set noequalalways                 " Prevent automatic resize of split windows
-    set splitbelow                    " Open new split below, not above
-    set splitright                    " Open new vsplit to the right
-    set scrolloff=10                  " Start scroll 10 lines away from top/bottom
-" }
+" Shared configs
+source ~/.config/nvim/configs/airline.vim
+source ~/.config/nvim/configs/colours.vim
+source ~/.config/nvim/configs/gutentags.vim
+source ~/.config/nvim/configs/import-cost.vim
+source ~/.config/nvim/configs/mundo.vim
+source ~/.config/nvim/configs/schlepp.vim
+source ~/.config/nvim/configs/startify.vim
 
-
-" Encoding: {
-    set encoding=utf-8 nobomb         " Make sure display encoding is Unicode
-    set fileencoding=utf-8            " Convert non-unicode files to UTF-8 on save
-" }
-
-
-" Search: {
-    set hlsearch                      " Highlight search results
-    set incsearch                     " Jump to result mid-search
-    set ignorecase                    " Make searching case insensitive
-    set smartcase                     " ...unless the query has capital letters
-
-    " Set :grep command to use The Silver Searcher
-    set grepprg="ag --nogroup --nocolor"
-
-    " Make space clear highlighted search terms when pressed
-    nnoremap <silent> <Leader><BS> :nohlsearch<Bar>:echo<CR>
-"}
-
-
-" Backups: {
-    set nobackup                      " Disable creation of backup files
-    set directory=~/.vim/swap//       " Place swapfiles away from projects
-                                      "  ...but include full paths in the filenames (//)
-    set undodir=~/.vim/undo//         " Same for persistent undo files
-    set undofile                      "  ...which will work better if we turn it on
-
-    set viminfo=!,'1000,s100,h,n~/.cache/vim/viminfo    " Store viminfo for
-                                      " 1000 files, with no more than 100kB
-                                      " of data per register. Other settings
-                                      " make use of the `history` option.
-                                      " File path set in .cache/vim to avoid
-                                      " polluting the home directory.
-" }
-
-
-" Formatting: {
-    set list                          " Enable listchars
-    set listchars=tab:▶▸,trail:·      " Make tabs and trailing spaces visible
-    set expandtab                     " Insert spaces instead of tabs
-    set tabstop=4                     " Width existing TAB characters are displayed as
-    set softtabstop=4                 " Spaces added/removed by <TAB> and <BACKSPACE>
-    set shiftwidth=4                  " Spaces shifted when using <<, == and >>
-    set autoindent                    " Fallback to basic indents when filetype fails
-    set nojoinspaces                  " Only insert one space when joining lines
-    set formatoptions+=or             " Automatically add comment marker on next line
-    set formatoptions+=j              " Automatically remove comment marker on line merge
-
-    " Emulate "outdenting" shift-tab functionality of other editors
-    nmap <S-Tab> <<
-    imap <S-Tab> <C-o><<
-" }
-
-
-" Functions: {
-    " Relative line numbers (`r)
-    fun! NumberToggle(...)
-        let hidenums = get(a:, 1, 0)
-
-        if (hidenums == 1)
-            if (&number == 1)
-                set nornu
-                set nonu
-            else
-                set rnu
-                set nu
-            endif
-        else
-            set nu " Numbers should always be shown for rnu, otherwise current line is 0
-            if (&relativenumber == 1)
-                set nornu
-            else
-                set rnu
-            endif
-        endif
-    endfun
-    nnoremap <Leader>r :call NumberToggle(0)<cr>
-    nnoremap <Leader>R :call NumberToggle(1)<cr>
-
-    " Strip trailing whitespace (`ss)
-    fun! WhitespaceFixer()
-        let l = line('.')
-        let c = col('.')
-        :%s/\s\+$//e
-        call cursor(l, c)
-    endfun
-    noremap <leader>ss :call WhitespaceFixer()<CR>
-" }
+" Vim-specific configs
+source ~/.config/nvim/configs/ale.vim
+source ~/.config/nvim/configs/ctrlp.vim
+source ~/.config/nvim/configs/ncm2.vim
+source ~/.config/nvim/configs/nerdtree.vim
+source ~/.config/nvim/configs/tagbar.vim

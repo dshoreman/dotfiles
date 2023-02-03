@@ -1,0 +1,32 @@
+{
+  "coc.preferences.formatOnSave": true,
+  "coc.preferences.formatOnType": true,
+  "coc.preferences.extensionUpdateCheck": "weekly",
+  "colors.enable": true,
+  "eslint.autoFixOnSave": true,
+  "eslint.lintTask.options": [
+    "--config", "build/eslint/config.json", "."
+  ],
+  "eslint.options": {
+    "configFile": "build/eslint/config.json",
+  },
+  "html-css-support.enable": true,
+  "html-css-support.enabledLanguages": [
+    "blade", "html", "php", "vue"
+  ],
+  "htmlhint.documentSelector": [
+    "htm", "html", "twig", "vue"
+  ],
+  "json.format.enable": false,
+  "markdown-preview-enhanced.previewTheme": "atom-material.css",
+  "phpactor.config": {
+    "phpunit.enabled": true,
+  },
+  "php-cs-fixer.config": "build/php-cs-fixer/config.php",
+  "php-cs-fixer.enableIgnoreEnv": true,
+  "phpstan.configuration": "build/phpstan/config.neon",
+  "psalm.configPaths": [
+    "build/psalm/psalm.xml", "psalm.xml", "psalm.xml.dist"
+  ],
+  "snippets.userSnippetsDirectory": "~/.vim/UltiSnips",
+}
